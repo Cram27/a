@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Ceramic Lab - La primera fira de ceràmica a Barcelona</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Pacifico&amp;family=Quicksand:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#D27D56", // Terracotta
+                        secondary: "#3B8EA5", // Clay Blue
+                        tertiary: "#E8CBA5", // Soft Clay
+                        "background-light": "#FDF6E9", // Cream
+                        "background-dark": "#1F1D1B", // Dark Clay
+                        "card-light": "#FFFBF2",
+                        "card-dark": "#2C2A28",
+                        "text-main-light": "#4A4036",
+                        "text-main-dark": "#E5DCD0",
+                    },
+                    fontFamily: {
+                        display: ["'Pacifico'", "cursive"],
+                        body: ["'Quicksand'", "sans-serif"],
+                        serif: ["'Playfair Display'", "serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "1rem",
+                        'lg': '1.5rem',
+                        'xl': '2rem',
+                    },
+                    backgroundImage: {
+                        'wave-pattern': "url('https://www.transparenttextures.com/patterns/cubes.png')",
+                    }
+                },
+            },
+        };
+    </script>
+    <style>
+        .custom-shape-divider-bottom-1681234567 {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+
+        .custom-shape-divider-bottom-1681234567 svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 60px;
+        }
+
+        .custom-shape-divider-bottom-1681234567 .shape-fill {
+            fill: #FFFFFF;
+        }
+
+        .dark .custom-shape-divider-bottom-1681234567 .shape-fill {
+            fill: #1F1D1B;
+        }
+
+        .brush-underline {
+            position: relative;
+            display: inline-block;
+        }
+
+        .brush-underline::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 100%;
+            height: 8px;
+            background-color: #D27D56;
+            opacity: 0.4;
+            border-radius: 4px;
+            z-index: -1;
+            transform: skew(-10deg) rotate(-2deg);
+        }
+
+        .blob-shape {
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-text-main-light dark:text-text-main-dark font-body antialiased transition-colors duration-300">
+    <div class="bg-secondary text-white py-2 px-6 flex justify-end text-xs font-bold uppercase tracking-wider">
+        <a class="hover:text-tertiary transition-colors cursor-pointer" onclick="changeLanguage('ca')"
+            id="lang-ca">CAT</a>
+        <span class="mx-2">|</span>
+        <a class="hover:text-tertiary transition-colors cursor-pointer" onclick="changeLanguage('es')"
+            id="lang-es">ESP</a>
+    </div>
+    <header
+        class="relative bg-tertiary dark:bg-[#3E332B] overflow-hidden pt-12 pb-24 lg:pb-32 transition-colors duration-300">
+        <div
+            class="absolute top-0 left-0 w-64 h-64 bg-primary opacity-10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2">
+        </div>
+        <div
+            class="absolute bottom-0 right-0 w-96 h-96 bg-secondary opacity-10 rounded-full blur-3xl translate-x-1/3 translate-y-1/3">
+        </div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-12 animate-fade-in-down flex flex-col items-center">
+                <img alt="Ceramic Lab Logo" class="h-16 md:h-24 mb-6" src="logo-ceramiclab.webp" />
+                <div data-i18n="edition_text"
+                    class="inline-block bg-secondary text-white px-6 py-2 rounded-full transform rotate-1 shadow-lg font-bold text-lg">
+                    1a Edició de Creativitat i Fang
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row justify-between items-center max-w-4xl mx-auto mb-16 gap-8">
+                <div class="text-center md:text-left">
+                    <p data-i18n="date_html"
+                        class="text-3xl md:text-4xl font-serif font-bold text-secondary dark:text-blue-300">
+                        Del <span class="text-primary dark:text-primary">14 al 17</span><br />de maig
+                    </p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <img alt="Fira Barcelona" class="h-16 md:h-20 mb-3 brightness-0 dark:invert opacity-80"
+                        src="logo_fira_barcelona.png" />
+                    <div class="text-center">
+                        <h3 data-i18n="location_name" class="sr-only">Fira Barcelona</h3>
+                        <p data-i18n="location_details" class="text-sm opacity-80">Recinte Firal, pavelló 2</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="text-center max-w-3xl mx-auto space-y-6">
+            <h2 data-i18n="hero_title"
+                class="text-3xl md:text-5xl font-serif font-bold leading-tight text-text-main-light dark:text-white">
+                CERAMIC LAB — La primera fira de ceràmica a Barcelona
+            </h2>
+            <p data-i18n="hero_subtitle_html"
+                class="text-xl md:text-2xl font-light text-text-main-light dark:text-gray-200">
+                Sí, ens taquem les mans. Tornem a l'origen.<br />
+                <span class="font-medium text-secondary dark:text-blue-300">Descobreix la bellesa de
+                    l'imperfecte.</span>
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4 mt-8">
+                <a data-i18n="cta_tickets"
+                    class="bg-primary hover:bg-[#B96A46] text-white text-lg font-bold py-4 px-8 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all duration-300 border-2 border-primary"
+                    href="#tickets">
+                    Aconsegueix la teva invitació
+                </a>
+                <a data-i18n="cta_workshops"
+                    class="bg-white dark:bg-transparent text-primary dark:text-white border-2 border-primary hover:bg-primary hover:text-white text-lg font-bold py-4 px-8 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all duration-300 dark:hover:border-primary"
+                    href="#workshops">
+                    Reserva un taller
+                </a>
+            </div>
+        </div>
+        </div>
+        <div class="custom-shape-divider-bottom-1681234567">
+            <svg data-name="Layer 1" preserveAspectRatio="none" viewBox="0 0 1200 120"
+                xmlns="http://www.w3.org/2000/svg">
+                <path class="shape-fill fill-background-light dark:fill-background-dark"
+                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z">
+                </path>
+            </svg>
+        </div>
+    </header>
+    <section class="py-16 md:py-24 px-4 bg-background-light dark:bg-background-dark">
+        <div class="container mx-auto max-w-5xl flex flex-col md:flex-row items-center gap-12">
+            <div class="md:w-1/2 space-y-6">
+                <p data-i18n="about_p1" class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                    Ceramic Lab és la primera fira dedicada exclusivament a la ceràmica: un punt de trobada per
+                    descobrir, comprar i viure la ceràmica des de dins.
+                </p>
+                <p data-i18n="about_p2" class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                    Hi trobaràs marques i ceramistes seleccionats, peces úniques i col·leccions contemporànies, a més de
+                    materials, eines i propostes per a tots els nivells. Un espai pensat tant per a públic curiós com
+                    per a amants de la ceràmica i professionals del sector.
+                </p>
+                <p data-i18n="about_p3" class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                    Ceramic Lab no és només una fira: és una experiència. Un lloc per aprendre i participar amb tallers,
+                    demostracions en directe i activitats que apropen el procés creatiu al públic d’una manera actual i
+                    accessible.
+                </p>
+                <div class="flex items-center gap-2 text-secondary dark:text-blue-300 font-bold">
+                    <span class="material-symbols-outlined">auto_awesome</span>
+                    <span data-i18n="inspire_connect">Inspira't, crea i connecta</span>
+                </div>
+            </div>
+            <div class="md:w-1/2">
+                <div class="relative">
+                    <div
+                        class="rounded-xl overflow-hidden shadow-2xl border-4 border-white dark:border-gray-700 transform rotate-2 hover:rotate-0 transition-transform duration-500">
+                        <img alt="Persona treballant al torn de ceràmica" class="w-full h-64 object-cover md:h-80"
+                            src="close-up-hand-holding-brush.webp" />
+                    </div>
+                    <div
+                        class="absolute -z-10 top-4 -right-4 w-full h-full bg-secondary rounded-xl opacity-20 transform rotate-6">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-16 bg-card-light dark:bg-card-dark transition-colors duration-300">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-text-main-light dark:text-white mb-4">
+                    <span data-i18n="what_find_title" class="brush-underline">Què hi trobaràs?</span>
+                </h2>
+                <p data-i18n="what_find_subtitle" class="text-lg text-gray-600 dark:text-gray-400">Una experiència
+                    completa per als sentits</p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-8">
+                <!-- Item 1: Expositors -->
+                <div
+                    class="bg-white dark:bg-[#3E332B] p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow text-center group border border-gray-100 dark:border-gray-700 w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-2rem)]">
+                    <div
+                        class="w-16 h-16 bg-tertiary rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary transition-colors duration-300">
+                        <span
+                            class="material-symbols-outlined text-3xl text-text-main-light group-hover:text-white transition-colors">storefront</span>
+                    </div>
+                    <h3 data-i18n="grid_exhibitors_title"
+                        class="font-bold text-xl mb-3 text-secondary dark:text-blue-300">Expositors i ceramistes
+                        seleccionats</h3>
+                </div>
+
+                <!-- Item 2: Peces úniques -->
+                <div
+                    class="bg-white dark:bg-[#3E332B] p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow text-center group border border-gray-100 dark:border-gray-700 w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-2rem)]">
+                    <div
+                        class="w-16 h-16 bg-tertiary rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary transition-colors duration-300">
+                        <span
+                            class="material-symbols-outlined text-3xl text-text-main-light group-hover:text-white transition-colors">diamond</span>
+                    </div>
+                    <h3 data-i18n="grid_unique_title" class="font-bold text-xl mb-3 text-secondary dark:text-blue-300">
+                        Peces úniques, edicions limitades i producte d’autor</h3>
+                </div>
+
+                <!-- Item 3: Tallers -->
+                <div
+                    class="bg-white dark:bg-[#3E332B] p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow text-center group border border-gray-100 dark:border-gray-700 w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-2rem)]">
+                    <div
+                        class="w-16 h-16 bg-tertiary rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary transition-colors duration-300">
+                        <span
+                            class="material-symbols-outlined text-3xl text-text-main-light group-hover:text-white transition-colors">palette</span>
+                    </div>
+                    <h3 data-i18n="grid_workshops_title"
+                        class="font-bold text-xl mb-3 text-secondary dark:text-blue-300">Tallers i masterclasses per a
+                        adults i famílies</h3>
+                </div>
+
+                <!-- Item 4: Demos -->
+                <div
+                    class="bg-white dark:bg-[#3E332B] p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow text-center group border border-gray-100 dark:border-gray-700 w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-2rem)]">
+                    <div
+                        class="w-16 h-16 bg-tertiary rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary transition-colors duration-300">
+                        <span
+                            class="material-symbols-outlined text-3xl text-text-main-light group-hover:text-white transition-colors">visibility</span>
+                    </div>
+                    <h3 data-i18n="grid_demos_title" class="font-bold text-xl mb-3 text-secondary dark:text-blue-300">
+                        Demos en directe i espais d’inspiració</h3>
+                </div>
+
+                <!-- Item 5: Materials -->
+                <div
+                    class="bg-white dark:bg-[#3E332B] p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow text-center group border border-gray-100 dark:border-gray-700 w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-2rem)]">
+                    <div
+                        class="w-16 h-16 bg-tertiary rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary transition-colors duration-300">
+                        <span
+                            class="material-symbols-outlined text-3xl text-text-main-light group-hover:text-white transition-colors">handyman</span>
+                    </div>
+                    <h3 data-i18n="grid_materials_title"
+                        class="font-bold text-xl mb-3 text-secondary dark:text-blue-300">Materials, eines i marques del
+                        sector</h3>
+                </div>
+            </div>
+
+            <!-- Closing Text and CTAs -->
+            <div class="text-center mt-16 max-w-3xl mx-auto space-y-8">
+                <p data-i18n="closing_quote" class="text-2xl font-serif text-primary italic">
+                    "Si t’atrau la bellesa dels objectes ben fets i la força creativa del fang, aquí tens la teva fira."
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a data-i18n="cta_tickets"
+                        class="bg-primary hover:bg-[#B96A46] text-white text-lg font-bold py-4 px-8 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all duration-300 border-2 border-primary"
+                        href="#tickets">
+                        Aconsegueix la teva invitació
+                    </a>
+                    <a data-i18n="cta_workshops"
+                        class="bg-white dark:bg-transparent text-primary dark:text-white border-2 border-primary hover:bg-primary hover:text-white text-lg font-bold py-4 px-8 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all duration-300 dark:hover:border-primary"
+                        href="#workshops">
+                        Reserva un taller
+                    </a>
+                </div>
+            </div>
+    </section>
+    <section class="py-20 relative overflow-hidden bg-tertiary dark:bg-[#2C2A28]">
+        <div class="absolute top-0 w-full h-12 bg-background-light dark:bg-card-dark rounded-b-[50%] scale-x-150"></div>
+        <div class="container mx-auto px-4 relative z-10 flex flex-col lg:flex-row items-center">
+            <div class="w-full lg:w-1/2 relative mb-12 lg:mb-0">
+                <div class="relative w-full max-w-md mx-auto">
+                    <div class="grid grid-cols-2 gap-4">
+                        <img alt="Artisan painting pottery"
+                            class="rounded-2xl shadow-lg transform rotate-2 hover:rotate-0 transition-transform duration-300 border-4 border-white dark:border-gray-600"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCgwHxFD93AgoCHDNHalivvMGnJwfD1BxXShZLCF2Cmu5ALPBMX5FrZw98drkfpdQQzhrUtwQiN7VWCmCdPFZwzjfrPCVGIPSnPkrAyNcLTueyFMVIs8gaksU-x3xAaG0Rsn_ILWzZDOw6e-4tua_8MFEgXnhukdbnsgEQt4_F_MNsO2l8-2JuMZMCf5fvFmvYgNbScPV5g90rKDRNDTZVO8hGwrw6uUmPATDDDF5Q7dqHA48F7fgaUvv5xKsjwfCASuije0xUbsxg" />
+                        <img alt="Finished ceramic cups"
+                            class="rounded-2xl shadow-lg transform -rotate-3 hover:rotate-0 transition-transform duration-300 border-4 border-white dark:border-gray-600 mt-8"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOheCEAtyFoSJnZXI83LaG3L2mWglnY3e9W2SuJ26xiy8f-mifrOgsy1z4eDm26x_BUOWrN37HmhfaaD_uci4vpylnDMamWx3NlZbtsPmDeMaZhE3RuEx4uXwHXmx7uzA62LB9WD5O9kzZI75QJw7lJuLNmX7Ywv2txxnW_VuAgjiHbqmXwJvMzc5ZxEX9ZiiO4p8yI4VOrMDDpO5Dxo6FvBmlHEnoJsxW4_0V6_CjKpo9xKEGft6AeLcKs9FRZemd8dwkWc0GwOtL" />
+                        <img alt="Pottery wheel hands"
+                            class="rounded-2xl shadow-lg transform -rotate-1 hover:rotate-0 transition-transform duration-300 border-4 border-white dark:border-gray-600 -mt-8"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCA1M05mjIqKlFSX-tH4EwNcPA9Nhr4uQExNPtaC35NOadxh5iaFbB7eRu1XZNN5rMI1Uh2By8NBOLbVVA-x0ZuTxIFz4ZUxtsdEGSs7xYuF-_Urp6CvLDp931YCqsaB9Posj3JMZ4cyjFMyUZope3GtSIcXVhNXeT5MBh8AR97jz6f4dLgySKEEjeDPhGLDsRpcPi7hZ3eQ8UKVWJUMIgrZ4iD9uzMil-7PD7ehIUaWJO8PnJsk78GAKD5ekEHFumnBxQW6R9X1Cdk" />
+                        <img alt="Ceramic vases shelf"
+                            class="rounded-2xl shadow-lg transform rotate-4 hover:rotate-0 transition-transform duration-300 border-4 border-white dark:border-gray-600"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBIqjk06hyDdCF_A3UWkP3Lan55j6P6Cpnw_5xiOhQPVGRyCmJ2ajz0-PtaVeSuBVmzE5F4BVXWcKIJaH_uDbIDQmk7mH8A4H6bH1D86lNWXp6VGe-d5zGVjrGaIxMtHFM02kXcUUQVs_96CjAMs4uC9IHqcUBcWG169YYZIuW1Q71suJuBihKfTHNqfkflVB1VJ6MC-fYhtBDjOA59-nM28e090qTYKKYMMwhxnO9NJ1-XdiSIgM2-aepsARAufQrkQ1oEwe5yzFI" />
+                    </div>
+                    <span
+                        class="material-symbols-outlined absolute -top-8 -right-8 text-5xl text-primary animate-bounce delay-100">brush</span>
+                    <span
+                        class="material-symbols-outlined absolute bottom-1/2 -left-12 text-6xl text-secondary animate-pulse">wb_sunny</span>
+                    <span
+                        class="material-symbols-outlined absolute -bottom-8 right-1/4 text-5xl text-white dark:text-gray-400">emoji_nature</span>
+                </div>
+            </div>
+
+            <div class="w-full lg:w-1/2 lg:pl-16 flex flex-col items-center lg:items-start text-center lg:text-left">
+                <h3 class="font-serif text-2xl lg:text-3xl font-bold mb-8 text-text-main-light dark:text-white">
+                    <span data-i18n="support_title" class="border-b-4 border-primary pb-2">Amb el suport de</span>
+                </h3>
+                <div
+                    class="bg-white/80 dark:bg-black/20 p-8 rounded-2xl backdrop-blur-sm border border-white/50 dark:border-white/10 shadow-xl transform hover:scale-105 transition-transform duration-300">
+                    <img alt="Sio-2 Sponsorship"
+                        class="h-32 md:h-40 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity"
+                        src="Logo-SIO.webp" />
+                </div>
+                <p data-i18n="support_text_html" class="mt-8 text-lg text-gray-600 dark:text-gray-300 max-w-md">
+                    Gràcies a <strong>Sio-2</strong> per fer possible aquesta primera edició i donar suport al talent
+                    emergent.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="py-0 bg-background-light dark:bg-background-dark">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-1 md:gap-2 auto-rows-[150px] md:auto-rows-[200px]">
+            <div class="overflow-hidden group relative">
+                <img alt="Woman smiling holding ceramic bowl"
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYzsCe3026zFU_-Q3T-xx8xwEhcM2Zjpzza9vxtzTmwrjayMW4Z1E6RqgHiIEaGa_BkYtSQAJvS3AghJy2TdaqQPS9ElwqPtH3wsp_GAIUDCCY4sqxSYDBX3pU3riO1DJhtoCr6AYX-Tu55G9x_3K-q2cyGzkqyXiu5JOLRc5MX4MC3bghOXr90SlMt9igVmIdV2g1a_s03A53mGgghReuV0lTYalat8l1iUwpNNKGrCgFyV8cg6bsn66b-hWLKkVG5H-Ib6KvRcyh" />
+                <div
+                    class="absolute inset-0 bg-primary opacity-0 group-hover:opacity-40 transition-opacity duration-300">
+                </div>
+            </div>
+            <div class="overflow-hidden group relative md:col-span-2">
+                <img alt="Pottery workshop tools closeup"
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxQAGYYyFeNHRPOetF_TKH6vEQTUzX7HVKAaGpSB8IALH5odYSpHv2ZTCSo7iIk5w383VFn67kbWvK7vwtcEmEZsghqWmQ2eDgU0Wa8NwgpTYS0c_pOM6980pLeRzyaLvCJgxnNZh3Ul2IsHCe9tpjn2tzzQc2_jCfbaoHK3phlViWARseS0LoIc0_xSQu-yZrasqLqZDWgFDyW4c2KtdFVydFclCCXc2Qa1vZv3BMS2U3SdvPWBIS_-Ntuc2RUwlszzwTE3vhHIBn" />
+                <div
+                    class="absolute inset-0 bg-secondary opacity-0 group-hover:opacity-40 transition-opacity duration-300">
+                </div>
+            </div>
+            <div class="overflow-hidden group relative">
+                <img alt="Ceramic vases on display"
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuByOiNQ3TYDu1fua51evSI93W34oX8nnot_qShfWUub0SZL_jbLZCnYHN9eaEvBO4eNLWNpYo965DEgNOgxyDtTyWu6tbig4elqFxmFh6Kqo2fyzMzusuat82ZV44C5TORbjphMqfdUgR8gvHP4iR4ZYIg_2FaLlIjdA7Bm3ezE68B1lrlUayOn_rRYcg1V5S4ucKy2JQawLxUkBRVbmW7ge8r9vLTO3uLhlbLmKw59Psbr29vuGknonUvVz6bKDqYCPj7pxGE_z5XZ" />
+                <div
+                    class="absolute inset-0 bg-primary opacity-0 group-hover:opacity-40 transition-opacity duration-300">
+                </div>
+            </div>
+            <div class="overflow-hidden group relative md:row-span-2">
+                <img alt="Artist working on pottery wheel"
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3ZBMGKwRznfYgjQ1KeeENcwNqzkxatNEaq8P9HVR_R5HGPz5GHt_SfVvZQBS2sBQO36oJJFRnPr6YZE_HwuZijtWJoTsMQq1naZroJqsSuei_Ed2xGGSpGCbcSZYM0QRZqYbMtRGaKyg75A7-i4FJc5ttdBYjD76VHM0HV_7uGmYsPw4TA_kgFXe0401PVsouRY_UHlen3XpTCcht4r6Oe7Ta1OKaSRi7rssEoxuggm2f39xZRO_pI0Oiv5M85wz4za96VBUueBA8" />
+                <div
+                    class="absolute inset-0 bg-secondary opacity-0 group-hover:opacity-40 transition-opacity duration-300">
+                </div>
+            </div>
+            <div class="overflow-hidden group relative">
+                <img alt="Painting ceramic plate"
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMXnxZw1VQZRw2mEAbm0AfcPgjSajeXaWYE7axAQLquhuAK3oX_UeoV_yQ7sU8m8kM2KQ0rx4JAZG9F9c5vpCpE21FNnIB-EGrToO9xIYnWlbyMP6Ey2ZATggvBzHZ5CED72x7VXZYvz_I0m0lP7QIisMyD_GvHv-ltzQE4hxOgDVG5U-582RNGF1qgFduQvMHdqwN19jvBObiclk2dETiZxs65kyI7iV03iJkeQM1n3e0CuHOFwIFMsQvvIyZrI205vZU26D9gdVD" />
+                <div
+                    class="absolute inset-0 bg-primary opacity-0 group-hover:opacity-40 transition-opacity duration-300">
+                </div>
+            </div>
+            <div class="overflow-hidden group relative">
+                <img alt="Crowd at art market"
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDb9ovkVSuVg262adPOF1JLqXx-LloqglxQKGMoTVwGE40ltdDJsFUO8hY3YNN5o6FvLsS4ULPaDioZGScGLbMIy6utgKA_PFub2Xke5k_MUpT40mZv3DtGar2sLKQteMprDf1jUqhiUauyVNvxA7Yl9Yjn4MPcmTWBUqCRZDuvXRg3du5YJs3r3NUF9fujDYS5LH-kQcqXf9QJS825mmbbHPsRzqtXQzO8OnbEEvLt17JE7fa2rMI4nNue2EDQRnbxudQMbgsg8wCV" />
+                <div
+                    class="absolute inset-0 bg-secondary opacity-0 group-hover:opacity-40 transition-opacity duration-300">
+                </div>
+            </div>
+            <div class="overflow-hidden group relative md:col-span-2">
+                <img alt="Collection of colorful bowls"
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKqJ6mwnbtZEBgNLt0mH8CEzvm8q566t_ij5UuDDNfVgyzlJ7hVD6D_FHS8GiEG3Kw_lrP7IHsBY7TJiDp1tubC_VWm-M22riLjGMAMNZ1cDni0kYyRmoA8mhznaDJhQMnblSNwfb6hyiQrDeew-aQpRp6a6WFmmqC0lXj448Q2s2LyX4xzmTsrYsTP3RGyfU0-05f4aMvFMVZhl7SXMblzy98GyJDKDnM9tt_O28C0ow91reUHXKq9j_yQg_aWmZPeunY2cbUAMPy" />
+                <div
+                    class="absolute inset-0 bg-primary opacity-0 group-hover:opacity-40 transition-opacity duration-300">
+                </div>
+            </div>
+            <div class="overflow-hidden group relative">
+                <img alt="Hands with clay"
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDLXOqp_ECtVTygBo8U4qXzDKogszYy0tvVCHWjlQzDWlBLJNQVCu8ertEE62-DMlivaHbPgTj7fV7tlhkwrORs5qmxXCmKlP6H_fhwH0gKr7tD8fFbu_75pE0crCPzlvtyjP4JejQWBMmbI8KMxpZdJfmmGLCLMKc0KgVINFLnVligLzKCEjkzfZitkaBK_LjY9vBP-zR_QH3gSRuW56LDayg9WByinI8xbkkC6CQFnPgQVqvx67nsD7LHs5hhK_Dedq3MpUIHNb4" />
+                <div
+                    class="absolute inset-0 bg-secondary opacity-0 group-hover:opacity-40 transition-opacity duration-300">
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="bg-primary text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-12 mb-12">
+                <!-- Left Column: Fira Barcelona -->
+                <div class="flex-1 flex justify-center md:justify-start">
+                    <img alt="Fira Barcelona" class="h-16 w-auto brightness-0 invert" src="logo_fira_barcelona.png" />
+                </div>
+
+                <!-- Center Column: Handmade Festival / Evident Events -->
+                <div class="flex-1 flex justify-center">
+                    <img alt="Handmade Festival" class="h-12 md:h-16 w-auto brightness-0 invert"
+                        src="Handmadefestival-logo-home-2025.webp" />
+                </div>
+
+                <!-- Right Column: Contact & Socials -->
+                <div class="flex-1 text-center md:text-right space-y-6">
+                    <div class="flex justify-center md:justify-end gap-6 text-xl">
+                        <a class="hover:text-tertiary transition-colors" href="#"><i class="fab fa-facebook-f"></i>
+                            <span class="material-symbols-outlined">social_leaderboard</span></a>
+                        <a class="hover:text-tertiary transition-colors" href="#"><i class="fab fa-instagram"></i> <span
+                                class="material-symbols-outlined">photo_camera</span></a>
+                    </div>
+
+                    <div class="space-y-4 text-sm font-light">
+                        <div>
+                            <span data-i18n="contact_label"
+                                class="block uppercase font-bold tracking-widest opacity-90 mb-1">Contacte:</span>
+                            <a class="hover:underline opacity-80"
+                                href="mailto:handmadefestival@evidentevents.com">handmadefestival@evidentevents.com</a>
+                        </div>
+                        <div>
+                            <span data-i18n="press_label"
+                                class="block uppercase font-bold tracking-widest opacity-90 mb-1">Premsa:</span>
+                            <a class="hover:underline opacity-80"
+                                href="mailto:comunicacio@evidentevents.com">comunicacio@evidentevents.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Copyright -->
+            <div data-i18n="copyright"
+                class="border-t border-white/20 pt-8 text-center text-xs opacity-60 font-light tracking-wide">
+                <p>© Copyright HANDMADE FESTIVAL 2024 | Política de Cookies | Avis Legal | Política de privacitat</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        const translations = {
+            ca: {
+                edition_text: "1a Edició de Creativitat i Fang",
+                date_html: 'Del <span class="text-primary dark:text-primary">14 al 17</span><br />de maig',
+                location_name: "Fira Barcelona",
+                location_details: "Recinte Firal, pavelló 2",
+                hero_title: "CERAMIC LAB — La primera fira de ceràmica a Barcelona",
+                hero_subtitle_html: 'Sí, ens taquem les mans. Tornem a l\'origen.<br /><span class="font-medium text-secondary dark:text-blue-300">Descobreix la bellesa de l\'imperfecte.</span>',
+                cta_tickets: "Aconsegueix la teva invitació",
+                cta_workshops: "Reserva un taller",
+                about_p1: "Ceramic Lab és la primera fira dedicada exclusivament a la ceràmica: un punt de trobada per descobrir, comprar i viure la ceràmica des de dins.",
+                about_p2: "Hi trobaràs marques i ceramistes seleccionats, peces úniques i col·leccions contemporànies, a més de materials, eines i propostes per a tots els nivells. Un espai pensat tant per a públic curiós com per a amants de la ceràmica i professionals del sector.",
+                about_p3: "Ceramic Lab no és només una fira: és una experiència. Un lloc per aprendre i participar amb tallers, demostracions en directe i activitats que apropen el procés creatiu al públic d’una manera actual i accessible.",
+                inspire_connect: "Inspira't, crea i connecta",
+                what_find_title: "Què hi trobaràs?",
+                what_find_subtitle: "Una experiència completa per als sentits",
+                grid_exhibitors_title: "Expositors i ceramistes seleccionats",
+                grid_unique_title: "Peces úniques, edicions limitades i producte d’autor",
+                grid_workshops_title: "Tallers i masterclasses per a adults i famílies",
+                grid_demos_title: "Demos en directe i espais d’inspiració",
+                grid_materials_title: "Materials, eines i marques del sector",
+                closing_quote: '"Si t’atrau la bellesa dels objectes ben fets i la força creativa del fang, aquí tens la teva fira."',
+                support_title: "Amb el suport de",
+                support_text_html: "Gràcies a <strong>Sio-2</strong> per fer possible aquesta primera edició i donar suport al talent emergent.",
+                contact_label: "Contacte:",
+                press_label: "Premsa:",
+                copyright: "© Copyright HANDMADE FESTIVAL 2024 | Política de Cookies | Avis Legal | Política de privacitat"
+            },
+            es: {
+                edition_text: "1a Edición de Creatividad y Barro",
+                date_html: 'Del <span class="text-primary dark:text-primary">14 al 17</span><br />de mayo',
+                location_name: "Fira Barcelona",
+                location_details: "Recinto Firal, pabellón 2",
+                hero_title: "CERAMIC LAB — La primera feria de cerámica en Barcelona",
+                hero_subtitle_html: 'Sí, nos manchamos las manos. Volvemos al origen.<br /><span class="font-medium text-secondary dark:text-blue-300">Descubre la belleza de lo imperfecto.</span>',
+                cta_tickets: "Consigue tu invitación",
+                cta_workshops: "Reserva un taller",
+                about_p1: "Ceramic Lab es la primera feria dedicada exclusivamente a la cerámica: un punto de encuentro para descubrir, comprar y vivir la cerámica desde dentro.",
+                about_p2: "Encontrarás marcas y ceramistas seleccionados, piezas únicas y colecciones contemporáneas, además de materiales, herramientas y propuestas para todos los niveles. Un espacio pensado tanto para público curioso como para amantes de la cerámica y profesionales del sector.",
+                about_p3: "Ceramic Lab no es solo una feria: es una experiencia. Un lugar para aprender y participar con talleres, demostraciones en directo y actividades que acercan el proceso creativo al público de una manera actual y accesible.",
+                inspire_connect: "Inspírate, crea y conecta",
+                what_find_title: "¿Qué encontrarás?",
+                what_find_subtitle: "Una experiencia completa para los sentidos",
+                grid_exhibitors_title: "Expositores y ceramistas seleccionados",
+                grid_unique_title: "Piezas únicas, ediciones limitadas y producto de autor",
+                grid_workshops_title: "Talleres y masterclasses para adultos y familias",
+                grid_demos_title: "Demos en directo y espacios de inspiración",
+                grid_materials_title: "Materiales, herramientas y marcas del sector",
+                closing_quote: '"Si te atrae la belleza de los objetos bien hechos y la fuerza creativa del barro, aquí tienes tu feria."',
+                support_title: "Con el apoyo de",
+                support_text_html: "Gracias a <strong>Sio-2</strong> por hacer posible esta primera edición y apoyar el talento emergente.",
+                contact_label: "Contacto:",
+                press_label: "Prensa:",
+                copyright: "© Copyright HANDMADE FESTIVAL 2024 | Política de Cookies | Aviso Legal | Política de privacidad"
+            }
+        };
+
+        function changeLanguage(lang) {
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    element.innerHTML = translations[lang][key];
+                }
+            });
+            document.documentElement.lang = lang;
+        }
+    </script>
+</body>
+
+</html>
