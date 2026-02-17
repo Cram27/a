@@ -133,7 +133,7 @@
                         src="logo_fira_barcelona.png" />
                     <div class="text-center">
                         <h3 data-i18n="location_name" class="sr-only">Fira Barcelona</h3>
-                        <p data-i18n="location_details" class="text-sm opacity-80">Recinte Firal, pavelló 2</p>
+                        <p data-i18n="location_details" class="text-sm opacity-80">Recinte Firal - Montjuic, Palau 2</p>
                     </div>
                 </div>
             </div>
@@ -330,25 +330,113 @@
                 </div>
             </div>
 
-            <div class="w-full lg:w-1/2 lg:pl-16 flex flex-col items-center lg:items-start text-center lg:text-left">
-                <h3 class="font-serif text-2xl lg:text-3xl font-bold mb-8 text-text-main-light dark:text-white">
-                    <span data-i18n="support_title" class="border-b-4 border-primary pb-2">Amb el suport de</span>
-                </h3>
-                <div
-                    class="bg-white/80 dark:bg-black/20 p-8 rounded-2xl backdrop-blur-sm border border-white/50 dark:border-white/10 shadow-xl transform hover:scale-105 transition-transform duration-300">
-                    <img alt="Sio-2 Sponsorship"
-                        class="h-32 md:h-40 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity"
-                        src="Logo-SIO.webp" />
+            <div class="w-full lg:w-1/2 lg:pl-16">
+                <div id="mc_embed_shell">
+                    <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet"
+                        type="text/css">
+                    <style>
+                        #mc_embed_signup {
+                            background: transparent;
+                            clear: left;
+                            font: 14px Helvetica, Arial, sans-serif;
+                            width: 100%;
+                            max-width: 800px;
+                            margin: 0 auto;
+                            padding: 16px;
+                            box-sizing: border-box;
+                        }
+
+                        #mc_embed_signup_scroll {
+                            display: grid;
+                            grid-template-columns: 1fr;
+                            gap: 16px;
+                            align-items: start;
+                        }
+
+                        #mc_embed_signup_scroll .mc-field-group {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 6px;
+                        }
+
+                        #mc_embed_signup .mc-field-group input {
+                            background: #fff;
+                            padding: 8px;
+                            border: 1px solid #abb0b2;
+                            border-radius: 4px;
+                            color: #333;
+                        }
+
+                        #mc_embed_signup_scroll .clear {
+                            display: flex;
+                            justify-content: flex-end;
+                        }
+
+                        /* Custom overrides to match theme */
+                        #mc_embed_signup label {
+                            color: inherit;
+                            font-weight: bold;
+                        }
+                    </style>
+                    <div id="mc_embed_signup"
+                        class="bg-white/90 dark:bg-black/40 backdrop-blur-md rounded-2xl shadow-xl border border-white/50 dark:border-white/10">
+                        <form
+                            action="https://evident.us11.list-manage.com/subscribe/post?u=73f4de2e33d6a60f1394d9f8a&amp;id=01e2c7725a&amp;f_id=00c70de1f0"
+                            method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
+                            class="validate" target="_blank" novalidate>
+                            <div id="mc_embed_signup_scroll">
+                                <div class="mc-field-group">
+                                    <label for="mce-COMPANY" class="text-gray-800 dark:text-gray-200">Nom comercial
+                                        <span class="asterisk">*</span></label>
+                                    <input type="text" name="COMPANY" class="required text" id="mce-COMPANY" required>
+                                </div>
+                                <div class="mc-field-group">
+                                    <label for="mce-EMAIL" class="text-gray-800 dark:text-gray-200">Adreça de correu
+                                        electrònic <span class="asterisk">*</span></label>
+                                    <input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required>
+                                </div>
+                                <div id="mce-responses" class="clear">
+                                    <div class="response" id="mce-error-response" style="display:none"></div>
+                                    <div class="response" id="mce-success-response" style="display:none"></div>
+                                </div>
+                                <div aria-hidden="true" style="position:absolute; left:-5000px;">
+                                    <input type="text" name="b_73f4de2e33d6a60f1394d9f8a_01e2c7725a" tabindex="-1"
+                                        value="">
+                                </div>
+                                <div class="clear w-full">
+                                    <input type="submit" name="subscribe" id="mc-embedded-subscribe"
+                                        class="button w-full bg-primary hover:bg-secondary transition-colors duration-300 text-white font-bold py-3 rounded cursor-pointer border-none"
+                                        value="Subscriu-me">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <script src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"
+                        type="text/javascript"></script>
                 </div>
-                <p data-i18n="support_text_html" class="mt-8 text-lg text-gray-600 dark:text-gray-300 max-w-md">
-                    Gràcies a <strong>Sio-2</strong> per fer possible aquesta primera edició i donar suport al talent
-                    emergent.
-                </p>
             </div>
         </div>
     </section>
+
+    <!-- New Sponsor Section -->
+    <section class="py-16 bg-background-light dark:bg-background-dark border-t border-gray-200 dark:border-gray-800">
+        <div class="container mx-auto px-4 text-center">
+            <h3 class="font-serif text-2xl font-bold mb-8 text-text-main-light dark:text-white">
+                <span data-i18n="support_title" class="border-b-4 border-secondary pb-2">Amb el suport de</span>
+            </h3>
+            <div
+                class="inline-block bg-white dark:bg-white/5 p-8 rounded-3xl shadow-lg hover:shadow-xl transition-shadow duration-300 mb-6">
+                <img alt="Sio-2 Sponsorship" class="h-24 md:h-32 w-auto object-contain" src="Logo-SIO.webp" />
+            </div>
+            <p data-i18n="support_text_html"
+                class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
+                Gràcies a <strong>Sio-2</strong> per fer possible aquesta primera edició i donar suport al talent
+                emergent.
+            </p>
+        </div>
+    </section>
     <section class="py-0 bg-background-light dark:bg-background-dark">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-1 md:gap-2 auto-rows-[150px] md:auto-rows-[200px]">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-1 md:gap-2 auto-rows-[250px] md:auto-rows-[300px]">
             <div class="overflow-hidden group relative">
                 <img alt="Woman smiling holding ceramic bowl"
                     class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
@@ -365,7 +453,7 @@
                     class="absolute inset-0 bg-secondary opacity-0 group-hover:opacity-40 transition-opacity duration-300">
                 </div>
             </div>
-            <div class="overflow-hidden group relative">
+            <div class="overflow-hidden group relative row-span-2">
                 <img alt="Ceramic vases on display"
                     class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuByOiNQ3TYDu1fua51evSI93W34oX8nnot_qShfWUub0SZL_jbLZCnYHN9eaEvBO4eNLWNpYo965DEgNOgxyDtTyWu6tbig4elqFxmFh6Kqo2fyzMzusuat82ZV44C5TORbjphMqfdUgR8gvHP4iR4ZYIg_2FaLlIjdA7Bm3ezE68B1lrlUayOn_rRYcg1V5S4ucKy2JQawLxUkBRVbmW7ge8r9vLTO3uLhlbLmKw59Psbr29vuGknonUvVz6bKDqYCPj7pxGE_z5XZ" />
@@ -458,7 +546,7 @@
             <!-- Bottom Copyright -->
             <div data-i18n="copyright"
                 class="border-t border-white/20 pt-8 text-center text-xs opacity-60 font-light tracking-wide">
-                <p>© Copyright HANDMADE FESTIVAL 2024 | Política de Cookies | Avis Legal | Política de privacitat</p>
+                <p>© Copyright HANDMADE FESTIVAL 2026 | Política de Cookies | Avis Legal | Política de privacitat</p>
             </div>
         </div>
     </footer>
@@ -468,7 +556,7 @@
                 edition_text: "1a Edició de Creativitat i Fang",
                 date_html: 'Del <span class="text-primary dark:text-primary">14 al 17</span><br />de maig',
                 location_name: "Fira Barcelona",
-                location_details: "Recinte Firal, pavelló 2",
+                location_details: "Recinte Firal  - Montjuic, Palau 2",
                 hero_title: "CERAMIC LAB — La primera fira de ceràmica a Barcelona",
                 hero_subtitle_html: 'Sí, ens taquem les mans. Tornem a l\'origen.<br /><span class="font-medium text-secondary dark:text-blue-300">Descobreix la bellesa de l\'imperfecte.</span>',
                 cta_tickets: "Aconsegueix la teva invitació",
@@ -489,7 +577,7 @@
                 support_text_html: "Gràcies a <strong>Sio-2</strong> per fer possible aquesta primera edició i donar suport al talent emergent.",
                 contact_label: "Contacte:",
                 press_label: "Premsa:",
-                copyright: "© Copyright HANDMADE FESTIVAL 2024 | Política de Cookies | Avis Legal | Política de privacitat"
+                copyright: "© Copyright HANDMADE FESTIVAL 2026 | Política de Cookies | Avis Legal | Política de privacitat"
             },
             es: {
                 edition_text: "1a Edición de Creatividad y Barro",
@@ -516,7 +604,7 @@
                 support_text_html: "Gracias a <strong>Sio-2</strong> por hacer posible esta primera edición y apoyar el talento emergente.",
                 contact_label: "Contacto:",
                 press_label: "Prensa:",
-                copyright: "© Copyright HANDMADE FESTIVAL 2024 | Política de Cookies | Aviso Legal | Política de privacidad"
+                copyright: "© Copyright HANDMADE FESTIVAL 2026 | Política de Cookies | Aviso Legal | Política de privacidad"
             }
         };
 
