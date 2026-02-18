@@ -151,11 +151,10 @@
                     l'imperfecte.</span>
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4 mt-8">
-                <a data-i18n="cta_tickets"
-                    class="bg-primary hover:bg-[#B96A46] text-white text-lg font-bold py-4 px-8 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all duration-300 border-2 border-primary"
-                    href="#tickets">
+                <button data-i18n="cta_tickets" onclick="openModal()"
+                    class="bg-primary hover:bg-[#B96A46] text-white text-lg font-bold py-4 px-8 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all duration-300 border-2 border-primary cursor-pointer">
                     Aconsegueix la teva invitació
-                </a>
+                </button>
                 <a data-i18n="cta_workshops"
                     class="bg-white dark:bg-transparent text-primary dark:text-white border-2 border-primary hover:bg-primary hover:text-white text-lg font-bold py-4 px-8 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all duration-300 dark:hover:border-primary"
                     href="#workshops">
@@ -289,11 +288,10 @@
                     "Si t’atrau la bellesa dels objectes ben fets i la força creativa del fang, aquí tens la teva fira."
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
-                    <a data-i18n="cta_tickets"
-                        class="bg-primary hover:bg-[#B96A46] text-white text-lg font-bold py-4 px-8 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all duration-300 border-2 border-primary"
-                        href="#tickets">
+                    <button data-i18n="cta_tickets" onclick="openModal()"
+                        class="bg-primary hover:bg-[#B96A46] text-white text-lg font-bold py-4 px-8 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all duration-300 border-2 border-primary cursor-pointer">
                         Aconsegueix la teva invitació
-                    </a>
+                    </button>
                     <a data-i18n="cta_workshops"
                         class="bg-white dark:bg-transparent text-primary dark:text-white border-2 border-primary hover:bg-primary hover:text-white text-lg font-bold py-4 px-8 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all duration-300 dark:hover:border-primary"
                         href="#workshops">
@@ -550,7 +548,54 @@
             </div>
         </div>
     </footer>
+    <!-- Modal Invitation -->
+    <div id="invitationModal" class="relative z-50 hidden" aria-labelledby="modal-title" role="dialog"
+        aria-modal="true">
+        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" onclick="closeModal()"></div>
+        <div class="fixed inset-0 z-10 w-screen overflow-y-auto pointer-events-none">
+            <div
+                class="flex min-h-full items-center justify-center p-4 text-center sm:items-center sm:p-0 pointer-events-auto">
+                <div
+                    class="relative transform overflow-hidden rounded-2xl bg-white dark:bg-[#2C2A28] text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg border-2 border-primary">
+                    <div class="bg-white dark:bg-[#2C2A28] px-4 pb-4 pt-5 sm:p-6 sm:pb-4 relative">
+                        <div class="absolute right-0 top-0 pr-4 pt-4">
+                            <button type="button"
+                                class="rounded-md bg-white dark:bg-[#2C2A28] text-gray-400 hover:text-gray-500 focus:outline-none"
+                                onclick="closeModal()">
+                                <span class="sr-only">Close</span>
+                                <span class="material-symbols-outlined">close</span>
+                            </button>
+                        </div>
+                        <div class="flex flex-col items-center justify-center text-center">
+                            <div
+                                class="mx-auto flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-tertiary/30 mb-6">
+                                <span class="material-symbols-outlined text-4xl text-primary">calendar_month</span>
+                            </div>
+                            <h3 class="text-2xl font-serif font-bold text-secondary dark:text-blue-300 mb-2"
+                                data-i18n="cta_tickets">
+                                Aconsegueix la teva invitació
+                            </h3>
+                            <p class="text-xl text-gray-600 dark:text-gray-300" data-i18n="modal_message">
+                                A partir del dia 1 d'abril
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
+        function openModal() {
+            document.getElementById('invitationModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('invitationModal').classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
         const translations = {
             ca: {
                 edition_text: "1a Edició de Creativitat i Fang",
@@ -560,6 +605,7 @@
                 hero_title: "CERAMIC LAB — La primera fira de ceràmica a Barcelona",
                 hero_subtitle_html: 'Sí, ens taquem les mans. Tornem a l\'origen.<br /><span class="font-medium text-secondary dark:text-blue-300">Descobreix la bellesa de l\'imperfecte.</span>',
                 cta_tickets: "Aconsegueix la teva invitació",
+                modal_message: "A partir del dia 1 d'abril",
                 cta_workshops: "Reserva un taller",
                 about_p1: "Ceramic Lab és la primera fira dedicada exclusivament a la ceràmica: un punt de trobada per descobrir, comprar i viure la ceràmica des de dins.",
                 about_p2: "Hi trobaràs marques i ceramistes seleccionats, peces úniques i col·leccions contemporànies, a més de materials, eines i propostes per a tots els nivells. Un espai pensat tant per a públic curiós com per a amants de la ceràmica i professionals del sector.",
@@ -587,6 +633,7 @@
                 hero_title: "CERAMIC LAB — La primera feria de cerámica en Barcelona",
                 hero_subtitle_html: 'Sí, nos manchamos las manos. Volvemos al origen.<br /><span class="font-medium text-secondary dark:text-blue-300">Descubre la belleza de lo imperfecto.</span>',
                 cta_tickets: "Consigue tu invitación",
+                modal_message: "A partir del día 1 de abril",
                 cta_workshops: "Reserva un taller",
                 about_p1: "Ceramic Lab es la primera feria dedicada exclusivamente a la cerámica: un punto de encuentro para descubrir, comprar y vivir la cerámica desde dentro.",
                 about_p2: "Encontrarás marcas y ceramistas seleccionados, piezas únicas y colecciones contemporáneas, además de materiales, herramientas y propuestas para todos los niveles. Un espacio pensado tanto para público curioso como para amantes de la cerámica y profesionales del sector.",
