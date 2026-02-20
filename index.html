@@ -117,7 +117,7 @@
             <div class="text-center mb-12 animate-fade-in-down flex flex-col items-center">
                 <img alt="Ceramic Lab Logo" class="h-16 md:h-24 mb-6" src="logo-ceramiclab.webp" />
                 <div data-i18n="edition_text"
-                    class="inline-block bg-secondary text-white px-6 py-2 rounded-full transform rotate-1 shadow-lg font-bold text-lg">
+                    class="text-primary dark:text-tertiary font-bold tracking-widest uppercase text-sm md:text-base mt-2">
                     1a Edició de Creativitat i Fang
                 </div>
             </div>
@@ -658,12 +658,24 @@
         function changeLanguage(lang) {
             document.querySelectorAll('[data-i18n]').forEach(element => {
                 const key = element.getAttribute('data-i18n');
-                if (translations[lang][key]) {
+                if (translations[lang] && translations[lang][key]) {
                     element.innerHTML = translations[lang][key];
                 }
             });
             document.documentElement.lang = lang;
         }
+
+        // Establecer el idioma inicial según el dominio
+        document.addEventListener("DOMContentLoaded", () => {
+            const hostname = window.location.hostname;
+            // Si termina en .es, mostramos castellano
+            if (hostname.endsWith('.es')) {
+                changeLanguage('es');
+            } else {
+                // Para .cat, .com o localhost, el idioma por defecto es catalán
+                changeLanguage('ca');
+            }
+        });
     </script>
 </body>
 
