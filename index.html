@@ -98,12 +98,20 @@
 
 <body
     class="bg-background-light dark:bg-background-dark text-text-main-light dark:text-text-main-dark font-body antialiased transition-colors duration-300">
-    <div class="bg-secondary text-white py-2 px-6 flex justify-end text-xs font-bold uppercase tracking-wider">
-        <a class="hover:text-tertiary transition-colors cursor-pointer" onclick="changeLanguage('ca')"
-            id="lang-ca">CAT</a>
-        <span class="mx-2">|</span>
-        <a class="hover:text-tertiary transition-colors cursor-pointer" onclick="changeLanguage('es')"
-            id="lang-es">ESP</a>
+    <div
+        class="bg-secondary text-white py-2 px-6 flex justify-between items-center text-xs font-bold uppercase tracking-wider relative z-20">
+        <a href="https://handmadefestivalbcn.com/"
+            class="hover:text-tertiary transition-colors flex items-center gap-1">
+            <span class="material-symbols-outlined text-[14px]">arrow_back</span>
+            <span data-i18n="back_to_hmf">Tornar a Handmade Festival</span>
+        </a>
+        <div>
+            <a class="hover:text-tertiary transition-colors cursor-pointer" onclick="changeLanguage('ca')"
+                id="lang-ca">CAT</a>
+            <span class="mx-2">|</span>
+            <a class="hover:text-tertiary transition-colors cursor-pointer" onclick="changeLanguage('es')"
+                id="lang-es">ESP</a>
+        </div>
     </div>
     <header
         class="relative bg-tertiary dark:bg-[#3E332B] overflow-hidden pt-12 pb-24 lg:pb-32 transition-colors duration-300">
@@ -623,7 +631,8 @@
                 support_text_html: "Gràcies a <strong>Sio-2</strong> per fer possible aquesta primera edició i donar suport al talent emergent.",
                 contact_label: "Contacte:",
                 press_label: "Premsa:",
-                copyright: "© Copyright HANDMADE FESTIVAL 2026 | Política de Cookies | Avis Legal | Política de privacitat"
+                copyright: "© Copyright HANDMADE FESTIVAL 2026 | Política de Cookies | Avis Legal | Política de privacitat",
+                back_to_hmf: "Tornar a Handmade Festival"
             },
             es: {
                 edition_text: "1a Edición de Creatividad y Barro",
@@ -651,7 +660,8 @@
                 support_text_html: "Gracias a <strong>Sio-2</strong> por hacer posible esta primera edición y apoyar el talento emergente.",
                 contact_label: "Contacto:",
                 press_label: "Prensa:",
-                copyright: "© Copyright HANDMADE FESTIVAL 2026 | Política de Cookies | Aviso Legal | Política de privacidad"
+                copyright: "© Copyright HANDMADE FESTIVAL 2026 | Política de Cookies | Aviso Legal | Política de privacidad",
+                back_to_hmf: "Volver a Handmade Festival"
             }
         };
 
