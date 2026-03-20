@@ -236,10 +236,10 @@
                     l'imperfecte.</span>
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4 mt-8">
-                <button data-i18n="cta_tickets" onclick="openModal()"
-                    class="bg-primary hover:bg-[#B96A46] text-white text-lg font-bold py-4 px-8 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all duration-300 border-2 border-primary cursor-pointer">
+                <a data-i18n="cta_tickets" target="_blank" rel="noopener noreferrer"
+                    class="bg-primary hover:bg-[#B96A46] text-white text-lg font-bold py-4 px-8 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all duration-300 border-2 border-primary cursor-pointer text-center inline-block">
                     Aconsegueix la teva invitació
-                </button>
+                </a>
                 <a data-i18n="cta_workshops"
                     class="bg-white dark:bg-transparent text-primary dark:text-white border-2 border-primary hover:bg-primary hover:text-white text-lg font-bold py-4 px-8 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all duration-300 dark:hover:border-primary"
                     href="#workshops">
@@ -373,10 +373,10 @@
                     "Si t’atrau la bellesa dels objectes ben fets i la força creativa del fang, aquí tens la teva fira."
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
-                    <button data-i18n="cta_tickets" onclick="openModal()"
-                        class="bg-primary hover:bg-[#B96A46] text-white text-lg font-bold py-4 px-8 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all duration-300 border-2 border-primary cursor-pointer">
+                    <a data-i18n="cta_tickets" target="_blank" rel="noopener noreferrer"
+                        class="bg-primary hover:bg-[#B96A46] text-white text-lg font-bold py-4 px-8 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all duration-300 border-2 border-primary cursor-pointer text-center inline-block">
                         Aconsegueix la teva invitació
-                    </button>
+                    </a>
                     <a data-i18n="cta_workshops"
                         class="bg-white dark:bg-transparent text-primary dark:text-white border-2 border-primary hover:bg-primary hover:text-white text-lg font-bold py-4 px-8 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all duration-300 dark:hover:border-primary"
                         href="#workshops">
@@ -637,20 +637,20 @@
                         <a href="#" target="_blank" rel="noopener noreferrer"
                             class="flex items-center justify-center bg-white dark:bg-white/5 p-6 md:p-8 rounded-3xl shadow-lg hover:shadow-xl transition-shadow duration-300 w-36 md:w-56 h-36 md:h-56">
                             <img alt="Bloch Studio" class="max-h-full max-w-full object-contain"
-                                src="logos-expositors/logo-bloch.jpg" loading="lazy" decoding="async"
-                                width="300" height="300" />
+                                src="logos-expositors/logo-bloch.jpg" loading="lazy" decoding="async" width="300"
+                                height="300" />
                         </a>
                         <a href="#" target="_blank" rel="noopener noreferrer"
                             class="flex items-center justify-center bg-white dark:bg-white/5 p-6 md:p-8 rounded-3xl shadow-lg hover:shadow-xl transition-shadow duration-300 w-36 md:w-56 h-36 md:h-56">
                             <img alt="Espai ARTS" class="max-h-full max-w-full object-contain"
-                                src="logos-expositors/logo-Espais-ARTS.png" loading="lazy" decoding="async"
-                                width="300" height="300" />
+                                src="logos-expositors/logo-Espais-ARTS.png" loading="lazy" decoding="async" width="300"
+                                height="300" />
                         </a>
                         <a href="#" target="_blank" rel="noopener noreferrer"
                             class="flex items-center justify-center bg-white dark:bg-white/5 p-6 md:p-8 rounded-3xl shadow-lg hover:shadow-xl transition-shadow duration-300 w-36 md:w-56 h-36 md:h-56">
                             <img alt="Maite Badell" class="max-h-full max-w-full object-contain"
-                                src="logos-expositors/logo-Maite-Badell.jpg" loading="lazy" decoding="async"
-                                width="300" height="300" />
+                                src="logos-expositors/logo-Maite-Badell.jpg" loading="lazy" decoding="async" width="300"
+                                height="300" />
                         </a>
                     </div>
                 </div>
@@ -850,7 +850,8 @@
                 contact_label: "Contacte:",
                 press_label: "Premsa:",
                 copyright: "© Copyright HANDMADE FESTIVAL 2026 | Política de Cookies | Avis Legal | Política de privacitat",
-                back_to_hmf: "Tornar a Handmade Festival"
+                back_to_hmf: "Tornar a Handmade Festival",
+                cta_tickets_url: "https://mailchi.mp/evident/ceramic-lab-cat"
             },
             es: {
                 edition_text: "1a Edición de Creatividad y Barro",
@@ -881,7 +882,8 @@
                 contact_label: "Contacto:",
                 press_label: "Prensa:",
                 copyright: "© Copyright HANDMADE FESTIVAL 2026 | Política de Cookies | Aviso Legal | Política de privacidad",
-                back_to_hmf: "Volver a Handmade Festival"
+                back_to_hmf: "Volver a Handmade Festival",
+                cta_tickets_url: "https://mailchi.mp/evident/ceramic-lab-es"
             }
         };
 
@@ -892,6 +894,15 @@
                     element.innerHTML = translations[lang][key];
                 }
             });
+
+            // Update ticket links href
+            const ticketUrl = translations[lang] ? translations[lang].cta_tickets_url : null;
+            if (ticketUrl) {
+                document.querySelectorAll('[data-i18n="cta_tickets"]').forEach(element => {
+                    element.href = ticketUrl;
+                });
+            }
+
             document.documentElement.lang = lang;
 
             // Update meta description for SEO when language changes
