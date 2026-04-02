@@ -494,23 +494,70 @@
     <!-- Tickets Section -->
     <section id="tickets" class="py-20 bg-background-light dark:bg-[#2C2A28] transition-colors duration-300 relative overflow-hidden">
         <div class="container mx-auto px-6 md:px-8 text-center relative z-10">
-            <h2 class="text-4xl md:text-5xl font-serif font-bold text-text-main-light dark:text-white mb-12">
+            <h2 class="text-4xl md:text-5xl font-serif font-bold text-text-main-light dark:text-white mb-16">
                 <span data-i18n="tickets_title" class="brush-underline">Entrades</span>
             </h2>
-            <div class="flex flex-col md:flex-row justify-center items-center gap-6 lg:gap-10">
-                <!-- Invitation Button -->
-                <a href="https://mailchi.mp/evident/ceramic-lab-cat" target="_blank" rel="noopener noreferrer"
-                    class="group relative inline-flex items-center justify-center px-10 py-5 bg-primary text-white font-bold text-lg rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 w-full md:w-auto">
-                    <span data-i18n="btn_invitation">Invitació</span>
-                    <span class="ml-2 material-symbols-outlined group-hover:translate-x-1 transition-transform">confirmation_number</span>
-                </a>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Ticket 1: Invitació -->
+                <div class="bg-white dark:bg-[#3E332B] p-8 rounded-3xl shadow-lg border border-gray-100 dark:border-gray-800 flex flex-col items-center group hover:shadow-2xl transition-all duration-300">
+                    <div class="w-16 h-16 bg-tertiary/30 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-4xl text-primary">confirmation_number</span>
+                    </div>
+                    <h3 data-i18n="ticket_invitation_title" class="text-xl font-bold text-secondary dark:text-blue-300 mb-1">Invitació</h3>
+                    <p data-i18n="ticket_invitation_sub" class="text-sm text-gray-500 dark:text-gray-400 mb-8 font-serif italic">(Accés lliure)</p>
+                    <div class="mt-auto w-full">
+                        <a href="https://mailchi.mp/evident/ceramic-lab-cat" target="_blank" rel="noopener noreferrer" 
+                           data-i18n="btn_get_ticket" class="inline-flex items-center justify-center w-full bg-primary text-white font-bold py-3 px-4 rounded-xl hover:bg-[#B96A46] transition-colors text-sm shadow-md">
+                           Aconsegueix la teva entrada
+                        </a>
+                    </div>
+                </div>
 
-                <!-- VIP Button -->
-                <a href="#" target="_blank" rel="noopener noreferrer"
-                    class="group relative inline-flex items-center justify-center px-10 py-5 bg-white dark:bg-transparent text-primary dark:text-white border-2 border-primary font-bold text-lg rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 w-full md:w-auto">
-                    <span data-i18n="btn_vip">Entrada VIP + Taller</span>
-                    <span class="ml-2 material-symbols-outlined group-hover:rotate-12 transition-transform">star</span>
-                </a>
+                <!-- Ticket 2: VIP -->
+                <div class="bg-white dark:bg-[#3E332B] p-8 rounded-3xl shadow-lg border border-gray-100 dark:border-gray-800 flex flex-col items-center group hover:shadow-2xl transition-all duration-300">
+                    <div class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-4xl text-secondary">star</span>
+                    </div>
+                    <h3 data-i18n="ticket_vip_title" class="text-xl font-bold text-secondary dark:text-blue-300 mb-1 leading-tight">ENTRADA VIP</h3>
+                    <p data-i18n="ticket_vip_sub" class="text-sm text-gray-500 dark:text-gray-400 mb-8 font-serif italic">(Accés assegurat)</p>
+                    <div class="mt-auto w-full">
+                        <a href="#" target="_blank" rel="noopener noreferrer" 
+                           data-i18n="btn_get_ticket" class="inline-flex items-center justify-center w-full bg-secondary text-white font-bold py-3 px-4 rounded-xl hover:bg-opacity-90 transition-colors text-sm shadow-md">
+                           Aconsegueix la teva entrada
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Ticket 3: VIP + TOTE -->
+                <div class="bg-white dark:bg-[#3E332B] p-8 rounded-3xl shadow-lg border border-gray-100 dark:border-gray-800 flex flex-col items-center group hover:shadow-2xl transition-all duration-300">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-4xl text-primary">shopping_bag</span>
+                    </div>
+                    <h3 data-i18n="ticket_tote_title" class="text-xl font-bold text-secondary dark:text-blue-300 mb-1 leading-tight">ENTRADA VIP + TOTE</h3>
+                    <p data-i18n="ticket_tote_sub" class="text-sm text-gray-500 dark:text-gray-400 mb-8 font-serif italic">(Accés + Tote Bag)</p>
+                    <div class="mt-auto w-full">
+                        <a href="#" target="_blank" rel="noopener noreferrer" 
+                           data-i18n="btn_get_ticket" class="inline-flex items-center justify-center w-full bg-primary text-white font-bold py-3 px-4 rounded-xl hover:bg-[#B96A46] transition-colors text-sm shadow-md">
+                           Aconsegueix la teva entrada
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Ticket 4: VIP + TALLER -->
+                <div class="bg-white dark:bg-[#3E332B] p-8 rounded-3xl shadow-lg border border-gray-100 dark:border-gray-800 flex flex-col items-center group hover:shadow-2xl transition-all duration-300">
+                    <div class="w-16 h-16 bg-tertiary/50 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-4xl text-text-main-light">brush</span>
+                    </div>
+                    <h3 data-i18n="ticket_taller_title" class="text-xl font-bold text-secondary dark:text-blue-300 mb-1 leading-tight">ENTRADA VIP + TALLER</h3>
+                    <p data-i18n="ticket_taller_sub" class="text-sm text-gray-500 dark:text-gray-400 mb-8 font-serif italic">(Accés + Taller express)</p>
+                    <div class="mt-auto w-full">
+                        <a href="#" target="_blank" rel="noopener noreferrer" 
+                           data-i18n="btn_get_ticket" class="inline-flex items-center justify-center w-full bg-secondary text-white font-bold py-3 px-4 rounded-xl hover:bg-opacity-90 transition-colors text-sm shadow-md">
+                           Aconsegueix la teva entrada
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1270,8 +1317,15 @@
                 nav_exhibitions: "Exposicions",
                 nav_tickets: "Entrades",
                 tickets_title: "Entrades",
-                btn_invitation: "Invitació",
-                btn_vip: "Entrada VIP + Taller",
+                ticket_invitation_title: "Invitació",
+                ticket_invitation_sub: "(Accés lliure)",
+                ticket_vip_title: "ENTRADA VIP",
+                ticket_vip_sub: "(Accés assegurat)",
+                ticket_tote_title: "ENTRADA VIP + TOTE",
+                ticket_tote_sub: "(Accés + Tote Bag)",
+                ticket_taller_title: "ENTRADA VIP + TALLER",
+                ticket_taller_sub: "(Accés + Taller express)",
+                btn_get_ticket: "Aconsegueix la teva entrada",
                 exhibitions_title: "Exposicions",
                 exhibition_1_title: "IRINA SLIMOBICH A.K.A. IRINO",
                 exhibition_1_desc: "Ceramista i il·lustradora menorquina que resideix a Barcelona. La natura i els animals m'inspiren a crear un univers oníric en colors pastel, amb personatges imaginaris, plantes i textures impossibles.",
@@ -1330,8 +1384,15 @@
                 nav_exhibitions: "Exposiciones",
                 nav_tickets: "Entradas",
                 tickets_title: "Entradas",
-                btn_invitation: "Invitación",
-                btn_vip: "Entrada VIP + Taller",
+                ticket_invitation_title: "Invitación",
+                ticket_invitation_sub: "(Acceso libre)",
+                ticket_vip_title: "ENTRADA VIP",
+                ticket_vip_sub: "(Acceso asegurado)",
+                ticket_tote_title: "ENTRADA VIP + TOTE",
+                ticket_tote_sub: "(Acceso + Tote Bag)",
+                ticket_taller_title: "ENTRADA VIP + TALLER",
+                ticket_taller_sub: "(Acceso + Taller express)",
+                btn_get_ticket: "Consigue tu entrada",
                 exhibitions_title: "Exposiciones",
                 exhibition_1_title: "IRINA SLIMOBICH A.K.A. IRINO",
                 exhibition_1_desc: "Ceramista e ilustradora menorquina que reside en Barcelona. La naturaleza y los animales me inspiran a crear un universo onírico en colores pastel, con personajes imaginarios, plantas y texturas imposibles.",
