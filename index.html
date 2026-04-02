@@ -216,14 +216,18 @@
                 <span
                     class="absolute -bottom-1 left-0 w-0 h-1 bg-primary/40 rounded-full group-hover:w-full transition-all duration-300"></span>
             </a>
-<!-- 
+            <a href="#tickets" data-i18n="nav_tickets"
+                class="relative group text-sm font-bold uppercase tracking-widest hover:text-primary transition-colors">
+                <span class="relative z-10">Entrades</span>
+                <span
+                    class="absolute -bottom-1 left-0 w-0 h-1 bg-primary/40 rounded-full group-hover:w-full transition-all duration-300"></span>
+            </a>
             <a href="#workshops" data-i18n="nav_workshops"
                 class="relative group text-sm font-bold uppercase tracking-widest hover:text-primary transition-colors">
                 <span class="relative z-10">Tallers</span>
                 <span
                     class="absolute -bottom-1 left-0 w-0 h-1 bg-primary/40 rounded-full group-hover:w-full transition-all duration-300"></span>
             </a>
--->
             <a href="#exhibitions" data-i18n="nav_exhibitions"
                 class="relative group text-sm font-bold uppercase tracking-widest hover:text-primary transition-colors">
                 <span class="relative z-10">Exposicions</span>
@@ -269,11 +273,12 @@
             <a href="#what-find" data-i18n="nav_what_find"
                 class="font-serif text-4xl font-bold hover:text-primary transition-colors text-text-main-light dark:text-white"
                 onclick="toggleArtisticMenu()">Què trobaràs</a>
-<!-- 
+            <a href="#tickets" data-i18n="nav_tickets"
+                class="font-serif text-4xl font-bold hover:text-primary transition-colors text-text-main-light dark:text-white"
+                onclick="toggleArtisticMenu()">Entrades</a>
             <a href="#workshops" data-i18n="nav_workshops"
                 class="font-serif text-4xl font-bold hover:text-primary transition-colors text-text-main-light dark:text-white"
                 onclick="toggleArtisticMenu()">Tallers</a>
--->
             <a href="#exhibitions" data-i18n="nav_exhibitions"
                 class="font-serif text-4xl font-bold hover:text-primary transition-colors text-text-main-light dark:text-white"
                 onclick="toggleArtisticMenu()">Exposicions</a>
@@ -485,9 +490,33 @@
                 </div>
             </div>
     </section>
+ 
+    <!-- Tickets Section -->
+    <section id="tickets" class="py-20 bg-background-light dark:bg-[#2C2A28] transition-colors duration-300 relative overflow-hidden">
+        <div class="container mx-auto px-6 md:px-8 text-center relative z-10">
+            <h2 class="text-4xl md:text-5xl font-serif font-bold text-text-main-light dark:text-white mb-12">
+                <span data-i18n="tickets_title" class="brush-underline">Entrades</span>
+            </h2>
+            <div class="flex flex-col md:flex-row justify-center items-center gap-6 lg:gap-10">
+                <!-- Invitation Button -->
+                <a href="https://mailchi.mp/evident/ceramic-lab-cat" target="_blank" rel="noopener noreferrer"
+                    class="group relative inline-flex items-center justify-center px-10 py-5 bg-primary text-white font-bold text-lg rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 w-full md:w-auto">
+                    <span data-i18n="btn_invitation">Invitació</span>
+                    <span class="ml-2 material-symbols-outlined group-hover:translate-x-1 transition-transform">confirmation_number</span>
+                </a>
+
+                <!-- VIP Button -->
+                <a href="#" target="_blank" rel="noopener noreferrer"
+                    class="group relative inline-flex items-center justify-center px-10 py-5 bg-white dark:bg-transparent text-primary dark:text-white border-2 border-primary font-bold text-lg rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 w-full md:w-auto">
+                    <span data-i18n="btn_vip">Entrada VIP + Taller</span>
+                    <span class="ml-2 material-symbols-outlined group-hover:rotate-12 transition-transform">star</span>
+                </a>
+            </div>
+        </div>
+    </section>
 
     <!-- Workshops Section -->
-    <section id="workshops" class="hidden py-12 bg-background-light dark:bg-background-dark transition-colors duration-300">
+    <section id="workshops" class="py-12 bg-background-light dark:bg-background-dark transition-colors duration-300">
         <div class="container mx-auto px-6 md:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-4xl md:text-5xl font-serif font-bold text-text-main-light dark:text-white mb-4">
@@ -1239,7 +1268,10 @@
                 nav_about: "La Fira",
                 nav_what_find: "Què trobaràs",
                 nav_exhibitions: "Exposicions",
-                nav_tickets: "Invitacions",
+                nav_tickets: "Entrades",
+                tickets_title: "Entrades",
+                btn_invitation: "Invitació",
+                btn_vip: "Entrada VIP + Taller",
                 exhibitions_title: "Exposicions",
                 exhibition_1_title: "IRINA SLIMOBICH A.K.A. IRINO",
                 exhibition_1_desc: "Ceramista i il·lustradora menorquina que resideix a Barcelona. La natura i els animals m'inspiren a crear un univers oníric en colors pastel, amb personatges imaginaris, plantes i textures impossibles.",
@@ -1296,7 +1328,10 @@
                 nav_about: "La Feria",
                 nav_what_find: "Qué encontrarás",
                 nav_exhibitions: "Exposiciones",
-                nav_tickets: "Invitaciones",
+                nav_tickets: "Entradas",
+                tickets_title: "Entradas",
+                btn_invitation: "Invitación",
+                btn_vip: "Entrada VIP + Taller",
                 exhibitions_title: "Exposiciones",
                 exhibition_1_title: "IRINA SLIMOBICH A.K.A. IRINO",
                 exhibition_1_desc: "Ceramista e ilustradora menorquina que reside en Barcelona. La naturaleza y los animales me inspiran a crear un universo onírico en colores pastel, con personajes imaginarios, plantas y texturas imposibles.",
