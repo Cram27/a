@@ -113,7 +113,7 @@
             },
         };
     </script>
-    <style>
+    <style type="text/tailwindcss">
         .custom-shape-divider-bottom-1681234567 {
             position: absolute;
             bottom: 0;
@@ -157,6 +157,10 @@
         .blob-shape {
             border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
         }
+
+        .nav-scrolled {
+            @apply top-2 w-[98%] max-w-6xl h-16 !important;
+        }
     </style>
 </head>
 
@@ -182,8 +186,100 @@
                 id="lang-es">ESP</a>
         </div>
     </div>
-    <header
-        class="relative bg-tertiary dark:bg-[#3E332B] overflow-hidden pt-12 pb-24 lg:pb-32 transition-colors duration-300">
+
+    <!-- Navigation Menu (Floating Pill) -->
+    <nav id="main-nav" class="fixed top-6 left-1/2 -translate-x-1/2 w-[92%] max-w-5xl h-20 rounded-full z-[100] px-8
+                   bg-white/70 dark:bg-black/60 backdrop-blur-2xl border border-white/40 dark:border-white/10 shadow-2xl 
+                   flex items-center justify-between transition-all duration-500">
+        <!-- Logo Only -->
+        <a href="#hero" class="hover:scale-110 transition-transform">
+            <img src="ceramiclabbarcelona.png" alt="Logo" class="h-10 md:h-12 w-auto">
+        </a>
+
+        <!-- Desktop Links -->
+        <div class="hidden md:flex items-center gap-10">
+            <a href="#hero" data-i18n="nav_home"
+                class="relative group text-sm font-bold uppercase tracking-widest hover:text-primary transition-colors">
+                <span class="relative z-10">Inici</span>
+                <span
+                    class="absolute -bottom-1 left-0 w-0 h-1 bg-primary/40 rounded-full group-hover:w-full transition-all duration-300"></span>
+            </a>
+            <a href="#about" data-i18n="nav_about"
+                class="relative group text-sm font-bold uppercase tracking-widest hover:text-primary transition-colors">
+                <span class="relative z-10">La Fira</span>
+                <span
+                    class="absolute -bottom-1 left-0 w-0 h-1 bg-primary/40 rounded-full group-hover:w-full transition-all duration-300"></span>
+            </a>
+            <a href="#what-find" data-i18n="nav_what_find"
+                class="relative group text-sm font-bold uppercase tracking-widest hover:text-primary transition-colors">
+                <span class="relative z-10">Què trobaràs</span>
+                <span
+                    class="absolute -bottom-1 left-0 w-0 h-1 bg-primary/40 rounded-full group-hover:w-full transition-all duration-300"></span>
+            </a>
+            <a href="#workshops" data-i18n="nav_workshops"
+                class="relative group text-sm font-bold uppercase tracking-widest hover:text-primary transition-colors">
+                <span class="relative z-10">Tallers</span>
+                <span
+                    class="absolute -bottom-1 left-0 w-0 h-1 bg-primary/40 rounded-full group-hover:w-full transition-all duration-300"></span>
+            </a>
+            <a href="#exhibitions" data-i18n="nav_exhibitions"
+                class="relative group text-sm font-bold uppercase tracking-widest hover:text-primary transition-colors">
+                <span class="relative z-10">Exposicions</span>
+                <span
+                    class="absolute -bottom-1 left-0 w-0 h-1 bg-primary/40 rounded-full group-hover:w-full transition-all duration-300"></span>
+            </a>
+        </div>
+
+        <!-- Right Side: Tickets/Mobile -->
+        <div class="flex items-center gap-4">
+            <a href="https://mailchi.mp/evident/ceramic-lab-cat" data-i18n="nav_tickets"
+                class="hidden sm:block bg-primary hover:bg-[#B96A46] text-white px-6 py-2.5 rounded-full font-bold uppercase text-xs tracking-widest shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5 transition-all">
+                Invitacions
+            </a>
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-button"
+                class="md:hidden w-12 h-12 flex items-center justify-center rounded-full bg-secondary text-white shadow-lg active:scale-95 transition-transform">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Artistic Full-Screen Mobile Menu -->
+    <div id="mobile-overlay"
+        class="fixed inset-0 z-[120] bg-background-light/98 dark:bg-background-dark/98 backdrop-blur-xl hidden flex flex-col items-center justify-center p-12 overflow-hidden transition-all duration-500">
+        <!-- Floating artistic blobs -->
+        <div class="absolute -top-20 -left-20 w-64 h-64 bg-primary/20 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-20 -right-20 w-80 h-80 bg-secondary/20 rounded-full blur-3xl"></div>
+
+        <button id="close-mobile-menu"
+            class="absolute top-10 right-10 w-14 h-14 flex items-center justify-center rounded-full bg-primary text-white shadow-2xl active:scale-90 transition-transform">
+            <span class="material-symbols-outlined text-3xl">close</span>
+        </button>
+
+        <div class="flex flex-col items-center gap-8 text-center relative z-10">
+            <img src="ceramiclabbarcelona.png" alt="Logo" class="h-20 w-auto mb-6">
+            <a href="#hero" data-i18n="nav_home"
+                class="font-serif text-4xl font-bold hover:text-primary transition-colors text-text-main-light dark:text-white"
+                onclick="toggleArtisticMenu()">Inici</a>
+            <a href="#about" data-i18n="nav_about"
+                class="font-serif text-4xl font-bold hover:text-primary transition-colors text-text-main-light dark:text-white"
+                onclick="toggleArtisticMenu()">La Fira</a>
+            <a href="#what-find" data-i18n="nav_what_find"
+                class="font-serif text-4xl font-bold hover:text-primary transition-colors text-text-main-light dark:text-white"
+                onclick="toggleArtisticMenu()">Què trobaràs</a>
+            <a href="#workshops" data-i18n="nav_workshops"
+                class="font-serif text-4xl font-bold hover:text-primary transition-colors text-text-main-light dark:text-white"
+                onclick="toggleArtisticMenu()">Tallers</a>
+            <a href="#exhibitions" data-i18n="nav_exhibitions"
+                class="font-serif text-4xl font-bold hover:text-primary transition-colors text-text-main-light dark:text-white"
+                onclick="toggleArtisticMenu()">Exposicions</a>
+            <a href="https://mailchi.mp/evident/ceramic-lab-cat" data-i18n="nav_tickets"
+                class="mt-6 bg-primary text-white px-10 py-4 rounded-full font-bold uppercase tracking-widest text-lg shadow-2xl active:scale-95 transition-transform"
+                onclick="toggleArtisticMenu()">Invitacions</a>
+        </div>
+    </div>
+    <header id="hero"
+        class="relative bg-tertiary dark:bg-[#3E332B] overflow-hidden pt-24 pb-24 lg:pb-32 transition-colors duration-300">
         <div
             class="absolute top-0 left-0 w-64 h-64 bg-primary opacity-10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2">
         </div>
@@ -257,7 +353,7 @@
             </svg>
         </div>
     </header>
-    <section class="py-16 md:py-24 px-6 md:px-8 bg-background-light dark:bg-background-dark">
+    <section id="about" class="py-16 md:py-24 px-6 md:px-8 bg-background-light dark:bg-background-dark">
         <div class="container mx-auto max-w-5xl flex flex-col md:flex-row items-center gap-12">
             <div class="md:w-1/2 space-y-6">
                 <p data-i18n="about_p1" class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
@@ -293,7 +389,7 @@
             </div>
         </div>
     </section>
-    <section class="py-16 bg-card-light dark:bg-card-dark transition-colors duration-300">
+    <section id="what-find" class="py-16 bg-card-light dark:bg-card-dark transition-colors duration-300">
         <div class="container mx-auto px-6 md:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-5xl font-serif font-bold text-text-main-light dark:text-white mb-4">
@@ -384,6 +480,259 @@
                     </a>
                 </div>
             </div>
+    </section>
+
+    <!-- Workshops Section -->
+    <section id="workshops" class="py-12 bg-background-light dark:bg-background-dark transition-colors duration-300">
+        <div class="container mx-auto px-6 md:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-text-main-light dark:text-white mb-4">
+                    <span data-i18n="workshops_title" class="brush-underline">Tallers</span>
+                </h2>
+                <p data-i18n="workshops_subtitle" class="text-lg text-gray-500 dark:text-gray-400 mt-2 font-serif italic">Aprèn, crea i deixa fluir la teva creativitat</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Workshop 1 -->
+                <div class="group h-full flex flex-col bg-card-light dark:bg-card-dark rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-800">
+                    <div class="relative overflow-hidden aspect-video">
+                        <img src="https://handmadefestivalbcn.com/wp-content/uploads/2026/04/uc-17.png" alt="Workshop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-4 left-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-md">Taller</div>
+                    </div>
+                    <div class="p-5 flex flex-col flex-grow space-y-3">
+                        <h3 data-i18n="workshop_1_title" class="font-serif font-bold text-lg md:text-xl text-secondary dark:text-blue-300 leading-tight">Pintura sobre gres blanc: plat d'estiu</h3>
+                        <div class="flex-grow"></div>
+                        <a href="https://handmadefestivalbcn.com/es/taller-2026/pintura-sobre-ceramica-plato-de-verano-2/" target="_blank" data-i18n="cta_book" class="inline-flex items-center justify-center w-full bg-white dark:bg-transparent text-primary dark:text-white border-2 border-primary hover:bg-primary hover:text-white text-sm font-bold py-3 rounded-xl transition-all duration-300 group/btn">
+                            Reserva el taller
+                            <span class="material-symbols-outlined ml-2 text-sm group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Workshop 2 -->
+                <div class="group h-full flex flex-col bg-card-light dark:bg-card-dark rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-800">
+                    <div class="relative overflow-hidden aspect-video">
+                        <img src="https://handmadefestivalbcn.com/wp-content/uploads/2026/04/uc-21.png" alt="Workshop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-4 left-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-md">Taller</div>
+                    </div>
+                    <div class="p-5 flex flex-col flex-grow space-y-3">
+                        <h3 data-i18n="workshop_2_title" class="font-serif font-bold text-lg md:text-xl text-secondary dark:text-blue-300 leading-tight">Taller de gravat de gerros</h3>
+                        <div class="flex-grow"></div>
+                        <a href="https://handmadefestivalbcn.com/es/taller-2026/taller-de-tallado-en-jarron-2/" target="_blank" data-i18n="cta_book" class="inline-flex items-center justify-center w-full bg-white dark:bg-transparent text-primary dark:text-white border-2 border-primary hover:bg-primary hover:text-white text-sm font-bold py-3 rounded-xl transition-all duration-300 group/btn">
+                            Reserva el taller
+                            <span class="material-symbols-outlined ml-2 text-sm group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Workshop 3 -->
+                <div class="group h-full flex flex-col bg-card-light dark:bg-card-dark rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-800">
+                    <div class="relative overflow-hidden aspect-video">
+                        <img src="https://handmadefestivalbcn.com/wp-content/uploads/2026/04/uc-26.png" alt="Workshop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-4 left-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-md">Taller</div>
+                    </div>
+                    <div class="p-5 flex flex-col flex-grow space-y-3">
+                        <h3 data-i18n="workshop_3_title" class="font-serif font-bold text-lg md:text-xl text-secondary dark:text-blue-300 leading-tight">Esgrafiat en rajoles</h3>
+                        <div class="flex-grow"></div>
+                        <a href="https://handmadefestivalbcn.com/es/taller-2026/esgrafiado-sobre-azulejos-2/" target="_blank" data-i18n="cta_book" class="inline-flex items-center justify-center w-full bg-white dark:bg-transparent text-primary dark:text-white border-2 border-primary hover:bg-primary hover:text-white text-sm font-bold py-3 rounded-xl transition-all duration-300 group/btn">
+                            Reserva el taller
+                            <span class="material-symbols-outlined ml-2 text-sm group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Workshop 4 -->
+                <div class="group h-full flex flex-col bg-card-light dark:bg-card-dark rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-800">
+                    <div class="relative overflow-hidden aspect-video">
+                        <img src="https://handmadefestivalbcn.com/wp-content/uploads/2026/04/uc-31.png" alt="Workshop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-4 left-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-md">Taller</div>
+                    </div>
+                    <div class="p-5 flex flex-col flex-grow space-y-3">
+                        <h3 data-i18n="workshop_4_title" class="font-serif font-bold text-lg md:text-xl text-secondary dark:text-blue-300 leading-tight">Safata de ceràmica romàntica</h3>
+                        <div class="flex-grow"></div>
+                        <a href="https://handmadefestivalbcn.com/es/taller-2026/bandeja-de-ceramica-romantica-2/" target="_blank" data-i18n="cta_book" class="inline-flex items-center justify-center w-full bg-white dark:bg-transparent text-primary dark:text-white border-2 border-primary hover:bg-primary hover:text-white text-sm font-bold py-3 rounded-xl transition-all duration-300 group/btn">
+                            Reserva el taller
+                            <span class="material-symbols-outlined ml-2 text-sm group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Workshop 5 -->
+                <div class="group h-full flex flex-col bg-card-light dark:bg-card-dark rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-800">
+                    <div class="relative overflow-hidden aspect-video">
+                        <img src="https://handmadefestivalbcn.com/wp-content/uploads/2026/04/uc-114.jpeg" alt="Workshop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-4 left-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-md">Taller</div>
+                    </div>
+                    <div class="p-5 flex flex-col flex-grow space-y-3">
+                        <h3 data-i18n="workshop_5_title" class="font-serif font-bold text-lg md:text-xl text-secondary dark:text-blue-300 leading-tight">Crea el teu gerro de ceràmica a partir d’un motlle</h3>
+                        <div class="flex-grow"></div>
+                        <a href="https://handmadefestivalbcn.com/es/taller-2026/crea-tu-jarron-de-ceramica-a-partir-de-un-molde-2/" target="_blank" data-i18n="cta_book" class="inline-flex items-center justify-center w-full bg-white dark:bg-transparent text-primary dark:text-white border-2 border-primary hover:bg-primary hover:text-white text-sm font-bold py-3 rounded-xl transition-all duration-300 group/btn">
+                            Reserva el taller
+                            <span class="material-symbols-outlined ml-2 text-sm group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Workshop 6 -->
+                <div class="group h-full flex flex-col bg-card-light dark:bg-card-dark rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-800">
+                    <div class="relative overflow-hidden aspect-video">
+                        <img src="https://handmadefestivalbcn.com/wp-content/uploads/2026/04/uc-117.jpeg" alt="Workshop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-4 left-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-md">Taller</div>
+                    </div>
+                    <div class="p-5 flex flex-col flex-grow space-y-3">
+                        <h3 data-i18n="workshop_6_title" class="font-serif font-bold text-lg md:text-xl text-secondary dark:text-blue-300 leading-tight">Crea les teves flors en porcellana</h3>
+                        <div class="flex-grow"></div>
+                        <a href="https://handmadefestivalbcn.com/es/taller-2026/crea-tus-flores-en-porcellana-2/" target="_blank" data-i18n="cta_book" class="inline-flex items-center justify-center w-full bg-white dark:bg-transparent text-primary dark:text-white border-2 border-primary hover:bg-primary hover:text-white text-sm font-bold py-3 rounded-xl transition-all duration-300 group/btn">
+                            Reserva el taller
+                            <span class="material-symbols-outlined ml-2 text-sm group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Workshop 7 -->
+                <div class="group h-full flex flex-col bg-card-light dark:bg-card-dark rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-800">
+                    <div class="relative overflow-hidden aspect-video">
+                        <img src="https://handmadefestivalbcn.com/wp-content/uploads/2026/04/uc-36.png" alt="Workshop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-4 left-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-md">Taller</div>
+                    </div>
+                    <div class="p-5 flex flex-col flex-grow space-y-3">
+                        <h3 data-i18n="workshop_7_title" class="font-serif font-bold text-lg md:text-xl text-secondary dark:text-blue-300 leading-tight">Pinta la teva pròpia ceràmica</h3>
+                        <div class="flex-grow"></div>
+                        <a href="https://handmadefestivalbcn.com/es/taller-2026/pinta-tu-propia-ceramica/" target="_blank" data-i18n="cta_book" class="inline-flex items-center justify-center w-full bg-white dark:bg-transparent text-primary dark:text-white border-2 border-primary hover:bg-primary hover:text-white text-sm font-bold py-3 rounded-xl transition-all duration-300 group/btn">
+                            Reserva el taller
+                            <span class="material-symbols-outlined ml-2 text-sm group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Workshop 8 -->
+                <div class="group h-full flex flex-col bg-card-light dark:bg-card-dark rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-800">
+                    <div class="relative overflow-hidden aspect-video">
+                        <img src="https://handmadefestivalbcn.com/wp-content/uploads/2026/04/uc-92.jpeg" alt="Workshop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-4 left-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-md">Taller</div>
+                    </div>
+                    <div class="p-5 flex flex-col flex-grow space-y-3">
+                        <h3 data-i18n="workshop_8_title" class="font-serif font-bold text-lg md:text-xl text-secondary dark:text-blue-300 leading-tight">Modela un gat amb les teves mans</h3>
+                        <div class="flex-grow"></div>
+                        <a href="https://handmadefestivalbcn.com/es/taller-2026/modela-un-gato-con-tus-manos/" target="_blank" data-i18n="cta_book" class="inline-flex items-center justify-center w-full bg-white dark:bg-transparent text-primary dark:text-white border-2 border-primary hover:bg-primary hover:text-white text-sm font-bold py-3 rounded-xl transition-all duration-300 group/btn">
+                            Reserva el taller
+                            <span class="material-symbols-outlined ml-2 text-sm group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Workshop 9 -->
+                <div class="group h-full flex flex-col bg-card-light dark:bg-card-dark rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-800">
+                    <div class="relative overflow-hidden aspect-video">
+                        <img src="https://handmadefestivalbcn.com/wp-content/uploads/2026/04/uc-96.jpeg" alt="Workshop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-4 left-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-md">Taller</div>
+                    </div>
+                    <div class="p-5 flex flex-col flex-grow space-y-3">
+                        <h3 data-i18n="workshop_9_title" class="font-serif font-bold text-lg md:text-xl text-secondary dark:text-blue-300 leading-tight">Aprèn a modelar el cap d’una guineu</h3>
+                        <div class="flex-grow"></div>
+                        <a href="https://handmadefestivalbcn.com/es/taller-2026/aprende-a-modelar-la-cabeza-de-un-zorro/" target="_blank" data-i18n="cta_book" class="inline-flex items-center justify-center w-full bg-white dark:bg-transparent text-primary dark:text-white border-2 border-primary hover:bg-primary hover:text-white text-sm font-bold py-3 rounded-xl transition-all duration-300 group/btn">
+                            Reserva el taller
+                            <span class="material-symbols-outlined ml-2 text-sm group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exhibitions Section -->
+    <section id="exhibitions"
+        class="py-16 bg-background-light dark:bg-background-dark transition-colors duration-300 relative overflow-hidden">
+        <!-- Decorative Background Blobs -->
+        <div
+            class="absolute top-0 right-0 w-64 h-64 bg-tertiary opacity-10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2">
+        </div>
+        <div
+            class="absolute bottom-0 left-0 w-96 h-96 bg-primary opacity-5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2">
+        </div>
+
+        <div class="container mx-auto px-6 md:px-8 relative z-10">
+            <div class="text-center mb-12 lg:mb-20">
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-text-main-light dark:text-white mb-4">
+                    <span data-i18n="exhibitions_title" class="brush-underline">Exposicions</span>
+                </h2>
+                <p class="text-lg text-gray-500 dark:text-gray-400 mt-2 font-serif italic">Art, fang i creativitat en un
+                    sol espai</p>
+            </div>
+
+            <div class="space-y-16 lg:space-y-24">
+                <!-- Exhibition 1: Irina Slimobich -->
+                <div class="flex flex-col md:flex-row items-center gap-8 lg:gap-16 group">
+                    <div class="w-full md:w-1/2 relative">
+                        <div
+                            class="absolute -top-12 -left-8 text-[7rem] font-serif font-bold text-primary/5 dark:text-white/5 select-none z-0">
+                            01</div>
+                        <div
+                            class="relative z-10 blob-shape overflow-hidden shadow-xl border-4 border-white dark:border-gray-800 transform group-hover:rotate-1 transition-transform duration-500 aspect-square max-w-sm mx-auto">
+                            <img src="imatges-exposicions/IRINASLIMOBICH.webp" alt="Irina Slimobich"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2 space-y-4">
+                        <h3 data-i18n="exhibition_1_title"
+                            class="font-serif font-bold text-2xl md:text-3xl text-secondary dark:text-blue-300 leading-tight">
+                            IRINA SLIMOBICH A.K.A. IRINO</h3>
+                        <p data-i18n="exhibition_1_desc"
+                            class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed font-body">Ceramista i
+                            il·lustradora menorquina que resideix a Barcelona. La natura i els animals m'inspiren a
+                            crear un univers oníric en colors pastel, amb personatges imaginaris, plantes i textures
+                            impossibles.</p>
+                        <div class="h-1 w-24 bg-primary/40 rounded-full"></div>
+                    </div>
+                </div>
+
+                <!-- Exhibition 2: Pau Gargallo -->
+                <div class="flex flex-col md:flex-row-reverse items-center gap-8 lg:gap-16 group">
+                    <div class="w-full md:w-1/2 relative">
+                        <div
+                            class="absolute -top-12 -right-8 text-[7rem] font-serif font-bold text-secondary/5 dark:text-white/5 select-none z-0">
+                            02</div>
+                        <div class="relative z-10 blob-shape overflow-hidden shadow-xl border-4 border-white dark:border-gray-800 transform group-hover:-rotate-1 transition-transform duration-500 aspect-square max-w-sm mx-auto"
+                            style="border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;">
+                            <img src="imatges-exposicions/EXPOPAUGARGALLO.webp" alt="Escola d'Art Pau Gargallo"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2 space-y-4 md:text-right">
+                        <h3 data-i18n="exhibition_2_title"
+                            class="font-serif font-bold text-2xl md:text-3xl text-secondary dark:text-blue-300 leading-tight">
+                            Escola d'Art Pau Gargallo</h3>
+                        <p data-i18n="exhibition_2_desc"
+                            class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed font-body">Exposició
+                            col·lectiva de ceràmica de l'Escola d'Art Pau Gargallo.</p>
+                        <div class="h-1 w-24 bg-secondary/40 rounded-full ml-auto"></div>
+                    </div>
+                </div>
+
+                <!-- Exhibition 3: BCN Jardí de rajoles -->
+                <div class="flex flex-col md:flex-row items-center gap-8 lg:gap-16 group">
+                    <div class="w-full md:w-1/2 relative">
+                        <div
+                            class="absolute -top-12 -left-8 text-[7rem] font-serif font-bold text-tertiary/20 dark:text-white/5 select-none z-0">
+                            03</div>
+                        <div class="relative z-10 blob-shape overflow-hidden shadow-xl border-4 border-white dark:border-gray-800 transform group-hover:rotate-1 transition-transform duration-500 aspect-square max-w-sm mx-auto"
+                            style="border-radius: 50% 50% 30% 70% / 50% 30% 70% 50%;">
+                            <img src="imatges-exposicions/JARDIDERAJOLES.webp" alt="BCN Jardí de rajoles"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2 space-y-4">
+                        <h3 data-i18n="exhibition_3_title"
+                            class="font-serif font-bold text-2xl md:text-3xl text-secondary dark:text-blue-300 leading-tight">
+                            BCN, Jardí de rajoles</h3>
+                        <p data-i18n="exhibition_3_desc"
+                            class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed font-body">Exposició
+                            dedicada als terres hidràulics modernistes, en col·laboració amb @brontesbien.</p>
+                        <div class="h-1 w-24 bg-tertiary/60 rounded-full"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
     <section class="py-20 relative overflow-hidden bg-tertiary dark:bg-[#2C2A28]">
         <div class="absolute top-0 w-full h-12 bg-background-light dark:bg-card-dark rounded-b-[50%] scale-x-150"></div>
@@ -655,20 +1004,32 @@
                         <a href="#" target="_blank" rel="noopener noreferrer"
                             class="flex items-center justify-center bg-white dark:bg-white/5 p-6 md:p-8 rounded-3xl shadow-lg hover:shadow-xl transition-shadow duration-300 w-36 md:w-56 h-36 md:h-56">
                             <img alt="Natalia Ferrer" class="max-h-full max-w-full object-contain"
-                                src="logos-expositors/logo-natalia-ferrer.jpg" loading="lazy" decoding="async" width="300"
-                                height="300" />
+                                src="logos-expositors/logo-natalia-ferrer.jpg" loading="lazy" decoding="async"
+                                width="300" height="300" />
                         </a>
                         <a href="#" target="_blank" rel="noopener noreferrer"
                             class="flex items-center justify-center bg-white dark:bg-white/5 p-6 md:p-8 rounded-3xl shadow-lg hover:shadow-xl transition-shadow duration-300 w-36 md:w-56 h-36 md:h-56">
                             <img alt="Labori Ceramics" class="max-h-full max-w-full object-contain"
-                                src="logos-expositors/logo-labori-ceramics.jpg" loading="lazy" decoding="async" width="300"
-                                height="300" />
+                                src="logos-expositors/logo-labori-ceramics.jpg" loading="lazy" decoding="async"
+                                width="300" height="300" />
                         </a>
                         <a href="#" target="_blank" rel="noopener noreferrer"
                             class="flex items-center justify-center bg-white dark:bg-white/5 p-6 md:p-8 rounded-3xl shadow-lg hover:shadow-xl transition-shadow duration-300 w-36 md:w-56 h-36 md:h-56">
                             <img alt="Blanca Garrido" class="max-h-full max-w-full object-contain"
-                                src="logos-expositors/blanca-garrido-logo.webp" loading="lazy" decoding="async" width="300"
-                                height="300" />
+                                src="logos-expositors/blanca-garrido-logo.webp" loading="lazy" decoding="async"
+                                width="300" height="300" />
+                        </a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"
+                            class="flex items-center justify-center bg-white dark:bg-white/5 p-6 md:p-8 rounded-3xl shadow-lg hover:shadow-xl transition-shadow duration-300 w-36 md:w-56 h-36 md:h-56">
+                            <img alt="Genvitex logo" class="max-h-full max-w-full object-contain"
+                                src="logos-expositors/HMF-logo-ginevitex.jpg" loading="lazy" decoding="async"
+                                width="300" height="300" />
+                        </a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"
+                            class="flex items-center justify-center bg-white dark:bg-white/5 p-6 md:p-8 rounded-3xl shadow-lg hover:shadow-xl transition-shadow duration-300 w-36 md:w-56 h-36 md:h-56">
+                            <img alt="Valiceramica logo" class="max-h-full max-w-full object-contain"
+                                src="logos-expositors/HMF-LOGO-VALICERAMICA.jpg" loading="lazy" decoding="async"
+                                width="300" height="300" />
                         </a>
                     </div>
                 </div>
@@ -869,7 +1230,32 @@
                 press_label: "Premsa:",
                 copyright: "© Copyright HANDMADE FESTIVAL 2026 | Política de Cookies | Avis Legal | Política de privacitat",
                 back_to_hmf: "Tornar a Handmade Festival",
-                cta_tickets_url: "https://mailchi.mp/evident/ceramic-lab-cat"
+                cta_tickets_url: "https://mailchi.mp/evident/ceramic-lab-cat",
+                nav_home: "Inici",
+                nav_about: "La Fira",
+                nav_what_find: "Què trobaràs",
+                nav_exhibitions: "Exposicions",
+                nav_tickets: "Invitacions",
+                exhibitions_title: "Exposicions",
+                exhibition_1_title: "IRINA SLIMOBICH A.K.A. IRINO",
+                exhibition_1_desc: "Ceramista i il·lustradora menorquina que resideix a Barcelona. La natura i els animals m'inspiren a crear un univers oníric en colors pastel, amb personatges imaginaris, plantes i textures impossibles.",
+                exhibition_2_title: "Escola d'Art Pau Gargallo",
+                exhibition_2_desc: "Exposició col·lectiva de ceràmica de l'Escola d'Art Pau Gargallo.",
+                exhibition_3_title: "BCN, Jardí de rajoles",
+                exhibition_3_desc: "Exposició dedicada als terres hidràulics modernistes, en col·laboració amb @brontesbien.",
+                workshops_title: "Tallers de Ceràmica",
+                workshops_subtitle: "Aprèn, crea i deixa fluir la teva creativitat",
+                workshop_1_title: "Pintura sobre gres blanc: plat d'estiu",
+                workshop_2_title: "Taller de gravat de gerros",
+                workshop_3_title: "Esgrafiat en rajoles",
+                workshop_4_title: "Safata de ceràmica romàntica",
+                workshop_5_title: "Crea el teu gerro de ceràmica a partir d’un motlle",
+                workshop_6_title: "Crea les teves flors en porcellana",
+                workshop_7_title: "Pinta la teva pròpia ceràmica",
+                workshop_8_title: "Modela un gat amb les teves mans",
+                workshop_9_title: "Aprèn a modelar el cap d’una guineu",
+                cta_book: "Reserva el taller",
+                nav_workshops: "Tallers"
             },
             es: {
                 edition_text: "1a Edición de Creatividad y Barro",
@@ -901,7 +1287,32 @@
                 press_label: "Prensa:",
                 copyright: "© Copyright HANDMADE FESTIVAL 2026 | Política de Cookies | Aviso Legal | Política de privacidad",
                 back_to_hmf: "Volver a Handmade Festival",
-                cta_tickets_url: "https://mailchi.mp/evident/ceramic-lab-es"
+                cta_tickets_url: "https://mailchi.mp/evident/ceramic-lab-es",
+                nav_home: "Inicio",
+                nav_about: "La Feria",
+                nav_what_find: "Qué encontrarás",
+                nav_exhibitions: "Exposiciones",
+                nav_tickets: "Invitaciones",
+                exhibitions_title: "Exposiciones",
+                exhibition_1_title: "IRINA SLIMOBICH A.K.A. IRINO",
+                exhibition_1_desc: "Ceramista e ilustradora menorquina que reside en Barcelona. La naturaleza y los animales me inspiran a crear un universo onírico en colores pastel, con personajes imaginarios, plantas y texturas imposibles.",
+                exhibition_2_title: "Escuela de Arte Pau Gargallo",
+                exhibition_2_desc: "Exposición colectiva de cerámica de la Escuela de Arte Pau Gargallo.",
+                exhibition_3_title: "BCN, Jardín de baldosas",
+                exhibition_3_desc: "Exposición dedicada a los suelos hidráulicos modernistas, en colaboración con @brontesbien.",
+                workshops_title: "Talleres de Cerámica",
+                workshops_subtitle: "Aprende, crea y deja fluir tu creatividad",
+                workshop_1_title: "Pintura sobre ceramica: plato de verano",
+                workshop_2_title: "Taller de tallado en jarrón",
+                workshop_3_title: "Esgrafiado sobre azulejos",
+                workshop_4_title: "Bandeja de cerámica romantica",
+                workshop_5_title: "Crea tu jarrón de cerámica a partir de un molde",
+                workshop_6_title: "Crea tus flores en porcelana",
+                workshop_7_title: "Pinta tu propia cerámica",
+                workshop_8_title: "Modela un gato con tus manos",
+                workshop_9_title: "Aprende a modelar la cabeza de un zorro",
+                cta_book: "Reserva el taller",
+                nav_workshops: "Talleres"
             }
         };
 
@@ -916,7 +1327,7 @@
             // Update ticket links href
             const ticketUrl = translations[lang] ? translations[lang].cta_tickets_url : null;
             if (ticketUrl) {
-                document.querySelectorAll('[data-i18n="cta_tickets"]').forEach(element => {
+                document.querySelectorAll('[data-i18n="cta_tickets"], [data-i18n="nav_tickets"]').forEach(element => {
                     element.href = ticketUrl;
                 });
             }
@@ -942,6 +1353,55 @@
                 // Para .cat, .com o localhost, el idioma por defecto es catalán
                 changeLanguage('ca');
             }
+        });
+
+        function toggleArtisticMenu() {
+            const overlay = document.getElementById('mobile-overlay');
+            const isHidden = overlay.classList.contains('hidden');
+
+            if (isHidden) {
+                overlay.classList.remove('hidden');
+                setTimeout(() => overlay.style.opacity = '1', 10);
+                document.body.style.overflow = 'hidden';
+            } else {
+                overlay.style.opacity = '0';
+                setTimeout(() => overlay.classList.add('hidden'), 500);
+                document.body.style.overflow = '';
+            }
+        }
+
+        document.getElementById('mobile-menu-button').addEventListener('click', toggleArtisticMenu);
+        document.getElementById('close-mobile-menu').addEventListener('click', toggleArtisticMenu);
+
+        // Header shrink on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('main-nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('nav-scrolled');
+            } else {
+                nav.classList.remove('nav-scrolled');
+            }
+        });
+
+        // Smooth scroll implementation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const headerOffset = 100;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }
+            });
         });
     </script>
 </body>
