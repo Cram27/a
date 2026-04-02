@@ -161,6 +161,17 @@
         .nav-scrolled {
             @apply top-2 w-[98%] max-w-6xl h-16 !important;
         }
+        .nav-pill {
+            @apply fixed top-6 left-1/2 -translate-x-1/2 w-[92%] max-w-5xl h-16 z-[100] px-8 transition-all duration-500 flex items-center justify-between;
+        }
+
+        .nav-initial {
+            @apply bg-transparent border-transparent shadow-none top-8 max-w-6xl;
+        }
+
+        .nav-scrolled {
+            @apply bg-white/80 dark:bg-black/70 backdrop-blur-2xl border border-white/40 dark:border-white/10 shadow-2xl top-4;
+        }
     </style>
 </head>
 
@@ -188,22 +199,14 @@
     </div>
 
     <!-- Navigation Menu (Floating Pill) -->
-    <nav id="main-nav" class="fixed top-6 left-1/2 -translate-x-1/2 w-[92%] max-w-5xl h-20 rounded-full z-[100] px-8
-                   bg-white/70 dark:bg-black/60 backdrop-blur-2xl border border-white/40 dark:border-white/10 shadow-2xl 
-                   flex items-center justify-between transition-all duration-500">
+    <nav id="main-nav" class="nav-pill nav-initial">
         <!-- Logo Only -->
         <a href="#hero" class="hover:scale-110 transition-transform">
-            <img src="ceramiclabbarcelona.png" alt="Logo" class="h-10 md:h-12 w-auto">
+            <img src="ceramiclabbarcelona.png" alt="Logo" class="h-8 md:h-10 w-auto">
         </a>
 
         <!-- Desktop Links -->
-        <div class="hidden md:flex items-center gap-10">
-            <a href="#hero" data-i18n="nav_home"
-                class="relative group text-sm font-bold uppercase tracking-widest hover:text-primary transition-colors">
-                <span class="relative z-10">Inici</span>
-                <span
-                    class="absolute -bottom-1 left-0 w-0 h-1 bg-primary/40 rounded-full group-hover:w-full transition-all duration-300"></span>
-            </a>
+        <div class="hidden md:flex items-center gap-8 lg:gap-10">
             <a href="#about" data-i18n="nav_about"
                 class="relative group text-sm font-bold uppercase tracking-widest hover:text-primary transition-colors">
                 <span class="relative z-10">La Fira</span>
@@ -239,13 +242,13 @@
         <!-- Right Side: Tickets/Mobile -->
         <div class="flex items-center gap-4">
             <a href="https://mailchi.mp/evident/ceramic-lab-cat" data-i18n="nav_tickets"
-                class="hidden sm:block bg-primary hover:bg-[#B96A46] text-white px-6 py-2.5 rounded-full font-bold uppercase text-xs tracking-widest shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5 transition-all">
-                Invitacions
+                class="hidden lg:block bg-primary hover:bg-[#B96A46] text-white px-6 py-2 rounded-full font-bold uppercase text-[10px] tracking-widest shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5 transition-all">
+                Entrades
             </a>
             <!-- Mobile Menu Toggle -->
             <button id="mobile-menu-button"
-                class="md:hidden w-12 h-12 flex items-center justify-center rounded-full bg-secondary text-white shadow-lg active:scale-95 transition-transform">
-                <span class="material-symbols-outlined">menu</span>
+                class="md:hidden w-10 h-10 flex items-center justify-center rounded-full bg-secondary text-white shadow-lg active:scale-95 transition-transform">
+                <span class="material-symbols-outlined text-xl">menu</span>
             </button>
         </div>
     </nav>
@@ -1417,8 +1420,10 @@
             const nav = document.getElementById('main-nav');
             if (window.scrollY > 50) {
                 nav.classList.add('nav-scrolled');
+                nav.classList.remove('nav-initial');
             } else {
                 nav.classList.remove('nav-scrolled');
+                nav.classList.add('nav-initial');
             }
         });
 
