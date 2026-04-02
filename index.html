@@ -158,9 +158,6 @@
             border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
         }
 
-        .nav-scrolled {
-            @apply top-2 w-[98%] max-w-6xl h-16 !important;
-        }
         .nav-pill {
             @apply fixed top-6 left-1/2 -translate-x-1/2 w-[92%] max-w-5xl h-16 z-[100] px-8 transition-all duration-500 flex items-center justify-between;
         }
@@ -170,7 +167,7 @@
         }
 
         .nav-scrolled {
-            @apply bg-white/80 dark:bg-black/70 backdrop-blur-2xl border border-white/40 dark:border-white/10 shadow-2xl top-4;
+            @apply bg-white/80 dark:bg-black/70 backdrop-blur-2xl border border-white/40 dark:border-white/10 shadow-2xl top-4 rounded-full;
         }
     </style>
 </head>
@@ -241,7 +238,7 @@
 
         <!-- Right Side: Tickets/Mobile -->
         <div class="flex items-center gap-4">
-            <a href="https://mailchi.mp/evident/ceramic-lab-cat" data-i18n="nav_tickets"
+            <a href="#tickets" data-i18n="nav_tickets"
                 class="hidden lg:block bg-primary hover:bg-[#B96A46] text-white px-6 py-2 rounded-full font-bold uppercase text-[10px] tracking-widest shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5 transition-all">
                 Entrades
             </a>
@@ -1366,10 +1363,10 @@
                 }
             });
 
-            // Update ticket links href
+            // Update ticket links href (only for section CTAs, not for the nav anchor)
             const ticketUrl = translations[lang] ? translations[lang].cta_tickets_url : null;
             if (ticketUrl) {
-                document.querySelectorAll('[data-i18n="cta_tickets"], [data-i18n="nav_tickets"]').forEach(element => {
+                document.querySelectorAll('[data-i18n="cta_tickets"]').forEach(element => {
                     element.href = ticketUrl;
                 });
             }
