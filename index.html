@@ -234,6 +234,12 @@
                 <span
                     class="absolute -bottom-1 left-0 w-0 h-1 bg-primary/40 rounded-full group-hover:w-full transition-all duration-300"></span>
             </a>
+            <a href="faq.html" data-i18n="nav_faq"
+                class="relative group text-sm font-bold uppercase tracking-widest hover:text-primary transition-colors">
+                <span class="relative z-10">FAQ</span>
+                <span
+                    class="absolute -bottom-1 left-0 w-0 h-1 bg-primary/40 rounded-full group-hover:w-full transition-all duration-300"></span>
+            </a>
         </div>
 
         <!-- Right Side: Tickets/Mobile -->
@@ -282,6 +288,9 @@
             <a href="#exhibitions" data-i18n="nav_exhibitions"
                 class="font-serif text-4xl font-bold hover:text-primary transition-colors text-text-main-light dark:text-white"
                 onclick="toggleArtisticMenu()">Exposicions</a>
+            <a href="faq.html" data-i18n="nav_faq"
+                class="font-serif text-4xl font-bold hover:text-primary transition-colors text-text-main-light dark:text-white"
+                onclick="toggleArtisticMenu()">FAQ</a>
             <a href="https://mailchi.mp/evident/ceramic-lab-cat" data-i18n="nav_tickets"
                 class="mt-6 bg-primary text-white px-10 py-4 rounded-full font-bold uppercase tracking-widest text-lg shadow-2xl active:scale-95 transition-transform"
                 onclick="toggleArtisticMenu()">Invitacions</a>
@@ -647,6 +656,43 @@
                         <div class="h-1 w-24 bg-tertiary/60 rounded-full"></div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Preview Section -->
+    <section id="faq-preview" class="py-20 bg-card-light dark:bg-card-dark transition-colors duration-300">
+        <div class="container mx-auto px-6 md:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-text-main-light dark:text-white mb-4">
+                    <span data-i18n="faq_title" class="brush-underline">Preguntes freqüents</span>
+                </h2>
+                <p data-i18n="faq_subtitle" class="text-lg text-gray-500 dark:text-gray-400 mt-2 font-serif italic">Tot el que necessites saber sobre Ceramic Lab</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-12">
+                <div class="bg-white dark:bg-[#3E332B] p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
+                    <h3 data-i18n="faq_q1" class="font-bold text-xl mb-4 text-secondary dark:text-blue-300">Què puc esperar de Ceramic Lab?</h3>
+                    <p data-i18n="faq_a1" class="text-gray-600 dark:text-gray-400 leading-relaxed">Hi trobaràs expositors i ceramistes seleccionats, peces úniques, edicions limitades i producte d'autor, tallers i masterclasses...</p>
+                </div>
+                <div class="bg-white dark:bg-[#3E332B] p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
+                    <h3 data-i18n="faq_q2" class="font-bold text-xl mb-4 text-secondary dark:text-blue-300">Quan i on se celebrarà?</h3>
+                    <p data-i18n="faq_a2" class="text-gray-600 dark:text-gray-400 leading-relaxed">Tindrà lloc els dies 14, 15, 16 i 17 de maig al palau número 2 de la Fira de Barcelona, al recinte de Montjuïc.</p>
+                </div>
+                <div class="bg-white dark:bg-[#3E332B] p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
+                    <h3 data-i18n="faq_q3" class="font-bold text-xl mb-4 text-secondary dark:text-blue-300">Quins tipus d'entrades hi ha?</h3>
+                    <p data-i18n="faq_a3" class="text-gray-600 dark:text-gray-400 leading-relaxed">Hi ha entrades generals (invitacions) i entrades VIP + Taller que inclouen accés garantit i experiències exclusives.</p>
+                </div>
+                <div class="bg-white dark:bg-[#3E332B] p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
+                    <h3 data-i18n="faq_q4" class="font-bold text-xl mb-4 text-secondary dark:text-blue-300">Com arribar al recinte?</h3>
+                    <p data-i18n="faq_a4" class="text-gray-600 dark:text-gray-400 leading-relaxed">El festival se celebra al Recinte de Montjuïc de la Fira de Barcelona. Hi ha pàrquings propers i bona connexió amb transport públic.</p>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href="faq.html" data-i18n="faq_view_all" class="inline-block bg-primary hover:bg-[#B96A46] text-white font-bold py-4 px-10 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all duration-300">
+                    Veure totes les preguntes
+                </a>
             </div>
         </div>
     </section>
@@ -1035,6 +1081,9 @@
                         <a class="hover:text-tertiary transition-colors"
                             href="https://www.instagram.com/ceramiclabbarcelona" target="_blank" aria-label="Instagram">
                             <span class="material-symbols-outlined">photo_camera</span></a>
+                        <a class="hover:text-tertiary transition-colors"
+                            href="faq.html" aria-label="FAQ">
+                            <span class="material-symbols-outlined">help</span></a>
                     </div>
 
                     <div class="space-y-4 text-sm font-light">
@@ -1163,7 +1212,19 @@
                 workshops_title: "Tallers de Ceràmica",
                 workshops_subtitle: "Aprèn, crea i deixa fluir la teva creativitat",
                 cta_book: "Reserva el taller",
-                nav_workshops: "Tallers"
+                nav_workshops: "Tallers",
+                nav_faq: "FAQ",
+                faq_title: "Preguntes freqüents",
+                faq_subtitle: "Tot el que necessites saber sobre Ceramic Lab",
+                faq_view_all: "Veure totes les preguntes",
+                faq_q1: "Què puc esperar de Ceramic Lab?",
+                faq_a1: "Hi trobaràs expositors i ceramistes seleccionats, peces úniques, edicions limitades i producte d'autor, tallers i masterclasses per a adults i famílies, demos en directe, espais d'inspiració i una cuidada selecció de materials, eines i marques del sector.",
+                faq_q2: "Quan i on se celebrarà?",
+                faq_a2: "Tindrà lloc els dies 14, 15, 16 i 17 de maig al palau número 2 de la Fira de Barcelona, al recinte de Montjuïc.",
+                faq_q3: "Quins tipus d'entrades hi ha?",
+                faq_a3: "Hi ha entrades generals (invitacions) i entrades VIP + Taller que inclouen accés garantit i experiències exclusives.",
+                faq_q4: "Com arribar al recinte?",
+                faq_a4: "El festival se celebra al Recinte de Montjuïc de la Fira de Barcelona. Hi ha pàrquings propers i bona connexió amb transport públic."
             },
             es: {
                 edition_text: "1a Edición de Creatividad y Barro",
@@ -1218,7 +1279,19 @@
                 workshops_title: "Talleres de Cerámica",
                 workshops_subtitle: "Aprende, crea y deja fluir tu creatividad",
                 cta_book: "Reserva el taller",
-                nav_workshops: "Talleres"
+                nav_workshops: "Talleres",
+                nav_faq: "FAQ",
+                faq_title: "Preguntas frecuentes",
+                faq_subtitle: "Todo lo que necesitas saber sobre Ceramic Lab",
+                faq_view_all: "Ver todas las preguntas",
+                faq_q1: "¿Qué puedo esperar de Ceramic Lab?",
+                faq_a1: "Encontrarás expositores y ceramistas seleccionados, piezas únicas, ediciones limitadas y producto de autor, talleres y masterclasses para adultos y familias, demos en directo, espacios de inspiración y una cuidada selección de materiales, herramientas y marcas del sector.",
+                faq_q2: "¿Cuándo y dónde se celebrará?",
+                faq_a2: "Tendrá lugar los días 14, 15, 16 y 17 de mayo en el palacio número 2 de la Fira de Barcelona, en el recinto de Montjuic.",
+                faq_q3: "¿Qué tipos de entradas hay?",
+                faq_a3: "Hay entradas generales (invitaciones) y entradas VIP + Taller que incluyen acceso garantizado y experiencias exclusivas.",
+                faq_q4: "¿Cómo llegar al recinto?",
+                faq_a4: "El festival se celebra en el Recinto de Montjuïc de la Fira de Barcelona. Hay parkings cercanos y buena conexión con transporte público."
             }
         };
 
