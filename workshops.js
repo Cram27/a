@@ -114,6 +114,7 @@ function renderWorkshops(workshops) {
         const title = currentLang === 'ca' ? workshop['Título (Original)'] : workshop['Título (Traducción)'];
         const url = currentLang === 'ca' ? workshop['URL del Post (Original)'] : workshop['URL del Post (Traducción)'];
         const image = workshop['URL Imagen Destacada'];
+        const type = workshop['Tipus de tallers'] || 'Taller';
 
         // Fix HTML entities like &#8217;
         const cleanTitle = title.replace(/&#8217;/g, "'");
@@ -122,7 +123,7 @@ function renderWorkshops(workshops) {
             <div class="group h-full flex flex-col bg-card-light dark:bg-card-dark rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-800 animate-fade-in" style="animation-delay: ${index * 0.1}s">
                 <div class="relative overflow-hidden aspect-video">
                     <img src="${image}" alt="${cleanTitle}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://via.placeholder.com/400x225?text=Ceramica'">
-                    <div class="absolute top-4 left-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-md">Taller</div>
+                    <div class="absolute top-4 left-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-md">${type}</div>
                 </div>
                 <div class="p-5 flex flex-col flex-grow space-y-3">
                     <h3 class="font-serif font-bold text-lg md:text-xl text-secondary dark:text-blue-300 leading-tight">${cleanTitle}</h3>
