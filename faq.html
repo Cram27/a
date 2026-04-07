@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>FAQ - Ceramic Lab Barcelona</title>
+    <meta name="description" content="Preguntes freqüents sobre Ceramic Lab Barcelona. Tot el que necessites saber sobre entrades, tallers, horaris i més." />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="logos-expositors/FAVICO-CERMICLABBARCELONA.jpeg" />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&amp;family=Quicksand:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#D27D56",
+                        secondary: "#3B8EA5",
+                        tertiary: "#E8CBA5",
+                        "background-light": "#FDF6E9",
+                        "background-dark": "#1F1D1B",
+                        "card-light": "#FFFBF2",
+                        "card-dark": "#2C2A28",
+                        "text-main-light": "#4A4036",
+                        "text-main-dark": "#E5DCD0",
+                    },
+                    fontFamily: {
+                        display: ["'Pacifico'", "cursive"],
+                        body: ["'Quicksand'", "sans-serif"],
+                        serif: ["'Playfair Display'", "serif"],
+                    },
+                },
+            },
+        };
+    </script>
+    <style type="text/tailwindcss">
+        .brush-underline {
+            position: relative;
+            display: inline-block;
+        }
+
+        .brush-underline::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 100%;
+            height: 8px;
+            background-color: #D27D56;
+            opacity: 0.4;
+            border-radius: 4px;
+            z-index: -1;
+            transform: skew(-10deg) rotate(-2deg);
+        }
+
+        .nav-pill {
+            @apply fixed top-6 left-1/2 -translate-x-1/2 w-[92%] max-w-5xl h-16 z-[100] px-8 transition-all duration-500 flex items-center justify-between;
+        }
+
+        .nav-scrolled {
+            @apply bg-white/80 dark:bg-black/70 backdrop-blur-2xl border border-white/40 dark:border-white/10 shadow-2xl top-4 rounded-full;
+        }
+        
+        .faq-item {
+            @apply border-b border-gray-200 dark:border-gray-800 last:border-0;
+        }
+        
+        .faq-trigger {
+            @apply w-full py-6 flex justify-between items-center text-left hover:text-primary transition-colors cursor-pointer;
+        }
+        
+        .faq-content {
+            @apply max-h-0 overflow-hidden transition-all duration-300 ease-in-out;
+        }
+        
+        .faq-item.active .faq-content {
+            @apply max-h-[1000px] pb-6;
+        }
+        
+        .faq-item.active .faq-icon {
+            @apply rotate-180;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-text-main-light dark:text-text-main-dark font-body antialiased transition-colors duration-300">
+
+    <div class="bg-secondary text-white py-2 px-6 flex justify-between items-center text-xs font-bold uppercase tracking-wider relative z-20">
+        <a href="index.html" class="hover:text-tertiary transition-colors flex items-center gap-1">
+            <span class="material-symbols-outlined text-[14px]">arrow_back</span>
+            <span data-i18n="back_to_home">Tornar a l'Inici</span>
+        </a>
+        <div>
+            <a class="hover:text-tertiary transition-colors cursor-pointer" onclick="changeLanguage('ca')" id="lang-ca">CAT</a>
+            <span class="mx-2">|</span>
+            <a class="hover:text-tertiary transition-colors cursor-pointer" onclick="changeLanguage('es')" id="lang-es">ESP</a>
+        </div>
+    </div>
+
+    <!-- Navigation Menu (Floating Pill) -->
+    <nav id="main-nav" class="nav-pill nav-scrolled">
+        <a href="index.html" class="hover:scale-110 transition-transform">
+            <img src="ceramiclabbarcelona.png" alt="Logo" class="h-8 md:h-10 w-auto">
+        </a>
+
+        <div class="hidden md:flex items-center gap-8 lg:gap-10">
+            <a href="index.html#about" data-i18n="nav_about" class="relative group text-sm font-bold uppercase tracking-widest hover:text-primary transition-colors">
+                <span class="relative z-10">La Fira</span>
+            </a>
+            <a href="index.html#tickets" data-i18n="nav_tickets" class="relative group text-sm font-bold uppercase tracking-widest hover:text-primary transition-colors">
+                <span class="relative z-10">Entrades</span>
+            </a>
+            <a href="index.html#workshops" data-i18n="nav_workshops" class="relative group text-sm font-bold uppercase tracking-widest hover:text-primary transition-colors">
+                <span class="relative z-10">Tallers</span>
+            </a>
+            <a href="#" data-i18n="nav_faq" class="text-primary relative group text-sm font-bold uppercase tracking-widest transition-colors">
+                <span class="relative z-10">FAQ</span>
+            </a>
+        </div>
+
+        <div class="flex items-center gap-4">
+            <a href="index.html#tickets" data-i18n="nav_tickets" class="hidden lg:block bg-primary hover:bg-[#B96A46] text-white px-6 py-2 rounded-full font-bold uppercase text-[10px] tracking-widest shadow-lg transition-all">
+                Entrades
+            </a>
+        </div>
+    </nav>
+
+    <header class="relative bg-tertiary dark:bg-[#3E332B] overflow-hidden pt-40 pb-20 transition-colors duration-300">
+        <div class="container mx-auto px-6 md:px-8 relative z-10 text-center">
+            <h1 data-i18n="faq_title" class="text-4xl md:text-6xl font-serif font-bold text-text-main-light dark:text-white mb-4">Preguntes freqüents</h1>
+            <p data-i18n="faq_subtitle" class="text-xl text-gray-600 dark:text-gray-400 font-serif italic">Tot el que necessites saber sobre la teva visita</p>
+        </div>
+    </header>
+
+    <section class="py-16 bg-background-light dark:bg-background-dark min-h-screen">
+        <div class="container mx-auto px-6 md:px-8 max-w-4xl">
+            
+            <!-- Dynamic Search -->
+            <div class="mb-12 relative">
+                <input type="text" id="faq-search" data-i18n-placeholder="faq_search_placeholder" placeholder="Busca una pregunta..." class="w-full py-4 px-6 pr-12 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-card-dark focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all shadow-sm">
+                <span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-gray-400">search</span>
+            </div>
+
+            <div id="faq-container" class="space-y-4">
+                <!-- FAQ items will be rendered by JS -->
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-primary text-white py-12">
+        <div class="container mx-auto px-6 md:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-12 mb-12">
+                <div class="flex-1 flex justify-center md:justify-start">
+                    <img alt="Fira Barcelona" class="h-16 w-auto brightness-0 invert" src="logo_fira_barcelona.png" />
+                </div>
+                <div class="flex-1 flex justify-center">
+                    <img alt="Handmade Festival" class="h-12 md:h-16 w-auto brightness-0 invert" src="Handmadefestival-logo-home-2025.webp" />
+                </div>
+                <div class="flex-1 text-center md:text-right space-y-6">
+                    <div class="flex justify-center md:justify-end gap-6 text-xl">
+                        <a class="hover:text-tertiary transition-colors" href="https://www.instagram.com/ceramiclabbarcelona" target="_blank">
+                            <span class="material-symbols-outlined">photo_camera</span></a>
+                    </div>
+                    <div class="text-sm font-light">
+                        <p>© Copyright HANDMADE FESTIVAL 2026</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            ca: {
+                faq_title: "Preguntes freqüents",
+                faq_subtitle: "Tot el que necessites saber sobre la teva visita",
+                faq_search_placeholder: "Busca una pregunta...",
+                nav_about: "La Fira",
+                nav_tickets: "Entrades",
+                nav_workshops: "Tallers",
+                nav_faq: "FAQ",
+                back_to_home: "Tornar a l'Inici",
+                category_general: "General",
+                category_tickets: "Entrades",
+                category_workshops: "Tallers",
+                category_services: "Serveis i Accés",
+                category_logistics: "Logística"
+            },
+            es: {
+                faq_title: "Preguntas frecuentes",
+                faq_subtitle: "Todo lo que necesitas saber sobre tu visita",
+                faq_search_placeholder: "Busca una pregunta...",
+                nav_about: "La Feria",
+                nav_tickets: "Entradas",
+                nav_workshops: "Talleres",
+                nav_faq: "FAQ",
+                back_to_home: "Volver al Inicio",
+                category_general: "General",
+                category_tickets: "Entradas",
+                category_workshops: "Talleres",
+                category_services: "Servicios y Acceso",
+                category_logistics: "Logística"
+            }
+        };
+
+        const faqData = [
+            {
+                category: "general",
+                es: { q: "¿Qué puedo esperar de Ceramic Lab?", a: "Encontrarás expositores y ceramistas seleccionados, piezas únicas, ediciones limitadas y producto de autor, talleres y masterclasses para adultos y familias, demos en directo, espacios de inspiración y una cuidada selección de materiales, herramientas y marcas del sector.<br><br>Además, con tu entrada de Ceramic Lab podrás acceder también a Handmade Festival y disfrutar de toda su programación: expositores de brico, papel, hilo y otras disciplinas, exposiciones, talleres, conciertos, food trucks, actividades familiares y muchas actividades de manualidades para todos los públicos." },
+                ca: { q: "Què puc esperar de Ceramic Lab?", a: "Hi trobaràs expositors i ceramistes seleccionats, peces úniques, edicions limitades i producte d'autor, tallers i masterclasses per a adults i famílies, demos en directe, espais d'inspiració i una cuidada selecció de materials, eines i marques del sector.<br><br>A més, amb la teva entrada de Ceramic Lab podràs accedir també a Handmade Festival i gaudir de tota la seva programació: expositors de brico, paper, fil i altres disciplines, exposicions, tallers, concerts, food trucks, activitats familiars i moltes activitats de manualitats per a tots els públics." }
+            },
+            {
+                category: "general",
+                es: { q: "¿Cuándo y dónde se celebrará el Handmade Festival?", a: "Tendrá lugar los días 14, 15, 16 y 17 de mayo en el palacio número 2 de la Fira de Barcelona, en el recinto de Montjuic." },
+                ca: { q: "Quan i on se celebrarà el Handmade Festival?", a: "Tindrà lloc els dies 14, 15, 16 i 17 de maig al palau número 2 de la Fira de Barcelona, al recinte de Montjuïc." }
+            },
+            {
+                category: "general",
+                es: { q: "¿Es una experiencia en interior o exterior?", a: "Es un palacio interior con expositores, talleres y exposiciones y una zona de picnic, con conciertos y food trucks. Más de 14.000 m2 de Do it Yourself" },
+                ca: { q: "És una experiència en interior o exterior?", a: "És un palau interior amb expositors, tallers i exposicions i una zona de pícnic, amb concerts i food trucks. Més de 14.000 m2 de Do it Yourself." }
+            },
+            {
+                category: "general",
+                es: { q: "¿Estará abierto si llueve?", a: "Sí." },
+                ca: { q: "Estarà obert si plou?", a: "Sí." }
+            },
+            {
+                category: "tickets",
+                es: { q: "¿Qué tipos de entradas hay?", a: "<strong>ENTRADA GENERAL / INVITACIÓN 0€</strong><br>10€ INVITACIÓN<br>Qué incluye la invitación: Entrada gratuita al Handmade Festival, Acceso no garantizado (hasta completar aforo), Acceso a la programación en vivo.<br><br><strong>ENTRADA VIP + TALLER</strong><br>(Acceso garantizado + Taller exprés)<br>20€ + 1 € de gastos de gestión<br>Qué incluye la VIP + Taller: Acceso garantizado al recinto, 1 taller exprés de 1 hora a elegir, Acceso a toda la programación." },
+                ca: { q: "Quins tipus d'entrades hi ha?", a: "<strong>ENTRADA GENERAL / INVITACIÓ 0€</strong><br>10€ INVITACIÓ<br>Què inclou la invitació: Entrada gratuïta al Handmade Festival, Accés no garantit (fins a completar l'aforament), Accés a la programació en viu.<br><br><strong>ENTRADA VIP + TALLER</strong><br>(Accés garantit + Taller exprés)<br>20€ + 1 € de despeses de gestió<br>Què inclou la VIP + Taller: Accés garantit al recinte, 1 taller exprés d'1 hora a triar, Accés a tota la programació." }
+            },
+            {
+                category: "workshops",
+                es: { q: "¿Qué tipos de talleres hay?", a: "En Handmade Festival encontrarás dos tipos de talleres:<br><strong>Talleres Exprés:</strong> Son talleres organizados por Ceramic Lab Barcelona. Se compran conjuntamente con la entrada VIP + Taller e incluyen acceso garantizado, 1 taller exprés de 1 hora y acceso a toda la programación.<br><strong>Talleres Atelier:</strong> Son talleres organizados por los expositores del festival. Estos talleres se compran directamente a través del expositor. Una vez realizada la compra, el expositor enviará un enlace para descargar su entrada VIP con acceso asegurado y sin coste adicional." },
+                ca: { q: "Quins tipus de tallers hi ha?", a: "Al Handmade Festival trobaràs dos tipus de tallers:<br><strong>Tallers Exprés:</strong> Són tallers organitzats per Ceramic Lab Barcelona. Es compren conjuntament amb l'entrada VIP + Taller i inclouen accés garantit, 1 taller exprés d'1 hora i accés a tota la programació.<br><strong>Tallers Atelier:</strong> Són tallers organitzats pels expositors del festival. Aquests tallers es compren directament a través de l'expositor. Un cop realitzada la compra, l'expositor enviarà un enllaç per descarregar la seva entrada VIP amb accés assegurat i sense cost addicional." }
+            },
+            {
+                category: "workshops",
+                es: { q: "Si compro un Taller Atelier, ¿tengo que comprar también la entrada al festival?", a: "No. La compra de un Taller Atelier incluye una entrada VIP con acceso asegurado, sin coste adicional. Una vez confirmada la compra, el expositor te enviará un enlace para descargarla." },
+                ca: { q: "Si compro un Taller Atelier, haig de comprar també l'entrada al festival?", a: "No. La compra d'un Taller Atelier inclou una entrada VIP amb accés assegurat, sense cost addicional. Un cop confirmada la compra, l'expositor t'enviarà un enllaç per descarregar-la." }
+            },
+            {
+                category: "tickets",
+                es: { q: "¿Es necesario imprimir la entrada?", a: "No, no es necesario imprimir la entrada. Puedes mostrarla directamente desde tu móvil en el acceso al recinto. En Handmade Festival apostamos por un modelo paperless, para reducir el uso de papel y promover una experiencia más sostenible.<br>Importante: no se permitirá el acceso al recinto sin entrada o invitación previamente descargada." },
+                ca: { q: "Cal imprimir l'entrada?", a: "No, no cal imprimir l'entrada. Pots mostrar-la directament des del mòbil a l'accés al recinte. Al Handmade Festival apostem per un model paperless, per reduir l'ús de paper i promoure una experiència més sostenible.<br>Important: no es permetrà l'accés al recinte sense entrada o invitació prèviament descarregada." }
+            },
+            {
+                category: "tickets",
+                es: { q: "¿Hay taquillas para comprar la entrada in situ?", a: "No, solo se podrá comprar online." },
+                ca: { q: "Hi ha taquilles per comprar l'entrada in situ?", a: "No, només es podrà comprar online." }
+            },
+            {
+                category: "tickets",
+                es: { q: "¿Puedo entrar y salir del recinto con la misma entrada?", a: "No. Cada entrada es válida para un solo acceso al recinto. Una vez validada, no se permite volver a entrar con la misma entrada." },
+                ca: { q: "Puc entrar i sortir del recinte amb la mateixa entrada?", a: "No. Cada entrada és vàlida per a un sol accés al recinte. Un cop validada, no es permet tornar a entrar amb la mateixa entrada." }
+            },
+            {
+                category: "tickets",
+                es: { q: "¿Los niños a partir de qué edad tienen pagar entrada?", a: "A partir de 5 años." },
+                ca: { q: "A partir de quina edat han de pagar entrada els nens?", a: "A partir dels 5 anys." }
+            },
+            {
+                category: "services",
+                es: { q: "¿Hay aire acondicionado?", a: "Está climatizado." },
+                ca: { q: "Hi ha aire condicionat?", a: "Està climatitzat." }
+            },
+            {
+                category: "services",
+                es: { q: "¿La experiencia es accesible para personas sordas?", a: "No." },
+                ca: { q: "L'experiència és accessible per a persones sordes?", a: "No." }
+            },
+            {
+                category: "services",
+                es: { q: "¿Hay luces estroboscópicas, ruidos fuertes o máquinas de humo?", a: "No." },
+                ca: { q: "Hi ha llums estroboscòpiques, sorolls forts o màquines de fum?", a: "No." }
+            },
+            {
+                category: "services",
+                es: { q: "¿Cuáles son las opciones de acceso para personas con movilidad reducida (PMR)?", a: "Las personas con movilidad reducida deberán dirigirse al punto de información del evento, donde el personal de Fira les facilitará el acceso mediante una plataforma unipersonal, la cual será operada exclusivamente por dicho personal." },
+                ca: { q: "Quines són les opcions d'accés per a persones amb mobilitat reduïda (PMR)?", a: "Les persones amb mobilitat reduïda hauran d'adreçar-se al punt d'informació de l'esdeveniment, on el personal de Fira els facilitarà l'accés mitjançant una plataforma unipersonal, que serà operada exclusivament per aquest personal." }
+            },
+            {
+                category: "services",
+                es: { q: "¿Habrá comida y bebida disponible en el lugar?", a: "Hay una gran zona de picnic y foodtrucks, además de un DJ en directo y conciertos todo el día." },
+                ca: { q: "Hi haurà menjar i beguda disponible al lloc?", a: "Hi ha una gran zona de pícnic i food trucks, a més d'un DJ en directe i concerts tot el dia." }
+            },
+            {
+                category: "services",
+                es: { q: "¿Puedo tomar fotos o videos de la experiencia?", a: "Sí, y os animamos a compartirlo en redes sociales y etiquetarnos en @ceramiclabbarcelona" },
+                ca: { q: "Puc fer fotos o vídeos de l'experiència?", a: "Sí, i us animem a compartir-ho a les xarxes socials i etiquetar-nos a @ceramiclabbarcelona." }
+            },
+            {
+                category: "services",
+                es: { q: "¿Puedo tocar a los actores o decorados?", a: "No." },
+                ca: { q: "Puc tocar els actors o els decorats?", a: "No." }
+            },
+            {
+                category: "logistics",
+                es: { q: "¿Los menores de edad pueden ir solos al evento?", a: "No, la entrada no está disponible para menores no acompañados." },
+                ca: { q: "Els menors d'edat poden anar sols a l'esdeveniment?", a: "No, l'entrada no està disponible per a menors no acompanyats." }
+            },
+            {
+                category: "logistics",
+                es: { q: "¿A qué hora se abren las puertas?", a: "A las 10:00h." },
+                ca: { q: "A quina hora s'obren les portes?", a: "A les 10:00h." }
+            },
+            {
+                category: "logistics",
+                es: { q: "¿Hasta qué hora puedo entrar?", a: "Jueves, viernes y sábado hasta las 19:00 y domingo hasta las 15:00h. Es decir, 1 hora antes de la hora del cierre. Recomendamos acceder a la feria con tiempo de antelación para disfrutar de todo el contenido." },
+                ca: { q: "Fins a quina hora puc entrar?", a: "Dijous, divendres i dissabte fins a les 19:00 i diumenge fins a les 15:00h. És a dir, 1 hora abans de l'hora de tancament. Recomanem accedir a la fira amb temps d'antelació per gaudir de tot el contingut." }
+            },
+            {
+                category: "logistics",
+                es: { q: "¿Me dará tiempo de realizar todas las actividades?", a: "¡Sí! Podrás permanecer en el evento todo el tiempo que quieras, hasta cierre del evento (jueves, viernes y sábado hasta las 20:00h y domingo hasta las 16:00h)." },
+                ca: { q: "Em donarà temps de fer totes les activitats?", a: "Sí! Podràs romandre a l'esdeveniment tot el temps que vulguis, fins al tancament de l'esdeveniment (dijous, divendres i dissabte fins a les 20:00h i diumenge fins a les 16:00h)." }
+            },
+            {
+                category: "logistics",
+                es: { q: "¿Qué pasa si llego tarde?", a: "Lamentablemente, si llegas tarde perderás tu entrada." },
+                ca: { q: "Què passa si arribo tard?", a: "Malauradament, si arribes tard perdràs la teva entrada." }
+            },
+            {
+                category: "tickets",
+                es: { q: "¿Se devuelve el dinero si no asisto al taller o llego tarde?", a: "No se devolverá el dinero." },
+                ca: { q: "Es retornen els diners si no assisteixo al taller o arribo tard?", a: "No es retornaran els diners." }
+            },
+            {
+                category: "tickets",
+                es: { q: "¿Se devuelve el dinero en el caso de que no pueda hacer uso de la entrada?", a: "No, la entrada es no reembolsable." },
+                ca: { q: "Es retornen els diners en cas que no pugui fer ús de l'entrada?", a: "No, l'entrada no és reemborsable." }
+            },
+            {
+                category: "general",
+                es: { q: "¿Puedo llevar animales?", a: "Lamentablemente no está permitida la entrada de animales al recinto." },
+                ca: { q: "Puc portar animals?", a: "Malauradament no està permesa l'entrada d'animals al recinte." }
+            },
+            {
+                category: "general",
+                es: { q: "¿Hay una edad mínima?", a: "No." },
+                ca: { q: "Hi ha una edat mínima?", a: "No." }
+            },
+            {
+                category: "logistics",
+                es: { q: "¿Hay parking disponible?", a: "No. Pero hay un parking muy cerca del recinto." },
+                ca: { q: "Hi ha pàrquing disponible?", a: "No. Però hi ha un pàrquing molt a prop del recinte." }
+            },
+            {
+                category: "services",
+                es: { q: "¿Hay sillas de ruedas disponibles para alquilar?", a: "No." },
+                ca: { q: "Hi ha cadires de rodes disponibles per llogar?", a: "No." }
+            },
+            {
+                category: "general",
+                es: { q: "¿Qué medidas hay contra el COVID?", a: "La experiencia cumple con todas las normas sanitarias y de seguridad vigentes." },
+                ca: { q: "Quines mesures hi ha contra el COVID?", a: "L'experiència compleix totes les normes sanitàries i de seguretat vigents." }
+            }
+        ];
+
+        let currentLang = 'ca';
+
+        function renderFAQs(filter = '') {
+            const container = document.getElementById('faq-container');
+            container.innerHTML = '';
+            
+            const categories = [...new Set(faqData.map(item => item.category))];
+            
+            categories.forEach(cat => {
+                const categoryFiltered = faqData.filter(item => {
+                    const data = item[currentLang];
+                    return item.category === cat && 
+                           (data.q.toLowerCase().includes(filter.toLowerCase()) || 
+                            data.a.toLowerCase().includes(filter.toLowerCase()));
+                });
+                
+                if (categoryFiltered.length > 0) {
+                    const catTitle = document.createElement('h2');
+                    catTitle.className = "text-2xl font-serif font-bold text-primary mt-12 mb-6 border-b-2 border-primary/20 pb-2";
+                    catTitle.textContent = translations[currentLang][`category_${cat}`];
+                    container.appendChild(catTitle);
+                    
+                    categoryFiltered.forEach(item => {
+                        const data = item[currentLang];
+                        const faqItem = document.createElement('div');
+                        faqItem.className = "faq-item";
+                        faqItem.innerHTML = `
+                            <div class="faq-trigger" onclick="this.parentElement.classList.toggle('active')">
+                                <h3 class="font-bold pr-8">${data.q}</h3>
+                                <span class="material-symbols-outlined faq-icon transition-transform">expand_more</span>
+                            </div>
+                            <div class="faq-content">
+                                <p class="text-gray-600 dark:text-gray-400 leading-relaxed">${data.a}</p>
+                            </div>
+                        `;
+                        container.appendChild(faqItem);
+                    });
+                }
+            });
+        }
+
+        function changeLanguage(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+            
+            // Update UI elements with data-i18n
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) el.innerHTML = translations[lang][key];
+            });
+            
+            // Update placeholders
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (translations[lang][key]) el.placeholder = translations[lang][key];
+            });
+            
+            // Toggle lang active class
+            document.getElementById('lang-ca').style.opacity = lang === 'ca' ? '1' : '0.5';
+            document.getElementById('lang-es').style.opacity = lang === 'es' ? '1' : '0.5';
+            
+            renderFAQs(document.getElementById('faq-search').value);
+        }
+
+        document.getElementById('faq-search').addEventListener('input', (e) => {
+            renderFAQs(e.target.value);
+        });
+
+        // Scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('main-nav');
+            if (window.scrollY > 20) {
+                nav.classList.add('nav-scrolled');
+            }
+        });
+
+        // Initial render
+        document.addEventListener('DOMContentLoaded', () => {
+            const hostname = window.location.hostname;
+            if (hostname.endsWith('.es')) {
+                changeLanguage('es');
+            } else {
+                changeLanguage('ca');
+            }
+        });
+    </script>
+</body>
+</html>
