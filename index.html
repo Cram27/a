@@ -350,7 +350,7 @@
                     l'imperfecte.</span>
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4 mt-8">
-                <a data-i18n="cta_tickets" target="_blank" rel="noopener noreferrer" onclick="openModal(); return false;"
+                <a data-i18n="cta_tickets" href="#tickets"
                     class="bg-primary hover:bg-[#B96A46] text-white text-lg font-bold py-4 px-8 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all duration-300 border-2 border-primary cursor-pointer text-center inline-block">
                     Aconsegueix la teva invitació
                 </a>
@@ -487,7 +487,7 @@
                     "Si t’atrau la bellesa dels objectes ben fets i la força creativa del fang, aquí tens la teva fira."
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
-                    <a data-i18n="cta_tickets" target="_blank" rel="noopener noreferrer"
+                    <a data-i18n="cta_tickets" href="#tickets"
                         class="bg-primary hover:bg-[#B96A46] text-white text-lg font-bold py-4 px-8 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all duration-300 border-2 border-primary cursor-pointer text-center inline-block">
                         Aconsegueix la teva invitació
                     </a>
@@ -499,45 +499,115 @@
                 </div>
             </div>
     </section>
- 
+
     <!-- Tickets Section -->
-    <section id="tickets" class="py-20 bg-background-light dark:bg-[#2C2A28] transition-colors duration-300 relative overflow-hidden">
+    <section id="tickets"
+        class="py-20 bg-background-light dark:bg-[#2C2A28] transition-colors duration-300 relative overflow-hidden">
         <div class="container mx-auto px-6 md:px-8 text-center relative z-10">
             <h2 class="text-4xl md:text-5xl font-serif font-bold text-text-main-light dark:text-white mb-16">
                 <span data-i18n="tickets_title" class="brush-underline">Entrades</span>
             </h2>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <!-- Ticket 1: Invitació -->
-                <div class="bg-white dark:bg-[#3E332B] p-8 rounded-3xl shadow-lg border border-gray-100 dark:border-gray-800 flex flex-col items-center group hover:shadow-2xl transition-all duration-300">
-                    <div class="w-16 h-16 bg-tertiary/30 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <span class="material-symbols-outlined text-4xl text-primary">confirmation_number</span>
+
+            <div class="mb-16">
+                <h3 data-i18n="group_hobby_title"
+                    class="text-2xl md:text-3xl font-serif font-bold text-secondary dark:text-blue-300 mb-8">La ceràmica
+                    és el meu hobby</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <!-- Ticket 1: Invitació - Hobby -->
+                    <div
+                        class="bg-white dark:bg-[#3E332B] p-8 rounded-3xl shadow-lg border border-gray-100 dark:border-gray-800 flex flex-col items-center group hover:shadow-2xl transition-all duration-300">
+                        <div
+                            class="w-16 h-16 bg-tertiary/30 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-4xl text-primary">confirmation_number</span>
+                        </div>
+                        <h3 data-i18n="ticket_invitation_title"
+                            class="text-xl font-bold text-secondary dark:text-blue-300 mb-1">Invitació</h3>
+                        <p data-i18n="ticket_invitation_sub"
+                            class="text-sm text-gray-500 dark:text-gray-400 mb-8 font-serif italic text-center">(Accés
+                            lliure)</p>
+                        <div class="mt-auto w-full">
+                            <a id="link-gen-hobby"
+                                href="https://registration.firabarcelona.com/?filterById=3160#/es_CA/E230026/WEB"
+                                target="_blank" rel="noopener noreferrer" data-i18n="btn_get_ticket"
+                                class="inline-flex items-center justify-center w-full bg-primary text-white font-bold py-3 px-4 rounded-xl hover:bg-[#B96A46] transition-colors text-sm shadow-md">
+                                Aconsegueix la teva entrada
+                            </a>
+                        </div>
                     </div>
-                    <h3 data-i18n="ticket_invitation_title" class="text-xl font-bold text-secondary dark:text-blue-300 mb-1">Invitació</h3>
-                    <p data-i18n="ticket_invitation_sub" class="text-sm text-gray-500 dark:text-gray-400 mb-8 font-serif italic">(Accés lliure)</p>
-                    <div class="mt-auto w-full">
-                        <a href="#" target="_blank" rel="noopener noreferrer" onclick="openModal(); return false;"
-                           data-i18n="btn_get_ticket" class="inline-flex items-center justify-center w-full bg-primary text-white font-bold py-3 px-4 rounded-xl hover:bg-[#B96A46] transition-colors text-sm shadow-md">
-                           Aconsegueix la teva entrada
-                        </a>
+
+                    <!-- Ticket 3: VIP + TALLER - Hobby -->
+                    <div
+                        class="bg-white dark:bg-[#3E332B] p-8 rounded-3xl shadow-lg border border-gray-100 dark:border-gray-800 flex flex-col items-center group hover:shadow-2xl transition-all duration-300">
+                        <div
+                            class="w-16 h-16 bg-tertiary/50 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-4xl text-text-main-light">brush</span>
+                        </div>
+                        <h3 data-i18n="ticket_taller_title"
+                            class="text-xl font-bold text-secondary dark:text-blue-300 mb-1 leading-tight text-center">
+                            ENTRADA VIP + TALLER</h3>
+                        <p data-i18n="ticket_taller_sub"
+                            class="text-sm text-gray-500 dark:text-gray-400 mb-8 font-serif italic text-center">(Accés +
+                            Taller express)</p>
+                        <div class="mt-auto w-full">
+                            <a id="link-vip-hobby"
+                                href="https://registration.firabarcelona.com/?filterById=3193#/es_CA/E230026/WEB"
+                                target="_blank" rel="noopener noreferrer" data-i18n="btn_get_ticket"
+                                class="inline-flex items-center justify-center w-full bg-secondary text-white font-bold py-3 px-4 rounded-xl hover:bg-opacity-90 transition-colors text-sm shadow-md">
+                                Aconsegueix la teva entrada
+                            </a>
+                        </div>
                     </div>
                 </div>
+            </div>
 
-
-
-
-                <!-- Ticket 4: VIP + TALLER -->
-                <div class="bg-white dark:bg-[#3E332B] p-8 rounded-3xl shadow-lg border border-gray-100 dark:border-gray-800 flex flex-col items-center group hover:shadow-2xl transition-all duration-300">
-                    <div class="w-16 h-16 bg-tertiary/50 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <span class="material-symbols-outlined text-4xl text-text-main-light">brush</span>
+            <div class="mb-4">
+                <h3 data-i18n="group_prof_title"
+                    class="text-2xl md:text-3xl font-serif font-bold text-secondary dark:text-blue-300 mb-8">Tinc una
+                    relació professional amb el sector de la ceràmica</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <!-- Ticket 2: Invitació - Professional -->
+                    <div
+                        class="bg-white dark:bg-[#3E332B] p-8 rounded-3xl shadow-lg border border-gray-100 dark:border-gray-800 flex flex-col items-center group hover:shadow-2xl transition-all duration-300">
+                        <div
+                            class="w-16 h-16 bg-tertiary/30 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-4xl text-primary">work</span>
+                        </div>
+                        <h3 data-i18n="ticket_invitation_title"
+                            class="text-xl font-bold text-secondary dark:text-blue-300 mb-1">Invitació</h3>
+                        <p data-i18n="ticket_invitation_sub"
+                            class="text-sm text-gray-500 dark:text-gray-400 mb-8 font-serif italic text-center">(Accés
+                            lliure)</p>
+                        <div class="mt-auto w-full">
+                            <a id="link-gen-prof"
+                                href="https://registration.firabarcelona.com/?filterById=3192#/es_CA/E230026/WEB"
+                                target="_blank" rel="noopener noreferrer" data-i18n="btn_get_ticket"
+                                class="inline-flex items-center justify-center w-full bg-primary text-white font-bold py-3 px-4 rounded-xl hover:bg-[#B96A46] transition-colors text-sm shadow-md">
+                                Aconsegueix la teva entrada
+                            </a>
+                        </div>
                     </div>
-                    <h3 data-i18n="ticket_taller_title" class="text-xl font-bold text-secondary dark:text-blue-300 mb-1 leading-tight">ENTRADA VIP + TALLER</h3>
-                    <p data-i18n="ticket_taller_sub" class="text-sm text-gray-500 dark:text-gray-400 mb-8 font-serif italic">(Accés + Taller express)</p>
-                    <div class="mt-auto w-full">
-                        <a href="#" target="_blank" rel="noopener noreferrer" onclick="openModal(); return false;"
-                           data-i18n="btn_get_ticket" class="inline-flex items-center justify-center w-full bg-secondary text-white font-bold py-3 px-4 rounded-xl hover:bg-opacity-90 transition-colors text-sm shadow-md">
-                           Aconsegueix la teva entrada
-                        </a>
+
+                    <!-- Ticket 4: VIP + TALLER - Professional -->
+                    <div
+                        class="bg-white dark:bg-[#3E332B] p-8 rounded-3xl shadow-lg border border-gray-100 dark:border-gray-800 flex flex-col items-center group hover:shadow-2xl transition-all duration-300">
+                        <div
+                            class="w-16 h-16 bg-tertiary/50 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-4xl text-text-main-light">engineering</span>
+                        </div>
+                        <h3 data-i18n="ticket_taller_title"
+                            class="text-xl font-bold text-secondary dark:text-blue-300 mb-1 leading-tight text-center">
+                            ENTRADA VIP + TALLER</h3>
+                        <p data-i18n="ticket_taller_sub"
+                            class="text-sm text-gray-500 dark:text-gray-400 mb-8 font-serif italic text-center">(Accés +
+                            Taller express)</p>
+                        <div class="mt-auto w-full">
+                            <a id="link-vip-prof"
+                                href="https://registration.firabarcelona.com/?filterById=3194#/es_CA/E230026/WEB"
+                                target="_blank" rel="noopener noreferrer" data-i18n="btn_get_ticket"
+                                class="inline-flex items-center justify-center w-full bg-secondary text-white font-bold py-3 px-4 rounded-xl hover:bg-opacity-90 transition-colors text-sm shadow-md">
+                                Aconsegueix la teva entrada
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -551,7 +621,9 @@
                 <h2 class="text-4xl md:text-5xl font-serif font-bold text-text-main-light dark:text-white mb-4">
                     <span data-i18n="workshops_title" class="brush-underline">Tallers</span>
                 </h2>
-                <p data-i18n="workshops_subtitle" class="text-lg text-gray-500 dark:text-gray-400 mt-2 font-serif italic">Aprèn, crea i deixa fluir la teva creativitat</p>
+                <p data-i18n="workshops_subtitle"
+                    class="text-lg text-gray-500 dark:text-gray-400 mt-2 font-serif italic">Aprèn, crea i deixa fluir la
+                    teva creativitat</p>
             </div>
 
             <div id="workshops-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -667,30 +739,47 @@
                 <h2 class="text-4xl md:text-5xl font-serif font-bold text-text-main-light dark:text-white mb-4">
                     <span data-i18n="faq_title" class="brush-underline">Preguntes freqüents</span>
                 </h2>
-                <p data-i18n="faq_subtitle" class="text-lg text-gray-500 dark:text-gray-400 mt-2 font-serif italic">Tot el que necessites saber sobre Ceramic Lab</p>
+                <p data-i18n="faq_subtitle" class="text-lg text-gray-500 dark:text-gray-400 mt-2 font-serif italic">Tot
+                    el que necessites saber sobre Ceramic Lab</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-12">
-                <div class="bg-white dark:bg-[#3E332B] p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
-                    <h3 data-i18n="faq_q1" class="font-bold text-xl mb-4 text-secondary dark:text-blue-300">Què puc esperar de Ceramic Lab?</h3>
-                    <p data-i18n="faq_a1" class="text-gray-600 dark:text-gray-400 leading-relaxed">Hi trobaràs expositors i ceramistes seleccionats, peces úniques, edicions limitades i producte d'autor, tallers i masterclasses...</p>
+                <div
+                    class="bg-white dark:bg-[#3E332B] p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
+                    <h3 data-i18n="faq_q1" class="font-bold text-xl mb-4 text-secondary dark:text-blue-300">Què puc
+                        esperar de Ceramic Lab?</h3>
+                    <p data-i18n="faq_a1" class="text-gray-600 dark:text-gray-400 leading-relaxed">Hi trobaràs
+                        expositors i ceramistes seleccionats, peces úniques, edicions limitades i producte d'autor,
+                        tallers i masterclasses...</p>
                 </div>
-                <div class="bg-white dark:bg-[#3E332B] p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
-                    <h3 data-i18n="faq_q2" class="font-bold text-xl mb-4 text-secondary dark:text-blue-300">Quan i on se celebrarà?</h3>
-                    <p data-i18n="faq_a2" class="text-gray-600 dark:text-gray-400 leading-relaxed">Tindrà lloc els dies 14, 15, 16 i 17 de maig al palau número 2 de la Fira de Barcelona, al recinte de Montjuïc.</p>
+                <div
+                    class="bg-white dark:bg-[#3E332B] p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
+                    <h3 data-i18n="faq_q2" class="font-bold text-xl mb-4 text-secondary dark:text-blue-300">Quan i on se
+                        celebrarà?</h3>
+                    <p data-i18n="faq_a2" class="text-gray-600 dark:text-gray-400 leading-relaxed">Tindrà lloc els dies
+                        14, 15, 16 i 17 de maig al palau número 2 de la Fira de Barcelona, al recinte de Montjuïc.</p>
                 </div>
-                <div class="bg-white dark:bg-[#3E332B] p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
-                    <h3 data-i18n="faq_q3" class="font-bold text-xl mb-4 text-secondary dark:text-blue-300">Quins tipus d'entrades hi ha?</h3>
-                    <p data-i18n="faq_a3" class="text-gray-600 dark:text-gray-400 leading-relaxed">Hi ha entrades generals (invitacions) i entrades VIP + Taller que inclouen accés garantit i experiències exclusives.</p>
+                <div
+                    class="bg-white dark:bg-[#3E332B] p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
+                    <h3 data-i18n="faq_q3" class="font-bold text-xl mb-4 text-secondary dark:text-blue-300">Quins tipus
+                        d'entrades hi ha?</h3>
+                    <p data-i18n="faq_a3" class="text-gray-600 dark:text-gray-400 leading-relaxed">Hi ha entrades
+                        generals (invitacions) i entrades VIP + Taller que inclouen accés garantit i experiències
+                        exclusives.</p>
                 </div>
-                <div class="bg-white dark:bg-[#3E332B] p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
-                    <h3 data-i18n="faq_q4" class="font-bold text-xl mb-4 text-secondary dark:text-blue-300">Com arribar al recinte?</h3>
-                    <p data-i18n="faq_a4" class="text-gray-600 dark:text-gray-400 leading-relaxed">El festival se celebra al Recinte de Montjuïc de la Fira de Barcelona. Hi ha pàrquings propers i bona connexió amb transport públic.</p>
+                <div
+                    class="bg-white dark:bg-[#3E332B] p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
+                    <h3 data-i18n="faq_q4" class="font-bold text-xl mb-4 text-secondary dark:text-blue-300">Com arribar
+                        al recinte?</h3>
+                    <p data-i18n="faq_a4" class="text-gray-600 dark:text-gray-400 leading-relaxed">El festival se
+                        celebra al Recinte de Montjuïc de la Fira de Barcelona. Hi ha pàrquings propers i bona connexió
+                        amb transport públic.</p>
                 </div>
             </div>
 
             <div class="text-center">
-                <a href="faq.html" data-i18n="faq_view_all" class="inline-block bg-primary hover:bg-[#B96A46] text-white font-bold py-4 px-10 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all duration-300">
+                <a href="faq.html" data-i18n="faq_view_all"
+                    class="inline-block bg-primary hover:bg-[#B96A46] text-white font-bold py-4 px-10 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all duration-300">
                     Veure totes les preguntes
                 </a>
             </div>
@@ -1081,8 +1170,7 @@
                         <a class="hover:text-tertiary transition-colors"
                             href="https://www.instagram.com/ceramiclabbarcelona" target="_blank" aria-label="Instagram">
                             <span class="material-symbols-outlined">photo_camera</span></a>
-                        <a class="hover:text-tertiary transition-colors"
-                            href="faq.html" aria-label="FAQ">
+                        <a class="hover:text-tertiary transition-colors" href="faq.html" aria-label="FAQ">
                             <span class="material-symbols-outlined">help</span></a>
                     </div>
 
@@ -1196,9 +1284,10 @@
                 nav_exhibitions: "Exposicions",
                 nav_tickets: "Entrades",
                 tickets_title: "Entrades",
+                group_hobby_title: "La ceràmica és el meu hobby",
+                group_prof_title: "Tinc una relació professional amb el sector de la ceràmica",
                 ticket_invitation_title: "Invitació",
                 ticket_invitation_sub: "(Accés lliure)",
-
                 ticket_taller_title: "ENTRADA VIP + TALLER",
                 ticket_taller_sub: "(Accés + Taller express)",
                 btn_get_ticket: "Aconsegueix la teva entrada",
@@ -1263,9 +1352,10 @@
                 nav_exhibitions: "Exposiciones",
                 nav_tickets: "Entradas",
                 tickets_title: "Entradas",
+                group_hobby_title: "La cerámica es mi hobby",
+                group_prof_title: "Tengo una relación profesional con el sector de la cerámica",
                 ticket_invitation_title: "Invitación",
                 ticket_invitation_sub: "(Acceso libre)",
-
                 ticket_taller_title: "ENTRADA VIP + TALLER",
                 ticket_taller_sub: "(Acceso + Taller express)",
                 btn_get_ticket: "Consigue tu entrada",
@@ -1303,15 +1393,21 @@
                 }
             });
 
-            // Update ticket links href (only for section CTAs, not for the nav anchor)
-            const ticketUrl = translations[lang] ? translations[lang].cta_tickets_url : null;
-            if (ticketUrl) {
-                document.querySelectorAll('[data-i18n="cta_tickets"]').forEach(element => {
-                    element.href = ticketUrl;
-                });
-            }
-
             document.documentElement.lang = lang;
+
+            // Update ticket links hrefs based on language
+            const isEs = lang === 'es';
+            const linkGenHobby = document.getElementById('link-gen-hobby');
+            if (linkGenHobby) linkGenHobby.href = isEs ? 'https://registration.firabarcelona.com/?filterById=3160#/es_ES/E230026/WEB' : 'https://registration.firabarcelona.com/?filterById=3160#/es_CA/E230026/WEB';
+
+            const linkGenProf = document.getElementById('link-gen-prof');
+            if (linkGenProf) linkGenProf.href = isEs ? 'https://registration.firabarcelona.com/?filterById=3192#/es_ES/E230026/WEB' : 'https://registration.firabarcelona.com/?filterById=3192#/es_CA/E230026/WEB';
+
+            const linkVipHobby = document.getElementById('link-vip-hobby');
+            if (linkVipHobby) linkVipHobby.href = isEs ? 'https://registration.firabarcelona.com/?filterById=3193#/es_ES/E230026/WEB' : 'https://registration.firabarcelona.com/?filterById=3193#/es_CA/E230026/WEB';
+
+            const linkVipProf = document.getElementById('link-vip-prof');
+            if (linkVipProf) linkVipProf.href = isEs ? 'https://registration.firabarcelona.com/?filterById=3194#/es_ES/E230026/WEB' : 'https://registration.firabarcelona.com/?filterById=3194#/es_CA/E230026/WEB';
 
             // Update meta description for SEO when language changes
             const metaDescription = document.querySelector('meta[name="description"]');
