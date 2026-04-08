@@ -1256,7 +1256,7 @@
                 hero_powered_by: "Impulsat pel Handmade Festival",
                 hero_subtitle_html: 'Sí, ens taquem les mans. Tornem a l\'origen.<br /><span class="font-medium text-secondary dark:text-blue-300">Descobreix la bellesa de l\'imperfecte.</span>',
                 cta_tickets: "Aconsegueix la teva invitació",
-                modal_message: "A partir del 9 d'abril",
+                modal_message: "A partir del 9 d'abril a les 12:00 h",
                 cta_workshops: "Reserva un taller",
                 about_p1: "Ceramic Lab és la primera fira dedicada exclusivament a la ceràmica: un punt de trobada per descobrir, comprar i viure la ceràmica des de dins.",
                 about_p2: "Hi trobaràs marques i ceramistes seleccionats, peces úniques i col·leccions contemporànies, a més de materials, eines i propostes per a tots els nivells. Un espai pensat tant per a públic curiós com per a amants de la ceràmica i professionals del sector.",
@@ -1324,7 +1324,7 @@
                 hero_powered_by: "Impulsado por el Handmade Festival",
                 hero_subtitle_html: 'Sí, nos manchamos las manos. Volvemos al origen.<br /><span class="font-medium text-secondary dark:text-blue-300">Descubre la belleza de lo imperfecto.</span>',
                 cta_tickets: "Consigue tu invitación",
-                modal_message: "A partir del 9 de abril",
+                modal_message: "A partir del 9 de abril a las 12:00 h",
                 cta_workshops: "Reserva un taller",
                 about_p1: "Ceramic Lab es la primera feria dedicada exclusivamente a la cerámica: un punto de encuentro para descubrir, comprar y vivir la cerámica desde dentro.",
                 about_p2: "Encontrarás marcas y ceramistas seleccionados, piezas únicas y colecciones contemporáneas, además de materiales, herramientas y propuestas para todos los niveles. Un espacio pensado tanto para público curioso como para amantes de la cerámica y profesionales del sector.",
@@ -1428,6 +1428,23 @@
                 // Para .cat, .com o localhost, el idioma por defecto es catalán
                 changeLanguage('ca');
             }
+
+            // Lógica para bloquear entradas hasta el 9 de abril a las 12:00h
+            const ticketLinks = ['link-gen-hobby', 'link-gen-prof', 'link-vip-hobby', 'link-vip-prof'];
+            const targetTime = new Date('2026-04-09T12:00:00+02:00'); // Hora exacta de apertura
+
+            ticketLinks.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    el.addEventListener('click', (e) => {
+                        const now = new Date();
+                        if (now < targetTime) {
+                            e.preventDefault();
+                            openModal();
+                        }
+                    });
+                }
+            });
         });
 
         function toggleArtisticMenu() {
