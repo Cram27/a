@@ -1267,7 +1267,9 @@
                 faq_q3: "Quins tipus d'entrades hi ha?",
                 faq_a3: "Hi ha entrades generals (invitacions) i entrades VIP + Taller que inclouen accés garantit i experiències exclusives.",
                 faq_q4: "Com arribar al recinte?",
-                faq_a4: "El festival se celebra al Recinte de Montjuïc de la Fira de Barcelona. Hi ha pàrquings propers i bona connexió amb transport públic."
+                faq_a4: "El festival se celebra al Recinte de Montjuïc de la Fira de Barcelona. Hi ha pàrquings propers i bona connexió amb transport públic.",
+                sticky_bar_text: "Aconsegueix la teva entrada pel Ceramic Lab 2026!",
+                sticky_bar_btn: "Aconsegueix la teva entrada"
             },
             es: {
                 edition_text: "1a Edición de Creatividad y Barro",
@@ -1336,7 +1338,9 @@
                 faq_q3: "¿Qué tipos de entradas hay?",
                 faq_a3: "Hay entradas generales (invitaciones) y entradas VIP + Taller que incluyen acceso garantizado y experiencias exclusivas.",
                 faq_q4: "¿Cómo llegar al recinto?",
-                faq_a4: "El festival se celebra en el Recinto de Montjuïc de la Fira de Barcelona. Hay parkings cercanos y buena conexión con transporte público."
+                faq_a4: "El festival se celebra en el Recinto de Montjuïc de la Fira de Barcelona. Hay parkings cercanos y buena conexión con transporte público.",
+                sticky_bar_text: "¡Consigue tu entrada para el Ceramic Lab 2026!",
+                sticky_bar_btn: "Consigue tu entrada"
             }
         };
 
@@ -1361,6 +1365,14 @@
             document.querySelectorAll('.js-link-vip, #link-vip').forEach(el => {
                 if (el) el.href = vipUrl;
             });
+
+            // Update sticky bar link
+            const stickyLink = document.getElementById('sticky-bar-link');
+            if (stickyLink) {
+                stickyLink.href = isEs 
+                    ? 'https://registration.firabarcelona.com/#/es_ES/E230026/WEB' 
+                    : 'https://registration.firabarcelona.com/#/es_CA/E230026/WEB';
+            }
 
             // Update meta description for SEO when language changes
             const metaDescription = document.querySelector('meta[name="description"]');
@@ -1434,7 +1446,22 @@
             });
         });
     </script>
-    <script src="workshops.js"></script>
+    <!-- Sticky Bottom CTA Bar -->
+    <div id="sticky-cta-bar"
+        class="fixed bottom-0 left-0 right-0 bg-primary/95 font-bold uppercase tracking-widest backdrop-blur-md text-white py-4 px-6 z-[150] shadow-[0_-4px_20px_rgba(0,0,0,0.15)] transform translate-y-0 transition-transform duration-500">
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-center gap-4 text-center md:text-left">
+            <p data-i18n="sticky_bar_text" class="font-bold text-sm md:text-base tracking-wide">
+                Aconsegueix la teva entrada pel Ceramic Lab 2026!
+            </p>
+            <a id="sticky-bar-link" href="https://registration.firabarcelona.com/#/es_CA/E230026/WEB" target="_blank"
+                rel="noopener noreferrer"
+                class="bg-white text-primary hover:bg-[#3B8EA5] hover:text-white px-8 py-2 rounded-full font-bold uppercase tracking-widest text-xs transition-all shadow-lg active:scale-95 whitespace-nowrap">
+                <span data-i18n="sticky_bar_btn">Aconsegueix la teva entrada</span>
+            </a>
+        </div>
+    </div>
+
+    <script src="workshops.js?v=1.1"></script>
 </body>
 
 </html>
