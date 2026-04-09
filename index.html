@@ -356,7 +356,7 @@
                 </a>
                 <a data-i18n="cta_workshops"
                     class="js-link-vip bg-white dark:bg-transparent text-primary dark:text-white border-2 border-primary hover:bg-primary hover:text-white text-lg font-bold py-4 px-8 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all duration-300 dark:hover:border-primary"
-                    href="https://registration.firabarcelona.com/?filterById=3160_3192#/es_CA/E230026/WEB" target="_blank" rel="noopener noreferrer">
+                    href="https://registration.firabarcelona.com/?filterById=3193_3194#/es_CA/E230026/WEB" target="_blank" rel="noopener noreferrer">
                     Reserva un taller
                 </a>
             </div>
@@ -493,7 +493,7 @@
                     </a>
                     <a data-i18n="cta_workshops"
                         class="js-link-vip bg-white dark:bg-transparent text-primary dark:text-white border-2 border-primary hover:bg-primary hover:text-white text-lg font-bold py-4 px-8 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all duration-300 dark:hover:border-primary"
-                        href="https://registration.firabarcelona.com/?filterById=3160_3192#/es_CA/E230026/WEB" target="_blank" rel="noopener noreferrer">
+                        href="https://registration.firabarcelona.com/?filterById=3193_3194#/es_CA/E230026/WEB" target="_blank" rel="noopener noreferrer">
                         Reserva un taller
                     </a>
                 </div>
@@ -1345,10 +1345,14 @@
 
             // Update ticket links hrefs based on language
             const isEs = lang === 'es';
-            const targetUrl = isEs ? 'https://registration.firabarcelona.com/?filterById=3160_3192#/es_ES/E230026/WEB' : 'https://registration.firabarcelona.com/?filterById=3160_3192#/es_CA/E230026/WEB';
+            const genUrl = isEs ? 'https://registration.firabarcelona.com/?filterById=3160_3192#/es_ES/E230026/WEB' : 'https://registration.firabarcelona.com/?filterById=3160_3192#/es_CA/E230026/WEB';
+            const vipUrl = isEs ? 'https://registration.firabarcelona.com/?filterById=3193_3194#/es_ES/E230026/WEB' : 'https://registration.firabarcelona.com/?filterById=3193_3194#/es_CA/E230026/WEB';
             
-            document.querySelectorAll('.js-link-gen, .js-link-vip, #link-gen, #link-vip').forEach(el => {
-                if (el) el.href = targetUrl;
+            document.querySelectorAll('.js-link-gen, #link-gen').forEach(el => {
+                if (el) el.href = genUrl;
+            });
+            document.querySelectorAll('.js-link-vip, #link-vip').forEach(el => {
+                if (el) el.href = vipUrl;
             });
 
             // Update meta description for SEO when language changes
