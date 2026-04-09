@@ -525,7 +525,7 @@
                             lliure)</p>
                         <div class="mt-auto w-full">
                             <a id="link-gen"
-                                href="https://registration.firabarcelona.com/?filterById=3160#/es_CA/E230026/WEB"
+                                href="https://registration.firabarcelona.com/?filterById=3160_3192#/es_CA/E230026/WEB"
                                 target="_blank" rel="noopener noreferrer" data-i18n="btn_get_ticket"
                                 class="inline-flex items-center justify-center w-full bg-primary text-white font-bold py-3 px-4 rounded-xl hover:bg-[#B96A46] transition-colors text-sm shadow-md">
                                 Aconsegueix la teva entrada
@@ -548,7 +548,7 @@
                             Taller express)</p>
                         <div class="mt-auto w-full">
                             <a id="link-vip"
-                                href="https://registration.firabarcelona.com/?filterById=3193#/es_CA/E230026/WEB"
+                                href="https://registration.firabarcelona.com/?filterById=3193_3194#/es_CA/E230026/WEB"
                                 target="_blank" rel="noopener noreferrer" data-i18n="btn_get_ticket"
                                 class="inline-flex items-center justify-center w-full bg-secondary text-white font-bold py-3 px-4 rounded-xl hover:bg-opacity-90 transition-colors text-sm shadow-md">
                                 Aconsegueix la teva entrada
@@ -1345,17 +1345,11 @@
 
             // Update ticket links hrefs based on language
             const isEs = lang === 'es';
-            const linkGenHobby = document.getElementById('link-gen-hobby');
-            if (linkGenHobby) linkGenHobby.href = isEs ? 'https://registration.firabarcelona.com/?filterById=3160#/es_ES/E230026/WEB' : 'https://registration.firabarcelona.com/?filterById=3160#/es_CA/E230026/WEB';
+            const linkGen = document.getElementById('link-gen');
+            if (linkGen) linkGen.href = isEs ? 'https://registration.firabarcelona.com/?filterById=3160_3192#/es_ES/E230026/WEB' : 'https://registration.firabarcelona.com/?filterById=3160_3192#/es_CA/E230026/WEB';
 
-            const linkGenProf = document.getElementById('link-gen-prof');
-            if (linkGenProf) linkGenProf.href = isEs ? 'https://registration.firabarcelona.com/?filterById=3192#/es_ES/E230026/WEB' : 'https://registration.firabarcelona.com/?filterById=3192#/es_CA/E230026/WEB';
-
-            const linkVipHobby = document.getElementById('link-vip-hobby');
-            if (linkVipHobby) linkVipHobby.href = isEs ? 'https://registration.firabarcelona.com/?filterById=3193#/es_ES/E230026/WEB' : 'https://registration.firabarcelona.com/?filterById=3193#/es_CA/E230026/WEB';
-
-            const linkVipProf = document.getElementById('link-vip-prof');
-            if (linkVipProf) linkVipProf.href = isEs ? 'https://registration.firabarcelona.com/?filterById=3194#/es_ES/E230026/WEB' : 'https://registration.firabarcelona.com/?filterById=3194#/es_CA/E230026/WEB';
+            const linkVip = document.getElementById('link-vip');
+            if (linkVip) linkVip.href = isEs ? 'https://registration.firabarcelona.com/?filterById=3193_3194#/es_ES/E230026/WEB' : 'https://registration.firabarcelona.com/?filterById=3193_3194#/es_CA/E230026/WEB';
 
             // Update meta description for SEO when language changes
             const metaDescription = document.querySelector('meta[name="description"]');
