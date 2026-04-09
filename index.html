@@ -1431,23 +1431,6 @@
                 // Para .cat, .com o localhost, el idioma por defecto es catalán
                 changeLanguage('ca');
             }
-
-            // Lógica para bloquear entradas hasta el 9 de abril a las 12:00h
-            const ticketLinks = ['link-gen-hobby', 'link-gen-prof', 'link-vip-hobby', 'link-vip-prof'];
-            const targetTime = new Date('2026-04-09T12:00:00+02:00'); // Hora exacta de apertura
-
-            ticketLinks.forEach(id => {
-                const el = document.getElementById(id);
-                if (el) {
-                    el.addEventListener('click', (e) => {
-                        const now = new Date();
-                        if (now < targetTime) {
-                            e.preventDefault();
-                            openModal();
-                        }
-                    });
-                }
-            });
         });
 
         function toggleArtisticMenu() {
