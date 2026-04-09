@@ -112,7 +112,9 @@ function renderWorkshops(workshops) {
 
     container.innerHTML = workshops.map((workshop, index) => {
         const title = currentLang === 'ca' ? workshop['Título (Original)'] : workshop['Título (Traducción)'];
-        const url = currentLang === 'ca' ? workshop['URL del Post (Original)'] : workshop['URL del Post (Traducción)'];
+        const url = currentLang === 'es' 
+            ? 'https://registration.firabarcelona.com/?filterById=3193_3194#/es_ES/E230026/WEB' 
+            : 'https://registration.firabarcelona.com/?filterById=3193_3194#/es_CA/E230026/WEB';
         const image = workshop['URL Imagen Destacada'];
         const type = workshop['Tipus de tallers'] || 'Taller';
 
@@ -128,7 +130,7 @@ function renderWorkshops(workshops) {
                 <div class="p-5 flex flex-col flex-grow space-y-3">
                     <h3 class="font-serif font-bold text-lg md:text-xl text-secondary dark:text-blue-300 leading-tight">${cleanTitle}</h3>
                     <div class="flex-grow"></div>
-                    <a href="${url}" target="_blank" class="inline-flex items-center justify-center w-full bg-white dark:bg-transparent text-primary dark:text-white border-2 border-primary hover:bg-primary hover:text-white text-sm font-bold py-3 rounded-xl transition-all duration-300 group/btn">
+                    <a href="${url}" target="_blank" class="js-link-vip inline-flex items-center justify-center w-full bg-white dark:bg-transparent text-primary dark:text-white border-2 border-primary hover:bg-primary hover:text-white text-sm font-bold py-3 rounded-xl transition-all duration-300 group/btn">
                         <span data-i18n="cta_book">${currentLang === 'ca' ? 'Reserva el taller' : 'Reserva el taller'}</span>
                         <span class="material-symbols-outlined ml-2 text-sm group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
                     </a>
