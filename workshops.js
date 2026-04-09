@@ -23,7 +23,7 @@ async function loadWorkshops() {
                 .map(a => a.getAttribute('href'))
                 .filter(href => href && href.endsWith('.csv'))
                 .map(href => href.startsWith('tallers/') ? href : `tallers/${href}`);
-            
+
             if (discoveredFiles.length > 0) {
                 // Use Set to avoid duplicates and filter out nulls/random strings
                 csvFiles = [...new Set([...csvFiles, ...discoveredFiles])].filter(f => f.includes('.csv'));
@@ -39,7 +39,7 @@ async function loadWorkshops() {
         for (const file of csvFiles) {
             const response = await fetch(file);
             if (!response.ok) continue;
-            
+
             const csvText = await response.text();
             const data = parseCSV(csvText);
             allWorkshops = [...allWorkshops, ...data];
@@ -112,11 +112,19 @@ function renderWorkshops(workshops) {
 
     container.innerHTML = workshops.map((workshop, index) => {
         const title = currentLang === 'ca' ? workshop['Título (Original)'] : workshop['Título (Traducción)'];
-        const url = currentLang === 'es' 
-            ? 'https://registration.firabarcelona.com/?filterById=3193_3194#/es_ES/E230026/WEB' 
-            : 'https://registration.firabarcelona.com/?filterById=3193_3194#/es_CA/E230026/WEB';
         const image = workshop['URL Imagen Destacada'];
         const type = workshop['Tipus de tallers'] || 'Taller';
+        
+        let url;
+        if (type === 'Taller Express') {
+            // Unify Taller Express under the VIP + Taller ticket
+            url = currentLang === 'es'
+                ? 'https://registration.firabarcelona.com/?filterById=3193_3194#/es_ES/E230026/WEB'
+                : 'https://registration.firabarcelona.com/?filterById=3193_3194#/es_CA/E230026/WEB';
+        } else {
+            // Use the original CSV link for other types
+            url = currentLang === 'ca' ? workshop['URL del Post (Original)'] : workshop['URL del Post (Traducción)'];
+        }
 
         // Fix HTML entities like &#8217;
         const cleanTitle = title.replace(/&#8217;/g, "'");
@@ -145,7 +153,7 @@ document.addEventListener('DOMContentLoaded', loadWorkshops);
 
 // Listen for language changes if the function exists
 const originalChangeLanguage = window.changeLanguage;
-window.changeLanguage = function(lang) {
+window.changeLanguage = function (lang) {
     if (typeof originalChangeLanguage === 'function') {
         originalChangeLanguage(lang);
     }
