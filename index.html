@@ -350,13 +350,13 @@
                     l'imperfecte.</span>
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4 mt-8">
-                <a data-i18n="cta_tickets" href="#tickets"
-                    class="bg-primary hover:bg-[#B96A46] text-white text-lg font-bold py-4 px-8 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all duration-300 border-2 border-primary cursor-pointer text-center inline-block">
+                <a data-i18n="cta_tickets" href="https://registration.firabarcelona.com/?filterById=3160_3192#/es_CA/E230026/WEB" target="_blank" rel="noopener noreferrer"
+                    class="js-link-gen bg-primary hover:bg-[#B96A46] text-white text-lg font-bold py-4 px-8 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all duration-300 border-2 border-primary cursor-pointer text-center inline-block">
                     Aconsegueix la teva invitació
                 </a>
                 <a data-i18n="cta_workshops"
-                    class="bg-white dark:bg-transparent text-primary dark:text-white border-2 border-primary hover:bg-primary hover:text-white text-lg font-bold py-4 px-8 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all duration-300 dark:hover:border-primary"
-                    href="#workshops">
+                    class="js-link-vip bg-white dark:bg-transparent text-primary dark:text-white border-2 border-primary hover:bg-primary hover:text-white text-lg font-bold py-4 px-8 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all duration-300 dark:hover:border-primary"
+                    href="https://registration.firabarcelona.com/?filterById=3160_3192#/es_CA/E230026/WEB" target="_blank" rel="noopener noreferrer">
                     Reserva un taller
                 </a>
             </div>
@@ -487,13 +487,13 @@
                     "Si t’atrau la bellesa dels objectes ben fets i la força creativa del fang, aquí tens la teva fira."
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
-                    <a data-i18n="cta_tickets" href="#tickets"
-                        class="bg-primary hover:bg-[#B96A46] text-white text-lg font-bold py-4 px-8 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all duration-300 border-2 border-primary cursor-pointer text-center inline-block">
+                    <a data-i18n="cta_tickets" href="https://registration.firabarcelona.com/?filterById=3160_3192#/es_CA/E230026/WEB" target="_blank" rel="noopener noreferrer"
+                        class="js-link-gen bg-primary hover:bg-[#B96A46] text-white text-lg font-bold py-4 px-8 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all duration-300 border-2 border-primary cursor-pointer text-center inline-block">
                         Aconsegueix la teva invitació
                     </a>
                     <a data-i18n="cta_workshops"
-                        class="bg-white dark:bg-transparent text-primary dark:text-white border-2 border-primary hover:bg-primary hover:text-white text-lg font-bold py-4 px-8 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all duration-300 dark:hover:border-primary"
-                        href="#workshops">
+                        class="js-link-vip bg-white dark:bg-transparent text-primary dark:text-white border-2 border-primary hover:bg-primary hover:text-white text-lg font-bold py-4 px-8 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all duration-300 dark:hover:border-primary"
+                        href="https://registration.firabarcelona.com/?filterById=3160_3192#/es_CA/E230026/WEB" target="_blank" rel="noopener noreferrer">
                         Reserva un taller
                     </a>
                 </div>
@@ -1203,7 +1203,7 @@
                 hero_subtitle_html: 'Sí, ens taquem les mans. Tornem a l\'origen.<br /><span class="font-medium text-secondary dark:text-blue-300">Descobreix la bellesa de l\'imperfecte.</span>',
                 cta_tickets: "Aconsegueix la teva invitació",
                 modal_message: "A partir del 9 d'abril a les 12:00 h",
-                cta_workshops: "Reserva un taller",
+                cta_workshops: "Entrada VIP + Taller",
                 about_p1: "Ceramic Lab és la primera fira dedicada exclusivament a la ceràmica: un punt de trobada per descobrir, comprar i viure la ceràmica des de dins.",
                 about_p2: "Hi trobaràs marques i ceramistes seleccionats, peces úniques i col·leccions contemporànies, a més de materials, eines i propostes per a tots els nivells. Un espai pensat tant per a públic curiós com per a amants de la ceràmica i professionals del sector.",
                 about_p3: "Ceramic Lab no és només una fira: és una experiència. Un lloc per aprendre i participar amb tallers, demostracions en directe i activitats que apropen el procés creatiu al públic d’una manera actual i accessible.",
@@ -1272,7 +1272,7 @@
                 hero_subtitle_html: 'Sí, nos manchamos las manos. Volvemos al origen.<br /><span class="font-medium text-secondary dark:text-blue-300">Descubre la belleza de lo imperfecto.</span>',
                 cta_tickets: "Consigue tu invitación",
                 modal_message: "A partir del 9 de abril a las 12:00 h",
-                cta_workshops: "Reserva un taller",
+                cta_workshops: "Entrada VIP + Taller",
                 about_p1: "Ceramic Lab es la primera feria dedicada exclusivamente a la cerámica: un punto de encuentro para descubrir, comprar y vivir la cerámica desde dentro.",
                 about_p2: "Encontrarás marcas y ceramistas seleccionados, piezas únicas y colecciones contemporáneas, además de materiales, herramientas y propuestas para todos los niveles. Un espacio pensado tanto para público curioso como para amantes de la cerámica y profesionales del sector.",
                 about_p3: "Ceramic Lab no es solo una feria: es una experiencia. Un lugar para aprender y participar con talleres, demostraciones en directo y actividades que acercan el proceso creativo al público de una manera actual y accesible.",
@@ -1345,11 +1345,11 @@
 
             // Update ticket links hrefs based on language
             const isEs = lang === 'es';
-            const linkGen = document.getElementById('link-gen');
-            if (linkGen) linkGen.href = isEs ? 'https://registration.firabarcelona.com/?filterById=3160_3192#/es_ES/E230026/WEB' : 'https://registration.firabarcelona.com/?filterById=3160_3192#/es_CA/E230026/WEB';
-
-            const linkVip = document.getElementById('link-vip');
-            if (linkVip) linkVip.href = isEs ? 'https://registration.firabarcelona.com/?filterById=3193_3194#/es_ES/E230026/WEB' : 'https://registration.firabarcelona.com/?filterById=3193_3194#/es_CA/E230026/WEB';
+            const targetUrl = isEs ? 'https://registration.firabarcelona.com/?filterById=3160_3192#/es_ES/E230026/WEB' : 'https://registration.firabarcelona.com/?filterById=3160_3192#/es_CA/E230026/WEB';
+            
+            document.querySelectorAll('.js-link-gen, .js-link-vip, #link-gen, #link-vip').forEach(el => {
+                if (el) el.href = targetUrl;
+            });
 
             // Update meta description for SEO when language changes
             const metaDescription = document.querySelector('meta[name="description"]');
