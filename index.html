@@ -217,7 +217,7 @@
                     class="absolute -bottom-1 left-0 w-0 h-1 bg-primary/40 rounded-full group-hover:w-full transition-all duration-300"></span>
             </a>
             <a href="https://registration.firabarcelona.com/?filterById=3160_3192_3193_3194#/es_CA/E230026/WEB" data-i18n="nav_tickets"
-                class="relative group text-sm font-bold uppercase tracking-widest hover:text-primary transition-colors">
+                class="js-link-gen relative group text-sm font-bold uppercase tracking-widest hover:text-primary transition-colors">
                 <span class="relative z-10">Entrades</span>
                 <span
                     class="absolute -bottom-1 left-0 w-0 h-1 bg-primary/40 rounded-full group-hover:w-full transition-all duration-300"></span>
@@ -245,7 +245,7 @@
         <!-- Right Side: Tickets/Mobile -->
         <div class="flex items-center gap-4">
             <a href="https://registration.firabarcelona.com/?filterById=3160_3192_3193_3194#/es_CA/E230026/WEB" data-i18n="nav_tickets"
-                class="hidden lg:block bg-primary hover:bg-[#B96A46] text-white px-6 py-2 rounded-full font-bold uppercase text-[10px] tracking-widest shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5 transition-all">
+                class="js-link-gen hidden lg:block bg-primary hover:bg-[#B96A46] text-white px-6 py-2 rounded-full font-bold uppercase text-[10px] tracking-widest shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5 transition-all">
                 Entrades
             </a>
             <!-- Mobile Menu Toggle -->
@@ -1365,7 +1365,7 @@
             const genUrl = isEs ? 'https://registration.firabarcelona.com/?filterById=3160_3192_3193_3194#/es_ES/E230026/WEB' : 'https://registration.firabarcelona.com/?filterById=3160_3192_3193_3194#/es_CA/E230026/WEB';
             const vipUrl = isEs ? 'https://registration.firabarcelona.com/?filterById=3193_3194#/es_ES/E230026/WEB' : 'https://registration.firabarcelona.com/?filterById=3193_3194#/es_CA/E230026/WEB';
 
-            document.querySelectorAll('#link-gen, .js-link-gen-external').forEach(el => {
+            document.querySelectorAll('#link-gen, .js-link-gen, .js-link-gen-external').forEach(el => {
                 if (el) el.href = genUrl;
             });
             document.querySelectorAll('#link-vip, .js-link-vip').forEach(el => {
