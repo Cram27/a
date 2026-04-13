@@ -357,7 +357,7 @@
                 </a>
                 <a data-i18n="cta_workshops"
                     class="js-link-vip bg-white dark:bg-transparent text-primary dark:text-white border-2 border-primary hover:bg-primary hover:text-white text-lg font-bold py-4 px-8 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all duration-300 dark:hover:border-primary"
-                    href="#tickets">
+                    href="https://registration.firabarcelona.com/?filterById=3193_3194#/es_CA/E230026/WEB" target="_blank" rel="noopener noreferrer">
                     Reserva un taller
                 </a>
             </div>
@@ -495,7 +495,7 @@
                     </a>
                     <a data-i18n="cta_workshops"
                         class="js-link-vip bg-white dark:bg-transparent text-primary dark:text-white border-2 border-primary hover:bg-primary hover:text-white text-lg font-bold py-4 px-8 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all duration-300 dark:hover:border-primary"
-                        href="#tickets">
+                        href="https://registration.firabarcelona.com/?filterById=3193_3194#/es_CA/E230026/WEB" target="_blank" rel="noopener noreferrer">
                         Reserva un taller
                     </a>
                 </div>
@@ -528,7 +528,7 @@
                             lliure)</p>
                         <div class="mt-auto w-full">
                             <a id="link-gen"
-                                href="https://registration.firabarcelona.com/?filterById=3160_3192#/es_CA/E230026/WEB"
+                                href="https://registration.firabarcelona.com/?filterById=3160_3192_3193_3194#/es_CA/E230026/WEB"
                                 target="_blank" rel="noopener noreferrer" data-i18n="btn_get_ticket"
                                 class="inline-flex items-center justify-center w-full bg-primary text-white font-bold py-3 px-4 rounded-xl hover:bg-[#B96A46] transition-colors text-sm shadow-md">
                                 Aconsegueix la teva entrada
@@ -1362,13 +1362,13 @@
 
             // Update ticket links hrefs based on language
             const isEs = lang === 'es';
-            const genUrl = isEs ? 'https://registration.firabarcelona.com/?filterById=3160_3192#/es_ES/E230026/WEB' : 'https://registration.firabarcelona.com/?filterById=3160_3192#/es_CA/E230026/WEB';
+            const genUrl = isEs ? 'https://registration.firabarcelona.com/?filterById=3160_3192_3193_3194#/es_ES/E230026/WEB' : 'https://registration.firabarcelona.com/?filterById=3160_3192_3193_3194#/es_CA/E230026/WEB';
             const vipUrl = isEs ? 'https://registration.firabarcelona.com/?filterById=3193_3194#/es_ES/E230026/WEB' : 'https://registration.firabarcelona.com/?filterById=3193_3194#/es_CA/E230026/WEB';
 
-            document.querySelectorAll('#link-gen').forEach(el => {
+            document.querySelectorAll('#link-gen, .js-link-gen-external').forEach(el => {
                 if (el) el.href = genUrl;
             });
-            document.querySelectorAll('#link-vip').forEach(el => {
+            document.querySelectorAll('#link-vip, .js-link-vip').forEach(el => {
                 if (el) el.href = vipUrl;
             });
 
@@ -1451,8 +1451,9 @@
             <p data-i18n="sticky_bar_text" class="font-bold text-sm md:text-base tracking-wide">
                 Aconsegueix la teva entrada pel Ceramic Lab 2026!
             </p>
-            <a id="sticky-bar-link" href="#tickets"
-                class="bg-white text-primary hover:bg-[#3B8EA5] hover:text-white px-8 py-2 rounded-full font-bold uppercase tracking-widest text-xs transition-all shadow-lg active:scale-95 whitespace-nowrap">
+            <a id="sticky-bar-link" href="https://registration.firabarcelona.com/?filterById=3160_3192_3193_3194#/es_CA/E230026/WEB"
+                target="_blank" rel="noopener noreferrer"
+                class="js-link-gen-external bg-white text-primary hover:bg-[#3B8EA5] hover:text-white px-8 py-2 rounded-full font-bold uppercase tracking-widest text-xs transition-all shadow-lg active:scale-95 whitespace-nowrap">
                 <span data-i18n="sticky_bar_btn">Aconsegueix la teva entrada</span>
             </a>
         </div>
