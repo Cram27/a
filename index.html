@@ -513,90 +513,212 @@
                 Totes les entrades tenen 1€ de despeses de gestió.</p>
 
             <div class="mb-8">
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                    <!-- Ticket 1: Invitació -->
+            <div class="mb-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+                    <!-- Ticket 1: GENERAL / INVITACIÓ -->
                     <div
-                        class="bg-white dark:bg-[#3E332B] p-8 rounded-3xl shadow-lg border border-gray-100 dark:border-gray-800 flex flex-col items-center group hover:shadow-2xl transition-all duration-300">
+                        class="bg-white dark:bg-[#3E332B] p-6 rounded-3xl shadow-lg border border-gray-100 dark:border-gray-800 flex flex-col items-center group hover:shadow-2xl transition-all duration-300">
                         <div
-                            class="w-16 h-16 bg-tertiary/30 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                            <span class="material-symbols-outlined text-4xl text-primary">confirmation_number</span>
+                            class="w-14 h-14 bg-tertiary/30 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-3xl text-primary">confirmation_number</span>
                         </div>
                         <h3 data-i18n="ticket_invitation_title"
-                            class="text-xl font-bold text-secondary dark:text-blue-300 mb-1">Invitació</h3>
+                            class="text-lg font-bold text-secondary dark:text-blue-300 mb-1 text-center uppercase">GENERAL /
+                            INVITACIÓ</h3>
                         <p data-i18n="ticket_invitation_sub"
-                            class="text-sm text-gray-500 dark:text-gray-400 mb-8 font-serif italic text-center">(Accés
-                            lliure)</p>
+                            class="text-xs text-gray-500 dark:text-gray-400 mb-4 font-serif italic text-center">(Accés lliure)
+                        </p>
+
+                        <div class="mb-6 text-center">
+                            <span data-i18n="ticket_invitation_price"
+                                class="text-2xl font-bold text-text-main-light dark:text-white uppercase transition-all">Invitació</span>
+                            <p data-i18n="ticket_invitation_fee"
+                                class="text-[10px] text-gray-500 dark:text-gray-400 font-serif italic">+ 1€ despeses de gestió
+                            </p>
+                        </div>
+
+                        <div class="text-left w-full mb-8 space-y-2 flex-grow">
+                            <p data-i18n="ticket_invitation_include_title"
+                                class="text-[10px] font-bold uppercase tracking-wider text-primary mb-2">Què inclou la
+                                invitació:</p>
+                            <div class="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-300">
+                                <span class="material-symbols-outlined text-primary text-base">check_circle</span>
+                                <span data-i18n="ticket_invitation_item_1">Entrada gratuïta al Handmade Festival</span>
+                            </div>
+                            <div class="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-300">
+                                <span class="material-symbols-outlined text-primary text-base">check_circle</span>
+                                <span data-i18n="ticket_invitation_item_2">Accés no assegurat (fins a completar aforament)</span>
+                            </div>
+                            <div class="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-300">
+                                <span class="material-symbols-outlined text-primary text-base">check_circle</span>
+                                <span data-i18n="ticket_invitation_item_3">Accés a tallers, masterclass i concerts</span>
+                            </div>
+                        </div>
+
                         <div class="mt-auto w-full">
                             <a id="link-gen"
                                 href="https://registration.firabarcelona.com/?filterById=3160_3192_3193_3194#/es_CA/E230026/WEB"
                                 target="_blank" rel="noopener noreferrer" data-i18n="btn_get_ticket"
-                                class="inline-flex items-center justify-center w-full bg-primary text-white font-bold py-3 px-4 rounded-xl hover:bg-[#B96A46] transition-colors text-sm shadow-md">
+                                class="js-link-gen inline-flex items-center justify-center w-full bg-primary text-white font-bold py-3 px-4 rounded-xl hover:bg-[#B96A46] transition-colors text-xs shadow-md uppercase">
                                 Aconsegueix la teva entrada
                             </a>
                         </div>
                     </div>
 
-                    <!-- Ticket 2: ENTRADA VIP -->
+                    <!-- Ticket 2: VIP -->
                     <div
-                        class="bg-white dark:bg-[#3E332B] p-8 rounded-3xl shadow-lg border border-gray-100 dark:border-gray-800 flex flex-col items-center group hover:shadow-2xl transition-all duration-300">
+                        class="bg-white dark:bg-[#3E332B] p-6 rounded-3xl shadow-lg border border-gray-100 dark:border-gray-800 flex flex-col items-center group hover:shadow-2xl transition-all duration-300">
                         <div
-                            class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                            <span class="material-symbols-outlined text-4xl text-primary">stars</span>
+                            class="w-14 h-14 bg-primary/20 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-3xl text-primary">stars</span>
                         </div>
                         <h3 data-i18n="ticket_vip_title"
-                            class="text-xl font-bold text-secondary dark:text-blue-300 mb-1 leading-tight text-center">
-                            ENTRADA VIP</h3>
+                            class="text-lg font-bold text-secondary dark:text-blue-300 mb-1 text-center uppercase">VIP</h3>
                         <p data-i18n="ticket_vip_sub"
-                            class="text-sm text-gray-500 dark:text-gray-400 mb-2 font-serif italic text-center">(ACCÉS ASSEGURAT)</p>
-                        
+                            class="text-xs text-gray-500 dark:text-gray-400 mb-4 font-serif italic text-center">(Accés
+                            assegurat)</p>
+
                         <div class="mb-6 text-center">
-                            <span data-i18n="ticket_vip_price" class="text-3xl font-bold text-text-main-light dark:text-white">10€</span>
-                            <p data-i18n="ticket_vip_fee" class="text-xs text-gray-500 dark:text-gray-400 font-serif italic">+ 1€ despeses de gestió</p>
+                            <span data-i18n="ticket_vip_price"
+                                class="text-2xl font-bold text-text-main-light dark:text-white transition-all">10€</span>
+                            <p data-i18n="ticket_invitation_fee"
+                                class="text-[10px] text-gray-500 dark:text-gray-400 font-serif italic">+ 1€ despeses de gestió
+                            </p>
                         </div>
 
-                        <div class="text-left w-full mb-8 space-y-2">
-                            <p data-i18n="ticket_vip_include_title" class="text-xs font-bold uppercase tracking-wider text-primary mb-3">Què inclou l'Entrada VIP:</p>
-                            <div class="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-300">
-                                <span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+                        <div class="text-left w-full mb-8 space-y-2 flex-grow">
+                            <p data-i18n="ticket_vip_include_title"
+                                class="text-[10px] font-bold uppercase tracking-wider text-primary mb-2">Què inclou l'Entrada
+                                VIP:</p>
+                            <div class="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-300">
+                                <span class="material-symbols-outlined text-primary text-base">check_circle</span>
                                 <span data-i18n="ticket_vip_item_1">Accés assegurat al recinte</span>
                             </div>
-                            <div class="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-300">
-                                <span class="material-symbols-outlined text-primary text-lg">check_circle</span>
-                                <span data-i18n="ticket_vip_item_2">Accés a tota la programació en viu</span>
+                            <div class="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-300">
+                                <span class="material-symbols-outlined text-primary text-base">check_circle</span>
+                                <span data-i18n="ticket_vip_item_2">Accés a toda la programació en viu</span>
                             </div>
                         </div>
 
                         <div class="mt-auto w-full">
                             <button data-i18n="btn_soon"
-                                class="w-full bg-gray-200 dark:bg-gray-700 text-gray-500 dark:text-gray-400 font-bold py-3 px-4 rounded-xl cursor-not-allowed text-sm shadow-inner italic">
+                                class="w-full bg-gray-200 dark:bg-gray-700 text-gray-500 dark:text-gray-400 font-bold py-3 px-4 rounded-xl cursor-not-allowed text-xs shadow-inner italic uppercase">
                                 Molt aviat!
                             </button>
                         </div>
                     </div>
 
-                    <!-- Ticket 3: VIP + TALLER -->
+                    <!-- Ticket 3: VIP + TOTE -->
                     <div
-                        class="bg-white dark:bg-[#3E332B] p-8 rounded-3xl shadow-lg border border-gray-100 dark:border-gray-800 flex flex-col items-center group hover:shadow-2xl transition-all duration-300">
+                        class="bg-white dark:bg-[#3E332B] p-6 rounded-3xl shadow-lg border border-gray-100 dark:border-gray-800 flex flex-col items-center group hover:shadow-2xl transition-all duration-300">
                         <div
-                            class="w-16 h-16 bg-tertiary/50 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                            <span class="material-symbols-outlined text-4xl text-text-main-light">brush</span>
+                            class="w-14 h-14 bg-secondary/20 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-3xl text-secondary">shopping_bag</span>
+                        </div>
+                        <h3 data-i18n="ticket_tote_title"
+                            class="text-lg font-bold text-secondary dark:text-blue-300 mb-1 text-center uppercase">VIP + TOTE
+                        </h3>
+                        <p data-i18n="ticket_tote_sub"
+                            class="text-xs text-gray-500 dark:text-gray-400 mb-4 font-serif italic text-center">(Accés + Tote
+                            Bag)</p>
+
+                        <div class="mb-6 text-center">
+                            <span data-i18n="ticket_tote_price"
+                                class="text-2xl font-bold text-text-main-light dark:text-white transition-all">14€</span>
+                            <p data-i18n="ticket_invitation_fee"
+                                class="text-[10px] text-gray-500 dark:text-gray-400 font-serif italic">+ 1€ despeses de gestió
+                            </p>
+                        </div>
+
+                        <div class="text-left w-full mb-4 space-y-2 flex-grow">
+                            <p data-i18n="ticket_tote_include_title"
+                                class="text-[10px] font-bold uppercase tracking-wider text-primary mb-2">Què inclou la VIP +
+                                Tote:</p>
+                            <div class="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-300">
+                                <span class="material-symbols-outlined text-primary text-base">check_circle</span>
+                                <span data-i18n="ticket_tote_item_1">Accés assegurat al recinte</span>
+                            </div>
+                            <div class="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-300">
+                                <span class="material-symbols-outlined text-primary text-base">check_circle</span>
+                                <span data-i18n="ticket_tote_item_2"><strong>Tote Bag 15 Anys (Valor 25€):</strong> Materials
+                                    i sorpreses.</span>
+                            </div>
+                            <div class="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-300">
+                                <span class="material-symbols-outlined text-primary text-base">check_circle</span>
+                                <span data-i18n="ticket_tote_item_3">Accés a toda la programació</span>
+                            </div>
+                        </div>
+
+                        <details class="w-full mb-6 text-xs text-gray-500 dark:text-gray-400">
+                            <summary
+                                class="cursor-pointer font-bold hover:text-primary transition-colors list-none flex items-center justify-center gap-1">
+                                <span data-i18n="ticket_tote_details">+ Veure marques i detalls</span>
+                            </summary>
+                            <div class="mt-2 p-3 bg-gray-50 dark:bg-black/20 rounded-xl text-[11px] leading-relaxed">
+                                <p data-i18n="ticket_tote_details_content">RBA Editores, Rosas Craft, Casasol, SIÓ2, Sal
+                                    Costa, Posca i més.</p>
+                            </div>
+                        </details>
+
+                        <div class="mt-auto w-full">
+                            <button data-i18n="btn_soon"
+                                class="w-full bg-gray-200 dark:bg-gray-700 text-gray-500 dark:text-gray-400 font-bold py-3 px-4 rounded-xl cursor-not-allowed text-xs shadow-inner italic uppercase">
+                                Molt aviat!
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Ticket 4: VIP + TALLER -->
+                    <div
+                        class="bg-white dark:bg-[#3E332B] p-6 rounded-3xl shadow-lg border border-gray-100 dark:border-gray-800 flex flex-col items-center group hover:shadow-2xl transition-all duration-300">
+                        <div
+                            class="w-14 h-14 bg-tertiary/50 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-3xl text-text-main-light">brush</span>
                         </div>
                         <h3 data-i18n="ticket_taller_title"
-                            class="text-xl font-bold text-secondary dark:text-blue-300 mb-1 leading-tight text-center">
-                            ENTRADA VIP + TALLER</h3>
+                            class="text-lg font-bold text-secondary dark:text-blue-300 mb-1 text-center uppercase leading-tight">
+                            VIP + TALLER</h3>
                         <p data-i18n="ticket_taller_sub"
-                            class="text-sm text-gray-500 dark:text-gray-400 mb-8 font-serif italic text-center">(Accés +
+                            class="text-xs text-gray-500 dark:text-gray-400 mb-4 font-serif italic text-center">(Accés +
                             Taller express)</p>
+
+                        <div class="mb-6 text-center">
+                            <span data-i18n="ticket_taller_price"
+                                class="text-2xl font-bold text-text-main-light dark:text-white transition-all">20€</span>
+                            <p data-i18n="ticket_invitation_fee"
+                                class="text-[10px] text-gray-500 dark:text-gray-400 font-serif italic">+ 1€ despeses de gestió
+                            </p>
+                        </div>
+
+                        <div class="text-left w-full mb-8 space-y-2 flex-grow">
+                            <p data-i18n="ticket_taller_include_title"
+                                class="text-[10px] font-bold uppercase tracking-wider text-primary mb-2">Què inclou la VIP +
+                                Taller:</p>
+                            <div class="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-300">
+                                <span class="material-symbols-outlined text-primary text-base">check_circle</span>
+                                <span data-i18n="ticket_taller_item_1">Accés assegurat al recinte</span>
+                            </div>
+                            <div class="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-300">
+                                <span class="material-symbols-outlined text-primary text-base">check_circle</span>
+                                <span data-i18n="ticket_taller_item_2">1 taller express d'1 hora a escollir</span>
+                            </div>
+                            <div class="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-300">
+                                <span class="material-symbols-outlined text-primary text-base">check_circle</span>
+                                <span data-i18n="ticket_taller_item_3">Accés a toda la programació</span>
+                            </div>
+                        </div>
+
                         <div class="mt-auto w-full">
                             <a id="link-vip"
                                 href="https://registration.firabarcelona.com/?filterById=3193_3194#/es_CA/E230026/WEB"
                                 target="_blank" rel="noopener noreferrer" data-i18n="btn_get_ticket"
-                                class="inline-flex items-center justify-center w-full bg-secondary text-white font-bold py-3 px-4 rounded-xl hover:bg-opacity-90 transition-colors text-sm shadow-md">
+                                class="js-link-vip inline-flex items-center justify-center w-full bg-secondary text-white font-bold py-3 px-4 rounded-xl hover:bg-opacity-90 transition-colors text-xs shadow-md uppercase">
                                 Aconsegueix la teva entrada
                             </a>
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         </div>
     </section>
@@ -1282,17 +1404,35 @@
                 tickets_fee_note: "* Totes les entrades tenen 1€ de despeses de gestió.",
                 group_hobby_title: "La ceràmica és el meu hobby",
                 group_prof_title: "Tinc una relació professional amb el sector de la ceràmica",
-                ticket_invitation_title: "Invitació",
+                ticket_invitation_title: "GENERAL / INVITACIÓ",
                 ticket_invitation_sub: "(Accés lliure)",
-                ticket_vip_title: "ENTRADA VIP",
-                ticket_vip_sub: "(ACCÉS ASSEGURAT)",
+                ticket_invitation_price: "INVITACIÓ",
+                ticket_invitation_fee: "+ 1€ despeses de gestió",
+                ticket_invitation_include_title: "Què inclou la invitació:",
+                ticket_invitation_item_1: "Entrada gratuïta al Handmade Festival",
+                ticket_invitation_item_2: "Accés no assegurat (fins a completar aforament)",
+                ticket_invitation_item_3: "Accés a tallers, masterclass i concerts",
+                ticket_vip_title: "VIP",
+                ticket_vip_sub: "(Accés assegurat)",
                 ticket_vip_price: "10€",
-                ticket_vip_fee: "+ 1€ despeses de gestió",
-                ticket_vip_include_title: "Què inclou l'Entrada VIP:",
                 ticket_vip_item_1: "Accés assegurat al recinte",
                 ticket_vip_item_2: "Accés a tota la programació en viu",
-                ticket_taller_title: "ENTRADA VIP + TALLER",
+                ticket_tote_title: "VIP + TOTE",
+                ticket_tote_sub: "(Accés + Tote Bag)",
+                ticket_tote_price: "14€",
+                ticket_tote_include_title: "Què inclou la VIP + Tote:",
+                ticket_tote_item_1: "Accés assegurat al recinte",
+                ticket_tote_item_2: "<strong>Tote Bag 15 Anys (Valor 25€):</strong> Materials i sorpreses.",
+                ticket_tote_item_3: "Accés a tota la programació",
+                ticket_tote_details: "+ Veure marques i detalls",
+                ticket_tote_details_content: "RBA Editores, Rosas Craft, Casasol, SIÓ2, Sal Costa, Posca i més.",
+                ticket_taller_title: "VIP + TALLER",
                 ticket_taller_sub: "(Accés + Taller express)",
+                ticket_taller_price: "20€",
+                ticket_taller_include_title: "Què inclou la VIP + Taller:",
+                ticket_taller_item_1: "Accés assegurat al recinte",
+                ticket_taller_item_2: "1 taller express d'1 hora a escollir",
+                ticket_taller_item_3: "Accés a tota la programació",
                 btn_get_ticket: "Aconsegueix la teva entrada",
                 btn_soon: "Molt aviat!",
                 exhibitions_title: "Exposicions",
@@ -1362,17 +1502,35 @@
                 tickets_fee_note: "* Todas las entradas tienen 1€ de gastos de gestión.",
                 group_hobby_title: "La cerámica es mi hobby",
                 group_prof_title: "Tengo una relación profesional con el sector de la cerámica",
-                ticket_invitation_title: "Invitación",
+                ticket_invitation_title: "GENERAL / INVITACIÓN",
                 ticket_invitation_sub: "(Acceso libre)",
-                ticket_vip_title: "ENTRADA VIP",
-                ticket_vip_sub: "(ACCESO ASEGURADO)",
+                ticket_invitation_price: "INVITACIÓN",
+                ticket_invitation_fee: "+ 1€ gastos de gestión",
+                ticket_invitation_include_title: "Qué incluye la invitación:",
+                ticket_invitation_item_1: "Entrada gratuita al Handmade Festival",
+                ticket_invitation_item_2: "Acceso no asegurado (hasta completar aforo)",
+                ticket_invitation_item_3: "Acceso a talleres, masterclass y conciertos",
+                ticket_vip_title: "VIP",
+                ticket_vip_sub: "(Acceso asegurado)",
                 ticket_vip_price: "10€",
-                ticket_vip_fee: "+ 1€ gastos de gestión",
-                ticket_vip_include_title: "Qué incluye la Entrada VIP:",
                 ticket_vip_item_1: "Acceso asegurado al recinto",
                 ticket_vip_item_2: "Acceso a toda la programación en vivo",
-                ticket_taller_title: "ENTRADA VIP + TALLER",
+                ticket_tote_title: "VIP + TOTE",
+                ticket_tote_sub: "(Acceso + Tote Bag)",
+                ticket_tote_price: "14€",
+                ticket_tote_include_title: "Qué incluye la VIP + Tote:",
+                ticket_tote_item_1: "Acceso asegurado al recinto",
+                ticket_tote_item_2: "<strong>Tote Bag 15 Años (Valor 25€):</strong> Materiales y sorpresas.",
+                ticket_tote_item_3: "Acceso a toda la programación",
+                ticket_tote_details: "+ Ver marcas y detalles",
+                ticket_tote_details_content: "RBA Editores, Rosas Craft, Casasol, SIÓ2, Sal Costa, Posca i més.",
+                ticket_taller_title: "VIP + TALLER",
                 ticket_taller_sub: "(Acceso + Taller express)",
+                ticket_taller_price: "20€",
+                ticket_taller_include_title: "Qué incluye la VIP + Taller:",
+                ticket_taller_item_1: "Acceso asegurado al recinto",
+                ticket_taller_item_2: "1 taller express de 1 hora a escoger",
+                ticket_taller_item_3: "Acceso a toda la programación",
                 btn_get_ticket: "Consigue tu entrada",
                 btn_soon: "¡Muy pronto!",
                 exhibitions_title: "Exposiciones",
