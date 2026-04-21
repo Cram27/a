@@ -662,10 +662,12 @@
                         </details>
 
                         <div class="mt-auto w-full">
-                            <button data-i18n="btn_soon"
-                                class="w-full bg-gray-200 dark:bg-gray-700 text-gray-500 dark:text-gray-400 font-bold py-3 px-4 rounded-xl cursor-not-allowed text-xs shadow-inner italic uppercase">
-                                Molt aviat!
-                            </button>
+                            <a id="link-tote"
+                                href="https://registration.firabarcelona.com/?filterById=3225_3226#/es_CA/E230026/WEB"
+                                target="_blank" rel="noopener noreferrer" data-i18n="btn_get_ticket"
+                                class="js-link-tote inline-flex items-center justify-center w-full bg-primary text-white font-bold py-3 px-4 rounded-xl hover:bg-[#B96A46] transition-colors text-xs shadow-md uppercase">
+                                Aconsegueix la teva entrada
+                            </a>
                         </div>
                     </div>
 
@@ -1577,12 +1579,16 @@
             const isEs = lang === 'es';
             const genUrl = isEs ? 'https://registration.firabarcelona.com/?filterById=3160_3192_3193_3194#/es_ES/E230026/WEB' : 'https://registration.firabarcelona.com/?filterById=3160_3192_3193_3194#/es_CA/E230026/WEB';
             const vipUrl = isEs ? 'https://registration.firabarcelona.com/?filterById=3223_3224#/es_ES/E230026/WEB' : 'https://registration.firabarcelona.com/?filterById=3223_3224#/es_CA/E230026/WEB';
+            const toteUrl = isEs ? 'https://registration.firabarcelona.com/?filterById=3225_3226#/es_ES/E230026/WEB' : 'https://registration.firabarcelona.com/?filterById=3225_3226#/es_CA/E230026/WEB';
 
             document.querySelectorAll('#link-gen, .js-link-gen, .js-link-gen-external').forEach(el => {
                 if (el) el.href = genUrl;
             });
             document.querySelectorAll('#link-vip, .js-link-vip').forEach(el => {
                 if (el) el.href = vipUrl;
+            });
+            document.querySelectorAll('#link-tote, .js-link-tote').forEach(el => {
+                if (el) el.href = toteUrl;
             });
 
             // Update meta description for SEO when language changes
