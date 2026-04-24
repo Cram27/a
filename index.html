@@ -216,8 +216,8 @@
                 <span
                     class="absolute -bottom-1 left-0 w-0 h-1 bg-primary/40 rounded-full group-hover:w-full transition-all duration-300"></span>
             </a>
-            <a href="https://registration.firabarcelona.com/?filterById=3160_3192_3193_3194#/es_CA/E230026/WEB" data-i18n="nav_tickets"
-                class="js-link-gen relative group text-sm font-bold uppercase tracking-widest hover:text-primary transition-colors">
+            <a href="#tickets" data-i18n="nav_tickets"
+                class="relative group text-sm font-bold uppercase tracking-widest hover:text-primary transition-colors">
                 <span class="relative z-10">Entrades</span>
                 <span
                     class="absolute -bottom-1 left-0 w-0 h-1 bg-primary/40 rounded-full group-hover:w-full transition-all duration-300"></span>
@@ -244,8 +244,8 @@
 
         <!-- Right Side: Tickets/Mobile -->
         <div class="flex items-center gap-4">
-            <a href="https://registration.firabarcelona.com/?filterById=3160_3192_3193_3194#/es_CA/E230026/WEB" data-i18n="nav_tickets"
-                class="js-link-gen hidden lg:block bg-primary hover:bg-[#B96A46] text-white px-6 py-2 rounded-full font-bold uppercase text-[10px] tracking-widest shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5 transition-all">
+            <a href="#tickets" data-i18n="nav_tickets"
+                class="hidden lg:block bg-primary hover:bg-[#B96A46] text-white px-6 py-2 rounded-full font-bold uppercase text-[10px] tracking-widest shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5 transition-all">
                 Entrades
             </a>
             <!-- Mobile Menu Toggle -->
@@ -553,6 +553,10 @@
                                 <span class="material-symbols-outlined text-primary text-base">check_circle</span>
                                 <span data-i18n="ticket_invitation_item_3">Accés a tallers, masterclass i concerts</span>
                             </div>
+                            <div class="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-300">
+                                <span class="material-symbols-outlined text-primary text-base">check_circle</span>
+                                <span data-i18n="ticket_museum_item">Inclou entrada al museu del Càntir d’Argentona.</span>
+                            </div>
                         </div>
 
                         <div class="mt-auto w-full">
@@ -597,6 +601,10 @@
                             <div class="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-300">
                                 <span class="material-symbols-outlined text-primary text-base">check_circle</span>
                                 <span data-i18n="ticket_vip_item_2">Accés a toda la programació en viu</span>
+                            </div>
+                            <div class="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-300">
+                                <span class="material-symbols-outlined text-primary text-base">check_circle</span>
+                                <span data-i18n="ticket_museum_item">Inclou entrada al museu del Càntir d’Argentona.</span>
                             </div>
                         </div>
 
@@ -647,6 +655,10 @@
                             <div class="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-300">
                                 <span class="material-symbols-outlined text-primary text-base">check_circle</span>
                                 <span data-i18n="ticket_tote_item_3">Accés a toda la programació</span>
+                            </div>
+                            <div class="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-300">
+                                <span class="material-symbols-outlined text-primary text-base">check_circle</span>
+                                <span data-i18n="ticket_museum_item">Inclou entrada al museu del Càntir d’Argentona.</span>
                             </div>
                         </div>
 
@@ -708,6 +720,10 @@
                             <div class="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-300">
                                 <span class="material-symbols-outlined text-primary text-base">check_circle</span>
                                 <span data-i18n="ticket_taller_item_3">Accés a toda la programació</span>
+                            </div>
+                            <div class="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-300">
+                                <span class="material-symbols-outlined text-primary text-base">check_circle</span>
+                                <span data-i18n="ticket_museum_item">Inclou entrada al museu del Càntir d’Argentona.</span>
                             </div>
                         </div>
 
@@ -1407,6 +1423,7 @@
                 ticket_taller_item_1: "Accés assegurat al recinte",
                 ticket_taller_item_2: "1 taller express d'1 hora a escollir",
                 ticket_taller_item_3: "Accés a tota la programació",
+                ticket_museum_item: "Inclou entrada al museu del Càntir d’Argentona.",
                 btn_get_ticket: "Aconsegueix la teva entrada",
                 btn_soon: "Molt aviat!",
                 exhibitions_title: "Exposicions",
@@ -1503,6 +1520,7 @@
                 ticket_taller_item_1: "Acceso asegurado al recinto",
                 ticket_taller_item_2: "1 taller express de 1 hora a escoger",
                 ticket_taller_item_3: "Acceso a toda la programación",
+                ticket_museum_item: "Incluye entrada al museo del Càntir de Argentona.",
                 btn_get_ticket: "Consigue tu entrada",
                 btn_soon: "¡Muy pronto!",
                 exhibitions_title: "Exposiciones",
@@ -1641,9 +1659,8 @@
             <p data-i18n="sticky_bar_text" class="font-bold text-sm md:text-base tracking-wide">
                 Aconsegueix la teva entrada pel Ceramic Lab 2026!
             </p>
-            <a id="sticky-bar-link" href="https://registration.firabarcelona.com/?filterById=3160_3192_3193_3194#/es_CA/E230026/WEB"
-                target="_blank" rel="noopener noreferrer"
-                class="js-link-gen-external bg-white text-primary hover:bg-[#3B8EA5] hover:text-white px-8 py-2 rounded-full font-bold uppercase tracking-widest text-xs transition-all shadow-lg active:scale-95 whitespace-nowrap">
+            <a id="sticky-bar-link" href="#tickets"
+                class="bg-white text-primary hover:bg-[#3B8EA5] hover:text-white px-8 py-2 rounded-full font-bold uppercase tracking-widest text-xs transition-all shadow-lg active:scale-95 whitespace-nowrap">
                 <span data-i18n="sticky_bar_btn">Aconsegueix la teva entrada</span>
             </a>
         </div>
