@@ -59,7 +59,11 @@
         }
 
         .nav-pill {
-            @apply fixed top-6 left-1/2 -translate-x-1/2 w-[92%] max-w-5xl h-16 z-[100] px-8 transition-all duration-500 flex items-center justify-between;
+            @apply fixed top-6 left-1/2 -translate-x-1/2 w-[92%] max-w-6xl h-16 z-[100] px-8 transition-all duration-500 flex items-center justify-between;
+        }
+
+        .nav-initial {
+            @apply bg-transparent border-transparent shadow-none top-8 max-w-6xl;
         }
 
         .nav-scrolled {
@@ -91,9 +95,9 @@
 <body class="bg-background-light dark:bg-background-dark text-text-main-light dark:text-text-main-dark font-body antialiased transition-colors duration-300">
 
     <div class="bg-secondary text-white py-2 px-6 flex justify-between items-center text-xs font-bold uppercase tracking-wider relative z-20">
-        <a href="index.html" class="hover:text-tertiary transition-colors flex items-center gap-1">
+        <a href="https://handmadefestivalbcn.com/" class="hover:text-tertiary transition-colors flex items-center gap-1">
             <span class="material-symbols-outlined text-[14px]">arrow_back</span>
-            <span data-i18n="back_to_home">Tornar a l'Inici</span>
+            <span data-i18n="back_to_hmf">Tornar a Handmade Festival</span>
         </a>
         <div>
             <a class="hover:text-tertiary transition-colors cursor-pointer" onclick="changeLanguage('ca')" id="lang-ca">CAT</a>
@@ -103,28 +107,40 @@
     </div>
 
     <!-- Navigation Menu (Floating Pill) -->
-    <nav id="main-nav" class="nav-pill nav-scrolled">
-        <a href="index.html" class="hover:scale-110 transition-transform">
+    <nav id="main-nav" class="nav-pill nav-initial">
+        <a href="index.html#hero" class="hover:scale-110 transition-transform">
             <img src="ceramiclabbarcelona.png" alt="Logo" class="h-8 md:h-10 w-auto">
         </a>
 
         <div class="hidden lg:flex items-center gap-4 xl:gap-8">
             <a href="index.html#about" data-i18n="nav_about" class="relative group text-sm font-bold uppercase tracking-widest hover:text-primary transition-colors">
                 <span class="relative z-10">La Fira</span>
+                <span class="absolute -bottom-1 left-0 w-0 h-1 bg-primary/40 rounded-full group-hover:w-full transition-all duration-300"></span>
+            </a>
+            <a href="index.html#what-find" data-i18n="nav_what_find" class="relative group text-sm font-bold uppercase tracking-widest hover:text-primary transition-colors">
+                <span class="relative z-10">Què trobaràs</span>
+                <span class="absolute -bottom-1 left-0 w-0 h-1 bg-primary/40 rounded-full group-hover:w-full transition-all duration-300"></span>
             </a>
             <a href="index.html#tickets" data-i18n="nav_tickets" class="relative group text-sm font-bold uppercase tracking-widest hover:text-primary transition-colors">
                 <span class="relative z-10">Entrades</span>
+                <span class="absolute -bottom-1 left-0 w-0 h-1 bg-primary/40 rounded-full group-hover:w-full transition-all duration-300"></span>
             </a>
             <a href="index.html#workshops" data-i18n="nav_workshops" class="relative group text-sm font-bold uppercase tracking-widest hover:text-primary transition-colors">
                 <span class="relative z-10">Tallers</span>
+                <span class="absolute -bottom-1 left-0 w-0 h-1 bg-primary/40 rounded-full group-hover:w-full transition-all duration-300"></span>
             </a>
-            <a href="#" data-i18n="nav_faq" class="text-primary relative group text-sm font-bold uppercase tracking-widest transition-colors">
+            <a href="index.html#exhibitions" data-i18n="nav_exhibitions" class="relative group text-sm font-bold uppercase tracking-widest hover:text-primary transition-colors">
+                <span class="relative z-10">Exposicions</span>
+                <span class="absolute -bottom-1 left-0 w-0 h-1 bg-primary/40 rounded-full group-hover:w-full transition-all duration-300"></span>
+            </a>
+            <a href="faq.html" data-i18n="nav_faq" class="text-primary relative group text-sm font-bold uppercase tracking-widest transition-colors">
                 <span class="relative z-10">FAQ</span>
+                <span class="absolute -bottom-1 left-0 w-0 h-1 bg-primary/40 rounded-full group-hover:w-full transition-all duration-300"></span>
             </a>
         </div>
 
         <div class="flex items-center gap-4">
-            <a href="index.html#tickets" data-i18n="nav_tickets" class="hidden lg:block bg-primary hover:bg-[#B96A46] text-white px-6 py-2 rounded-full font-bold uppercase text-[10px] tracking-widest shadow-lg transition-all">
+            <a href="index.html#tickets" data-i18n="nav_tickets" class="hidden lg:block bg-primary hover:bg-[#B96A46] text-white px-6 py-2 rounded-full font-bold uppercase text-[10px] tracking-widest shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5 transition-all">
                 Entrades
             </a>
             <!-- Mobile Menu Toggle -->
@@ -137,7 +153,7 @@
 
     <!-- Artistic Full-Screen Mobile Menu -->
     <div id="mobile-overlay"
-        class="fixed inset-0 z-[200] bg-background-light/98 dark:bg-background-dark/98 backdrop-blur-xl hidden opacity-0 flex flex-col items-center justify-start p-8 pt-24 overflow-y-auto transition-all duration-500">
+        class="fixed inset-0 z-[200] bg-background-light/98 dark:bg-background-dark/98 backdrop-blur-xl hidden flex flex-col items-center justify-start p-8 pt-24 overflow-y-auto transition-all duration-500">
         <!-- Floating artistic blobs -->
         <div class="absolute -top-20 -left-20 w-64 h-64 bg-primary/20 rounded-full blur-3xl"></div>
         <div class="absolute -bottom-20 -right-20 w-80 h-80 bg-secondary/20 rounded-full blur-3xl"></div>
@@ -155,18 +171,24 @@
             <a href="index.html#about" data-i18n="nav_about"
                 class="font-serif text-3xl font-bold hover:text-primary transition-colors text-text-main-light dark:text-white"
                 onclick="toggleArtisticMenu()">La Fira</a>
+            <a href="index.html#what-find" data-i18n="nav_what_find"
+                class="font-serif text-3xl font-bold hover:text-primary transition-colors text-text-main-light dark:text-white"
+                onclick="toggleArtisticMenu()">Què trobaràs</a>
             <a href="index.html#tickets" data-i18n="nav_tickets"
                 class="font-serif text-3xl font-bold hover:text-primary transition-colors text-text-main-light dark:text-white"
                 onclick="toggleArtisticMenu()">Entrades</a>
             <a href="index.html#workshops" data-i18n="nav_workshops"
                 class="font-serif text-3xl font-bold hover:text-primary transition-colors text-text-main-light dark:text-white"
                 onclick="toggleArtisticMenu()">Tallers</a>
+            <a href="index.html#exhibitions" data-i18n="nav_exhibitions"
+                class="font-serif text-3xl font-bold hover:text-primary transition-colors text-text-main-light dark:text-white"
+                onclick="toggleArtisticMenu()">Exposicions</a>
             <a href="faq.html" data-i18n="nav_faq"
                 class="font-serif text-3xl font-bold hover:text-primary transition-colors text-text-main-light dark:text-white"
                 onclick="toggleArtisticMenu()">FAQ</a>
-            <a href="index.html#tickets" data-i18n="nav_tickets"
-                class="mt-4 bg-primary text-white px-8 py-3 rounded-full font-bold uppercase tracking-widest text-base shadow-2xl active:scale-95 transition-transform"
-                onclick="toggleArtisticMenu()">Entrades</a>
+            <a href="https://mailchi.mp/evident/ceramic-lab-cat" data-i18n="nav_tickets"
+                class="js-link-invitation-new mt-4 bg-primary text-white px-8 py-3 rounded-full font-bold uppercase tracking-widest text-base shadow-2xl active:scale-95 transition-transform"
+                onclick="toggleArtisticMenu()">Invitacions</a>
         </div>
     </div>
 
@@ -221,11 +243,13 @@
                 faq_subtitle: "Tot el que necessites saber sobre la teva visita",
                 faq_search_placeholder: "Busca una pregunta...",
                 nav_about: "La Fira",
+                nav_what_find: "Què trobaràs",
                 nav_tickets: "Entrades",
                 nav_workshops: "Tallers",
+                nav_exhibitions: "Exposicions",
                 nav_faq: "FAQ",
                 nav_home: "Inici",
-                back_to_home: "Tornar a l'Inici",
+                back_to_hmf: "Tornar a Handmade Festival",
                 category_general: "General",
                 category_tickets: "Entrades",
                 category_workshops: "Tallers",
@@ -237,11 +261,13 @@
                 faq_subtitle: "Todo lo que necesitas saber sobre tu visita",
                 faq_search_placeholder: "Busca una pregunta...",
                 nav_about: "La Feria",
+                nav_what_find: "Qué encontrarás",
                 nav_tickets: "Entradas",
                 nav_workshops: "Talleres",
+                nav_exhibitions: "Exposiciones",
                 nav_faq: "FAQ",
                 nav_home: "Inicio",
-                back_to_home: "Volver al Inicio",
+                back_to_hmf: "Volver a Handmade Festival",
                 category_general: "General",
                 category_tickets: "Entradas",
                 category_workshops: "Talleres",
@@ -463,6 +489,16 @@
             // Toggle lang active class
             document.getElementById('lang-ca').style.opacity = lang === 'ca' ? '1' : '0.5';
             document.getElementById('lang-es').style.opacity = lang === 'es' ? '1' : '0.5';
+
+            // Update ticket links hrefs based on language
+            const invitationBaseUrl = "https://registration.firabarcelona.com/?filterById=3160_3192_3193_3194_3223_3224_3225_3226#/";
+            const suffix = "/E230026/WEB";
+            const langParam = lang === 'ca' ? 'es_CA' : 'es_ES';
+            const invitationFullUrl = invitationBaseUrl + langParam + suffix;
+
+            document.querySelectorAll('.js-link-invitation-new').forEach(el => {
+                if (el) el.href = invitationFullUrl;
+            });
             
             renderFAQs(document.getElementById('faq-search').value);
         }
@@ -495,11 +531,15 @@
             renderFAQs(e.target.value);
         });
 
-        // Scroll effect
+        // Header shrink on scroll
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('main-nav');
-            if (window.scrollY > 20) {
+            if (window.scrollY > 50) {
                 nav.classList.add('nav-scrolled');
+                nav.classList.remove('nav-initial');
+            } else {
+                nav.classList.remove('nav-scrolled');
+                nav.classList.add('nav-initial');
             }
         });
 
