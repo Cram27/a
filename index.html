@@ -1396,23 +1396,19 @@
     </div>
     
     <!-- Modal Mapa -->
-    <div id="mapModal" class="relative z-50 hidden" aria-labelledby="map-modal-title" role="dialog"
-        aria-modal="true">
-        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" onclick="closeMapModal()"></div>
-        <div class="fixed inset-0 z-10 w-screen overflow-y-auto pointer-events-none">
-            <div
-                class="flex min-h-full items-center justify-center p-4 text-center sm:items-center sm:p-0 pointer-events-auto">
-                <div class="relative transform overflow-hidden rounded-2xl shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-4xl">
-                    <div class="absolute right-4 top-4 z-20">
-                        <button type="button"
-                            class="rounded-full bg-white/80 p-2 text-gray-600 hover:text-gray-900 focus:outline-none backdrop-blur shadow-md flex items-center justify-center transition-transform hover:scale-110"
-                            onclick="closeMapModal()">
-                            <span class="sr-only">Close</span>
-                            <span class="material-symbols-outlined">close</span>
-                        </button>
-                    </div>
-                    <img src="mapa-evento.webp" alt="Mapa del Evento" class="w-full h-auto max-h-[90vh] object-contain bg-white dark:bg-[#2C2A28]">
-                </div>
+    <div id="mapModal" class="relative z-[9999] hidden" aria-labelledby="map-modal-title" role="dialog" aria-modal="true">
+        <div class="fixed inset-0 bg-black/80 backdrop-blur-sm transition-opacity" onclick="closeMapModal()"></div>
+        <button type="button"
+            class="fixed right-4 top-4 md:right-8 md:top-8 z-[10000] rounded-full bg-black/50 text-white p-3 hover:bg-black/70 focus:outline-none backdrop-blur shadow-xl transition-all hover:scale-110 border border-white/20"
+            onclick="closeMapModal()">
+            <span class="sr-only">Close</span>
+            <span class="material-symbols-outlined text-2xl block">close</span>
+        </button>
+        <div class="fixed inset-0 w-screen h-screen overflow-auto pointer-events-none flex" id="mapScrollContainer">
+            <div class="m-auto p-4 md:p-8 pointer-events-auto flex items-center justify-center">
+                <img id="mapImage" src="mapa-evento.webp" alt="Mapa del Evento" 
+                     class="max-w-full max-h-[90vh] object-contain cursor-zoom-in transition-all duration-300 select-none"
+                     onclick="toggleZoom(this)">
             </div>
         </div>
     </div>
@@ -1437,6 +1433,40 @@
         function closeMapModal() {
             document.getElementById('mapModal').classList.add('hidden');
             document.body.style.overflow = '';
+            
+            // Resetear el zoom al cerrar
+            const img = document.getElementById('mapImage');
+            if (img) {
+                img.classList.add('max-w-full', 'max-h-[90vh]', 'cursor-zoom-in');
+                img.classList.remove('cursor-zoom-out');
+                img.style.width = '';
+                img.style.maxWidth = '';
+            }
+        }
+
+        function toggleZoom(img) {
+            const container = document.getElementById('mapScrollContainer');
+            if (img.classList.contains('max-h-[90vh]')) {
+                // Hacer zoom
+                img.classList.remove('max-w-full', 'max-h-[90vh]', 'cursor-zoom-in');
+                img.classList.add('cursor-zoom-out');
+                
+                // Establecer un tamaño muy grande para permitir scroll
+                img.style.width = '250vw'; 
+                img.style.maxWidth = 'none';
+                
+                // Centrar el scroll
+                setTimeout(() => {
+                    container.scrollLeft = (container.scrollWidth - container.clientWidth) / 2;
+                    container.scrollTop = (container.scrollHeight - container.clientHeight) / 2;
+                }, 50);
+            } else {
+                // Quitar zoom
+                img.classList.add('max-w-full', 'max-h-[90vh]', 'cursor-zoom-in');
+                img.classList.remove('cursor-zoom-out');
+                img.style.width = '';
+                img.style.maxWidth = '';
+            }
         }
 
         document.addEventListener('keydown', function(event) {
