@@ -1404,11 +1404,12 @@
             <span class="sr-only">Close</span>
             <span class="material-symbols-outlined text-2xl block">close</span>
         </button>
-        <div class="fixed inset-0 w-screen h-screen overflow-auto pointer-events-none flex" id="mapScrollContainer">
-            <div class="m-auto p-4 md:p-8 pointer-events-auto flex items-center justify-center">
-                <img id="mapImage" src="mapa-evento.webp" alt="Mapa del Evento" 
-                     class="max-w-full max-h-[90vh] object-contain cursor-zoom-in transition-all duration-300 select-none"
-                     onclick="toggleZoom(this)">
+        <div class="fixed inset-0 w-screen h-screen overflow-hidden pointer-events-none flex items-center justify-center" id="mapScrollContainer">
+            <div class="pointer-events-auto w-full h-full flex items-center justify-center cursor-grab active:cursor-grabbing">
+                <div id="mapZoomWrapper" class="origin-center transition-transform duration-200">
+                    <img id="mapImage" src="mapa-evento.webp" alt="Mapa del Evento" 
+                         class="max-w-full max-h-[90vh] object-contain select-none pointer-events-none">
+                </div>
             </div>
         </div>
     </div>
@@ -1433,39 +1434,72 @@
         function closeMapModal() {
             document.getElementById('mapModal').classList.add('hidden');
             document.body.style.overflow = '';
-            
-            // Resetear el zoom al cerrar
-            const img = document.getElementById('mapImage');
-            if (img) {
-                img.classList.add('max-w-full', 'max-h-[90vh]', 'cursor-zoom-in');
-                img.classList.remove('cursor-zoom-out');
-                img.style.width = '';
-                img.style.maxWidth = '';
-            }
+            resetMapZoom();
         }
 
-        function toggleZoom(img) {
+        let mapScale = 1;
+        let mapPanning = false;
+        let mapPointX = 0;
+        let mapPointY = 0;
+        let mapStartX = 0;
+        let mapStartY = 0;
+
+        document.addEventListener('DOMContentLoaded', function() {
             const container = document.getElementById('mapScrollContainer');
-            if (img.classList.contains('max-h-[90vh]')) {
-                // Hacer zoom
-                img.classList.remove('max-w-full', 'max-h-[90vh]', 'cursor-zoom-in');
-                img.classList.add('cursor-zoom-out');
+            const wrapper = document.getElementById('mapZoomWrapper');
+            if(!container || !wrapper) return;
+
+            container.addEventListener('mousedown', function (e) {
+                e.preventDefault();
+                mapStartX = e.clientX - mapPointX;
+                mapStartY = e.clientY - mapPointY;
+                mapPanning = true;
+                wrapper.style.transition = 'none';
+            });
+
+            window.addEventListener('mouseup', function () {
+                mapPanning = false;
+                if(wrapper) {
+                    wrapper.style.transition = 'transform 0.1s ease-out';
+                }
+            });
+
+            window.addEventListener('mousemove', function (e) {
+                if (!mapPanning) return;
+                mapPointX = e.clientX - mapStartX;
+                mapPointY = e.clientY - mapStartY;
+                updateMapTransform();
+            });
+
+            container.addEventListener('wheel', function (e) {
+                e.preventDefault();
+                let delta = e.deltaY || e.detail || e.wheelDelta;
+                if (delta < 0) {
+                    mapScale += 0.2;
+                } else {
+                    mapScale -= 0.2;
+                }
                 
-                // Establecer un tamaño muy grande para permitir scroll
-                img.style.width = '250vw'; 
-                img.style.maxWidth = 'none';
+                if (mapScale < 0.5) mapScale = 0.5;
+                if (mapScale > 5) mapScale = 5;
                 
-                // Centrar el scroll
-                setTimeout(() => {
-                    container.scrollLeft = (container.scrollWidth - container.clientWidth) / 2;
-                    container.scrollTop = (container.scrollHeight - container.clientHeight) / 2;
-                }, 50);
-            } else {
-                // Quitar zoom
-                img.classList.add('max-w-full', 'max-h-[90vh]', 'cursor-zoom-in');
-                img.classList.remove('cursor-zoom-out');
-                img.style.width = '';
-                img.style.maxWidth = '';
+                updateMapTransform();
+            }, { passive: false });
+        });
+
+        function updateMapTransform() {
+            const wrapper = document.getElementById('mapZoomWrapper');
+            if(wrapper) wrapper.style.transform = `translate(${mapPointX}px, ${mapPointY}px) scale(${mapScale})`;
+        }
+
+        function resetMapZoom() {
+            mapScale = 1;
+            mapPointX = 0;
+            mapPointY = 0;
+            const wrapper = document.getElementById('mapZoomWrapper');
+            if(wrapper) {
+                wrapper.style.transition = 'transform 0.3s ease-in-out';
+                wrapper.style.transform = `translate(0px, 0px) scale(1)`;
             }
         }
 
