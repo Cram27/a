@@ -234,6 +234,12 @@
                 <span
                     class="absolute -bottom-1 left-0 w-0 h-1 bg-primary/40 rounded-full group-hover:w-full transition-all duration-300"></span>
             </a>
+            <a href="#" onclick="openMapModal(event)" data-i18n="nav_map"
+                class="relative group text-sm font-bold uppercase tracking-widest hover:text-primary transition-colors">
+                <span class="relative z-10">Mapa</span>
+                <span
+                    class="absolute -bottom-1 left-0 w-0 h-1 bg-primary/40 rounded-full group-hover:w-full transition-all duration-300"></span>
+            </a>
             <a href="faq.html" data-i18n="nav_faq"
                 class="relative group text-sm font-bold uppercase tracking-widest hover:text-primary transition-colors">
                 <span class="relative z-10">FAQ</span>
@@ -288,6 +294,9 @@
             <a href="#exhibitions" data-i18n="nav_exhibitions"
                 class="font-serif text-3xl font-bold hover:text-primary transition-colors text-text-main-light dark:text-white"
                 onclick="toggleArtisticMenu()">Exposicions</a>
+            <a href="#" data-i18n="nav_map"
+                class="font-serif text-3xl font-bold hover:text-primary transition-colors text-text-main-light dark:text-white"
+                onclick="toggleArtisticMenu(); openMapModal(event)">Mapa</a>
             <a href="faq.html" data-i18n="nav_faq"
                 class="font-serif text-3xl font-bold hover:text-primary transition-colors text-text-main-light dark:text-white"
                 onclick="toggleArtisticMenu()">FAQ</a>
@@ -828,28 +837,6 @@
                         <p data-i18n="exhibition_3_desc"
                             class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed font-body">Fotografia i ceràmica dialoguen a Punctum, a on la textura, el color, la llum, la química i l'espera tenen una íntima conversa.<br><br>Una exposició d'Olga Planas</p>
                         <div class="h-1 w-24 bg-tertiary/60 rounded-full md:ml-auto"></div>
-                    </div>
-                </div>
-
-                <!-- Exhibition 3: Aguadé Ceràmica -->
-                <div class="flex flex-col md:flex-row items-center gap-8 lg:gap-16 group">
-                    <div class="w-full md:w-1/2 relative">
-                        <div
-                            class="absolute -top-12 -left-8 text-[7rem] font-serif font-bold text-primary/5 dark:text-white/5 select-none z-0">
-                            03</div>
-                        <div class="relative z-10 blob-shape overflow-hidden shadow-xl border-4 border-white dark:border-gray-800 transform group-hover:rotate-1 transition-transform duration-500 aspect-square max-w-sm mx-auto"
-                            style="border-radius: 50% 50% 30% 70% / 50% 30% 70% 50%;">
-                            <img src="imatges-exposicions/logo-aguade.webp" alt="Aguadé Ceràmica"
-                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                        </div>
-                    </div>
-                    <div class="w-full md:w-1/2 space-y-4">
-                        <h3 data-i18n="exhibition_4_title"
-                            class="font-serif font-bold text-2xl md:text-3xl text-secondary dark:text-blue-300 leading-tight">
-                            Aguadé Ceràmica</h3>
-                        <p data-i18n="exhibition_4_desc"
-                            class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed font-body">Aguadé Ceràmica és un taller de ceràmica artesanal amb una llarga trajectòria a Barcelona, especialitzat en peces funcionals, vaixelles i objectes personalitzats. Al Ceramic Lab, presentarà una exposició de les seves peces, apropant al públic una ceràmica cuidada, estètica i contemporània, on la tradició, el disseny i l'ofici es troben.</p>
-                        <div class="h-1 w-24 bg-tertiary/60 rounded-full"></div>
                     </div>
                 </div>
             </div>
@@ -1407,6 +1394,39 @@
             </div>
         </div>
     </div>
+    
+    <!-- Modal Mapa -->
+    <div id="mapModal" class="relative z-50 hidden" aria-labelledby="map-modal-title" role="dialog"
+        aria-modal="true">
+        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" onclick="closeMapModal()"></div>
+        <div class="fixed inset-0 z-10 w-screen overflow-y-auto pointer-events-none">
+            <div
+                class="flex min-h-full items-center justify-center p-4 text-center sm:items-center sm:p-0 pointer-events-auto">
+                <div
+                    class="relative transform overflow-hidden rounded-2xl bg-white dark:bg-[#2C2A28] text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-4xl border-2 border-primary">
+                    <div class="bg-white dark:bg-[#2C2A28] px-4 pb-4 pt-5 sm:p-6 sm:pb-4 relative">
+                        <div class="absolute right-0 top-0 pr-4 pt-4">
+                            <button type="button"
+                                class="rounded-md bg-white dark:bg-[#2C2A28] text-gray-400 hover:text-gray-500 focus:outline-none"
+                                onclick="closeMapModal()">
+                                <span class="sr-only">Close</span>
+                                <span class="material-symbols-outlined">close</span>
+                            </button>
+                        </div>
+                        <div class="flex flex-col items-center justify-center text-center">
+                            <h3 class="text-2xl font-serif font-bold text-secondary dark:text-blue-300 mb-6"
+                                data-i18n="nav_map">
+                                Mapa
+                            </h3>
+                            <div class="w-full">
+                                <img src="mapa-evento.webp" alt="Mapa del Evento" class="w-full h-auto rounded-lg shadow-md max-h-[70vh] object-contain">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script>
         function openModal() {
@@ -1416,6 +1436,17 @@
 
         function closeModal() {
             document.getElementById('invitationModal').classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        function openMapModal(e) {
+            if (e) e.preventDefault();
+            document.getElementById('mapModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMapModal() {
+            document.getElementById('mapModal').classList.add('hidden');
             document.body.style.overflow = '';
         }
 
@@ -1456,6 +1487,7 @@
                 nav_about: "La Fira",
                 nav_what_find: "Què trobaràs",
                 nav_exhibitions: "Exposicions",
+                nav_map: "Mapa",
                 nav_tickets: "Entrades",
                 tickets_title: "Entrades",
                 tickets_fee_note: "* Totes les entrades tenen 1€ de despeses de gestió.",
@@ -1500,8 +1532,6 @@
                 exhibition_2_desc: "Exposició dedicada als terres hidràulics modernistes, en col·laboració amb @brontesbien.",
                 exhibition_3_title: "PUNCTUM",
                 exhibition_3_desc: "Fotografia i ceràmica dialoguen a Punctum, a on la textura, el color, la llum, la química i l'espera tenen una íntima conversa.<br><br>Una exposició d'Olga Planas",
-                exhibition_4_title: "Aguadé Ceràmica",
-                exhibition_4_desc: "Aguadé Ceràmica és un taller de ceràmica artesanal amb una llarga trajectòria a Barcelona, especialitzat en peces funcionals, vaixelles i objectes personalitzats. Al Ceramic Lab, presentarà una exposició de les seves peces, apropant al públic una ceràmica cuidada, estètica i contemporània, on la tradició, el disseny i l'ofici es troben.",
                 workshops_title: "Tallers de Ceràmica",
                 workshops_subtitle: "Aprèn, crea i deixa fluir la teva creativitat",
                 cta_book: "Reserva el taller",
@@ -1558,6 +1588,7 @@
                 nav_about: "La Feria",
                 nav_what_find: "Qué encontrarás",
                 nav_exhibitions: "Exposiciones",
+                nav_map: "Mapa",
                 nav_tickets: "Entradas",
                 tickets_title: "Entradas",
                 tickets_fee_note: "* Todas las entradas tienen 1€ de gastos de gestión.",
@@ -1602,8 +1633,6 @@
                 exhibition_2_desc: "Exposición dedicada a los suelos hidráulicos modernistas, en colaboración con @brontesbien.",
                 exhibition_3_title: "PUNCTUM",
                 exhibition_3_desc: "Fotografía y cerámica dialogan en Punctum, en donde la textura, el color, la luz, la química y la espera tienen una íntima conversación.<br><br>Una exposición de Olga Planas",
-                exhibition_4_title: "Aguadé Ceràmica",
-                exhibition_4_desc: "Aguadé Ceràmica es un taller de cerámica artesanal con una larga trayectoria en Barcelona, especializado en piezas funcionales, vajillas y objetos personalizados. En Ceramic Lab, presentará una exposición de sus piezas, acercando al público una cerámica cuidada, estética y contemporánea, donde tradición, diseño y oficio se encuentran.",
                 workshops_title: "Talleres de Cerámica",
                 workshops_subtitle: "Aprende, crea y deja fluir tu creatividad",
                 cta_book: "Reserva el taller",
